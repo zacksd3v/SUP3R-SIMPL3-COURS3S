@@ -1,0 +1,29 @@
+p {
+				font-family: Arial;
+				margin: 0;
+			}
+			
+			.numeric {
+				font-size: 30px;
+				margin-bottom: 5px;
+			}
+			
+			.usd {
+				font-size: 15px;
+				color: rgb(10, 128, 0);
+			}
+			
+			.today {
+				color: rgb(10, 128, 0);
+				font-size: 17px;
+				margin-bottom: 5px;
+			}
+			
+			.after {
+				color: rgb(128, 128, 128);
+				font-size: 17px;
+			}
+			
+			.color {
+				color: rgb(255, 36, 0);
+			}

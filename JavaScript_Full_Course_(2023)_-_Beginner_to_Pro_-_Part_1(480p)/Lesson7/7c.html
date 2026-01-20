@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function With a Default Value Parameter!</title>
+</head>
+<body>
+    <script>
+          function $greet(name){
+            if (!name){
+                console.log(`Assalamu Alaikum, I am a ${name} `);
+            } else {
+                console.log(`Assalamu Alaikum, I am a ${name} `);
+
+            }
+        }
+        // Undefine
+        $greet();
+        $greet('Zacks D3v!');
+
+        function _greet(name='Hi there'){
+            if (!name){
+            console.log(`Assalamu Alaikum, I am ${name} `);
+            } else {
+                console.log(`Assalamu Alaikum, I am ${name}`)
+            }
+        }
+        // Default Value
+        _greet();
+        _greet('Zacks D3v');
+    </script>
+</body>
+</html>

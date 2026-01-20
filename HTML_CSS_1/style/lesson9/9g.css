@@ -1,0 +1,57 @@
+.Add-friend-one, .Add-friend-two, .Add-friend-three {
+	box-shadow: 0px 0px 5px rgba(0, 0 , 0, 0.3);
+	display: inline-block;
+	font-family: Arial;
+	margin-right: 10px;
+	width: 200px;
+}
+
+.c22, .c13, .c14{
+		cursor: pointer;
+		height: 200px;
+		object-fit: cover;
+		width: 200px;
+}
+
+.button-one, .button-two, .button-three {
+	background-color: rgba(24, 119, 242);
+	border: none;
+	border-radius: 2px;
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.Khalid, .Muhammad, .Ameer {
+	font-size: 15px;
+	font-weight: bold;
+	margin-top: 2px;
+	margin-left: 5px;
+}
+
+.Khalid:hover, .Muhammad:hover, .Ameer:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.stats-one, .stats-two, .stats-three {
+	color: rgb(100, 100, 100);
+	font-size: 10px;
+	margin-top: 2px;
+	margin-left: 5px;
+}
+
+.stats-one:hover, .stats-two:hover, .stats-three:hover  {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+p {
+	margin: 0px;
+}

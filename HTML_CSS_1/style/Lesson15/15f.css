@@ -1,0 +1,50 @@
+.percent {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    background-color: black;
+    color: white;
+    padding: 6px 8px;
+    font-size: 10px;
+}
+
+div {
+    font-family: Arial;
+}
+
+.shirt {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.shirt-position {
+    position: relative;
+    display: inline-block;
+}
+
+.add-to-card {
+    border: 1px solid #000;
+    color: black;
+    font-weight: 500;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.btn {
+    position: absolute;
+    bottom: 0;
+    top: 28px;
+    left: 110px;
+    height: 0;
+    
+}
+
+.add-container {
+    width: 300px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.69);
+    position: fixed;
+    bottom: 0;
+    top: 235px;
+}

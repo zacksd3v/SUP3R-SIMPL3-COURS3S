@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 10px;
+}
+
+.grid {
+    display: flex;
+    width: 52%;
+}
+
+.video-grid {
+    font-family: Arial;
+    width: 360px;
+    margin-right: 10px;
+}
+
+.channel-picture img {
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 5px;
+    position: relative;
+    display: inline-block;
+}
+.video-title {
+    display: flex;
+    margin-top: 5px;
+}
+
+.video-title img {
+    margin-right: 10px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+
+.video-info p {
+    margin: 5px;
+}
+
+.video-info #ceo {
+    color: black;
+    font-weight: 600;
+    line-height: 20px;
+    width: 250px;
+    cursor: pointer;
+}
+
+.video-info #f {
+    font-size: 12px;
+    color: rgb(96, 96, 96);
+}
+
+.profile-picture {
+    position: relative;
+}
+
+.profile-picture div {
+    position: absolute;
+    background-color: black;
+    color: white;
+    bottom: 10px;
+    right: 5px;
+    font-family: Arial;
+}
+.tooltip {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    padding: 8px 10px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;   
+    cursor: pointer;
+}
+
+.tooltip p {
+    margin: 4px 0px 2px 2px;
+}
+
+.tooltip #markplier {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tooltip #subs {
+    font-size: 12px;
+    color: rgb(96, 96, 96);
+}
+
+.channel-picture .tooltip {
+    position: absolute;
+    
+}
+
+.channel-picture:hover .tooltip {
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.channel-picture {
+    height: 19%;
+}

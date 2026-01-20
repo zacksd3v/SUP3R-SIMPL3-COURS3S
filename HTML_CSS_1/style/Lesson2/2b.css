@@ -1,0 +1,16 @@
+button {
+			background-color: rgb(254, 226, 88);
+			color: black;
+			border: none;
+			height: 35px;
+			width: 130px;
+			border-radius: 17.5px; 
+			font-size: 15px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		
+		big {
+			margin-left: 10px;
+			
+		}

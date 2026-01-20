@@ -1,0 +1,30 @@
+.container {
+	display: flex;
+	
+}
+
+.pink {
+	background-color: lightpink;
+	width: 100px;
+	height: 50px;
+}
+
+.blue {
+	background-color: lightblue;
+	width: 200px;
+	
+
+	
+}
+
+.items {
+	color: white;
+	background-color: #000;	
+	width: 30px;
+}
+
+.row2-3 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

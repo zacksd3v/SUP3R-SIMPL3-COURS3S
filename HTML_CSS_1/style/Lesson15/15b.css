@@ -1,0 +1,8 @@
+.fixed {
+    background-color: grey;
+    height: 180px;
+    width: 320px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}

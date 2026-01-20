@@ -1,0 +1,12 @@
+body{
+	margin: 0px;
+    padding: 130px 24px 200px 96px;
+    
+}
+
+a {
+    text-decoration: none;
+    font-family: Roboto, Arial;
+	font-size: 14px;
+    color: black;
+}

@@ -1,0 +1,24 @@
+.percent {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    background-color: black;
+    color: white;
+    padding: 6px 8px;
+    font-size: 10px;
+}
+
+div {
+    font-family: Arial;
+}
+
+.shirt {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.shirt-position {
+    position: relative;
+    display: inline-block;
+}

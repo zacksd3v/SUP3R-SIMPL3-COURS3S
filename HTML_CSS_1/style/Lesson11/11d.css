@@ -1,0 +1,70 @@
+.video-preview {
+	box-shadow: 0px 0px 5px rgba(0, 0 , 0, 0.3);
+	width: 200px;
+}
+
+.profile-grid {
+	column-gap: 15px;
+	display: grid;
+	grid-template-columns: 200px 200px 200px;
+}
+
+.c22, .c13, .c14{
+		cursor: pointer;
+		height: 200px;
+		object-fit: cover;
+		width: 100%;
+}
+
+.channel-2-picture {
+	border-radius: 50px;
+	margin-left: 4px;
+	object-fit: cover;
+	width: 90%;
+}
+
+.channel-grid {
+	display: grid;
+	grid-template-columns: 35px 1fr;
+	column-gap: 10px;
+}
+
+.button-one, .button-two, .button-three {
+	background-color: rgba(24, 119, 242);
+	border: none;
+	border-radius: 2px;
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 22px;
+	padding-right: 22px;
+}
+
+.profile-name {
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	margin-top: 2px;
+	margin-left: 5px;
+}
+
+
+p {
+	margin: 0px;
+	font-family: Arial;
+}
+
+.stats {
+	color: rgb(100, 100, 100);
+	font-size: 12px;
+	margin-top: 2px;
+}
+
+.stats-one {
+	margin-top: 10px;
+}

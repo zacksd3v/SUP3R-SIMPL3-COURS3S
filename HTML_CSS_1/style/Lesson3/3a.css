@@ -1,0 +1,15 @@
+.Request-button {
+			background: black;
+			color: white;
+			border: none;
+			height: 35px;
+			margin-top: 10px;
+			width: 100px;
+			font-weight: bold;
+			cursor: pointer;
+			transition: opacity 1s;
+		}
+		
+		.Request-button:hover {
+			opacity: 0.8;
+		}

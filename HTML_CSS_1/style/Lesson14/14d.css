@@ -1,0 +1,46 @@
+body {
+    height: 3000px;
+    font-family: Arial;
+   
+}
+
+.niger {
+    background-color: green;
+    color: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+}
+
+.hacked {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.box {
+    border: 1px solid white;
+    width: 260px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+}
+
+#f-size {
+    font-size: 20px;
+    font-weight: bold;  
+}
+
+p {
+    margin: 8px 0px 8px 0px;
+    color: black;
+}

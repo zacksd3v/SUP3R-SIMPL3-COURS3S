@@ -1,0 +1,26 @@
+img {
+	 cursor: pointer;
+	 width: 200px;
+	 height: 70px;
+	 object-fit: cover;
+	 
+ }
+
+.google-picture, .search-engine {	
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 10px;
+} 
+
+.search-bar {
+	border: none;
+	border-width: 1px;
+	border-radius: 30px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+	font-size: 16px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 500px;
+}

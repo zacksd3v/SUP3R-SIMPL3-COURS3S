@@ -1,0 +1,30 @@
+.Apply {
+			background-color: rgb(10, 102, 194);
+			color: white;
+			height: 45px;
+			width: 250px;
+			border: none;
+			border-radius: 25px;
+			font-weight: bold;
+			font-size: 13px;
+			margin-top: 10px;
+			margin-right: 10px;
+		}
+		
+		.Save {
+			background-color: white;
+			color: rgb(10, 102, 194);
+			height: 44px;
+			width: 100px;
+			border: lighter;
+			border-color: rgb(10, 102, 194);
+			border-radius: 25px;
+			border-width: 1px;
+			font-weight: bold;
+			font-size: 15px;
+			font-height: 15px;
+		}
+		
+		big {
+			margin-left: 10px;
+		}

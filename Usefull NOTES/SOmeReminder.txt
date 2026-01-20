@@ -1,0 +1,18 @@
+Wannan ina buqatar su:
+
+1.Algebra
+2.Number system
+3.Python programming language 
+
+
+
+Dalilina na rubuta wannan shine:
+
+Acikin Littafin "Beginning Ethical Hacking with Kali Linux_ Computational Techniques for Resolving Security Issues ( PDFDrive ).pdf" na karanta wani shafi a cikin introduction din littafin.
+
+	*****Who This Book Is For*****
+
+This book is primarily for information security professionals. However,
+security enthusiasts and absolute beginners will also find this book
+helpful. For absolute beginners, knowledge of high school algebra,
+the number system, and the Python programming language is a plus.

@@ -1,0 +1,48 @@
+p {
+				font-family: Arial;
+				margin: 0px;
+			}
+			
+			.new {
+				color: rgb(193, 96, 25);
+				font-size: 12px;
+				margin-left: 300px;
+				margin-bottom: 5px;
+			}
+			
+			.Macbook-Pro {
+				margin-left: 255px;
+				margin-bottom: 2px;
+				font-size: 18px;
+				font-weight: bold;
+			}
+			
+			.supercharged {
+				font-size: 28px;
+				font-weight: bold;
+				margin-left: 150px;
+			}
+			
+			.from {
+				margin-left: 265px;
+				margin-bottom: 8px;
+				margin-top: 8px;
+			}
+			
+			.buy {
+				background-color: rgba(32, 54, 234, 0.79);
+				border: none;
+				border-radius: 15px;
+				color: rgba(255, 255, 255, 0.98);
+				cursor: pointer;
+				margin-top: 5px;
+				margin-left: 275px;
+				padding-top: 6px;
+				padding-bottom: 6px;
+				padding-left: 14px;
+				padding-right: 14px;
+			}
+			
+			.all {
+				margin-left: 0px;
+			}

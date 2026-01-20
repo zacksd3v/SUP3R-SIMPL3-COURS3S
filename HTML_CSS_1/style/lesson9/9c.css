@@ -1,0 +1,19 @@
+p, button {
+	font-family: Arial;
+	
+}
+
+.margin-p {
+	margin-top: 10px;
+}
+
+.service {
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(150, 150, 150);
+	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 250px;
+}

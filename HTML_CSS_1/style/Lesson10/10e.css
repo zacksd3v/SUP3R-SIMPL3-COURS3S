@@ -1,0 +1,81 @@
+.profile, .Add-friend-two, .Add-friend-three {
+	box-shadow: 0px 0px 5px rgba(0, 0 , 0, 0.3);
+	display: inline-block;
+	margin-right: 10px;
+	width: 200px;
+}
+
+.c22, .c13, .c14{
+		cursor: pointer;
+		height: 200px;
+		object-fit: cover;
+		width: 200px;
+}
+
+.channel-2-picture {
+	border-radius: 15px;
+	margin-left: 4px;
+	object-fit: cover;
+	width: 75%;
+}
+
+.channel-2 {
+	display: inline-block;
+	width: 30px;
+	vertical-align: middle;
+}
+
+.button-one, .button-two, .button-three {
+	background-color: rgba(24, 119, 242);
+	border: none;
+	border-radius: 2px;
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.Khalid, .Musab, .Ahmad {
+	font-size: 15px;
+	font-weight: bold;
+	margin-top: 2px;
+	margin-left: 5px;
+}
+
+.Khalid:hover, .Musab:hover, .Ahmad:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+p {
+	margin: 0px;
+	font-family: Arial;
+}
+
+.profile {
+	display: inline-block;
+}
+
+.stats-one, .stats-two, .stats-three {
+	color: rgb(100, 100, 100);
+	font-size: 10px;
+	margin-top: 2px;
+}
+
+.stats-one:hover, .stats-two:hover, .stats-three:hover  {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.stats-cat-c3 {
+	display: inline-block;
+	width: 165px;
+	vertical-align: middle;
+}
+

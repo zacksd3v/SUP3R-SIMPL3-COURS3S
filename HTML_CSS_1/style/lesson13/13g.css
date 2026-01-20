@@ -1,0 +1,61 @@
+
+.c22 {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 45px;
+}
+
+.profile {
+    display: flex;
+}
+.picture-of-cat {
+    margin-right: 8px;
+}
+
+span, .utube {
+    color: rgb(117 114 114);;
+}
+
+.color {
+    font-weight: bold;
+}
+
+div {
+    font-family: Arial;
+}
+
+.overview {
+    width: 300px;
+    color: rgb(5, 5, 5)
+}
+
+p {
+    margin: 0px;
+    line-height: 18px;
+}
+
+.youtube-rank {
+    display: flex;
+    width: 280px;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    margin-top: 10px;
+    
+}
+
+.grey {
+    width: 70px;
+    height: 70px;
+    background-color: lightgrey;
+    border-radius: 20px 0px 0px 20px;
+    padding: 10px 0px 0px 10px;
+}
+
+.white {
+    flex: 1;
+    height: 70px;
+    vertical-align: center;
+    padding: 10px 0px 0px 10px;
+    
+}

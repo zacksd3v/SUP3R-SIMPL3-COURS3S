@@ -1,0 +1,10 @@
+.survey {
+	display: inline-block;
+	margin: 0px;
+	width: 180px;
+	vertical-align: middle;
+}
+
+button {
+	vertical-align: middle;
+}

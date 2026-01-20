@@ -1,0 +1,42 @@
+.cat-picture {
+	width: 80px;
+	height: 80px;
+	border-radius: 40px;
+	object-fit: cover;
+	object-position: center;
+	vertical-align: middle;
+}
+
+.text-box {
+	border: none;
+	color: grey;
+	font-size: 20px;
+	font-family: Arial;
+	margin-left: 10px;
+	margin-right: 100px;
+	vertical-align: middle;
+	
+	
+}
+
+.tweet {
+		background-color: rgb(5, 158, 255);
+		color: white;
+		border: none;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		padding-left: 15px;
+		padding-right: 15px;
+		border-radius: 18px;
+		font-weight: bold;
+		font-size: 15px;
+		cursor: pointer;
+		margin-left: 20px;
+		transition: box-shadow 0.15s;
+		vertical-align: middle;
+	}
+		
+.tweet:hover {
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+		
+		}

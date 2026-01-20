@@ -1,0 +1,21 @@
+p {
+				font-family: Arial;
+				margin: 0px;
+			}
+			
+			.shopping {
+				font-size: 25px;
+				font-weight: bold;
+				margin-bottom: 20px;
+			}
+			
+			.text {
+				font-size: 14px;
+				margin-left: 64px;
+			}
+			
+			.learn-more {
+				color: rgb(83, 83, 159);
+				margin-top: 20px;
+				margin-left: 120px;
+			}

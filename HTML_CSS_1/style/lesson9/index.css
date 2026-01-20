@@ -1,0 +1,22 @@
+p {
+	width: 250px;
+}
+
+.profile-one, .profile-two {
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: top;
+}
+
+.search {
+	display: block;
+}
+
+.thumbnail-1, .thumbnail-2 {
+	display: block;
+	width: 280px;
+	height: 150px;
+	object-fit: cover;
+	object-position: center;
+}
+

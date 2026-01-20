@@ -1,0 +1,29 @@
+a {
+			color: rgb(0, 113, 133)
+		}
+		
+		.inStock {
+			color: rgb(0, 118, 0)
+		}
+		
+		.Add-to-Chart {
+			background-color: rgb(255, 216, 20);
+			font-weight: bold;
+			border: none;
+			border-radius: 18px;
+			height: 35px;
+			width: 125px;
+			cursor: pointer;
+			
+		}
+		
+		.Buy-now {
+			background-color: rgb(255, 164, 28);
+			font-weight: bold;
+			border: none;
+			border-radius: 18px;
+			height: 35px;
+			width: 125px;
+			margin-left: 10px;
+			cursor: pointer;
+		}

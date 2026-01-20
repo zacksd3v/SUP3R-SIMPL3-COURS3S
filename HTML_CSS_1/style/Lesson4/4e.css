@@ -1,0 +1,44 @@
+.Apply {
+			background-color: rgb(10, 102, 194);
+			color: white;
+			cursor: pointer;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			padding-left: 38px;
+			padding-right: 38px;
+			border: none;
+			border-radius: 22px;
+			font-weight: bold;
+			font-size: 13px;
+			margin-top: 10px;
+			margin-right: 5px;	
+			transition: 1s;
+		}
+
+		.Apply:hover {
+			background-color: rgb(10, 80, 160);
+		}
+		
+		.Save {
+			background-color: white;
+			color: rgb(10, 102, 194);
+			cursor: pointer;
+			padding-top: 14px;
+			padding-bottom: 14px;
+			padding-right: 30px;
+			padding-left: 30px;
+			border-width: 1px;
+			border-color: rgb(10, 102, 194);
+			border-radius: 22px;
+			font-weight: bold;
+			font-height: 15px;
+		}
+		
+		.Save:hover {
+			background-color: #dcf4f4;
+			
+		}
+		
+		big {
+			margin-left: 10px;
+		}
