@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 8h</title>
+    <title>Calculator</title>
     <style>
         body {
             background-color: #197373bd;
@@ -59,36 +59,33 @@
 </p>
 
 <script>
-    let calculation = localStorage.getItem('getCalculation') || '';
-
-    const calculations = JSON.parse(localStorage.getItem('getCalculation'));
+    let calculation = localStorage.getItem('saveCal') || '';
 
     function updateCalculation(value) {
         calculation += value;
         console.log(calculation);
-
-        saveCalculation()
     }
 
     function calculateResult() {
         calculation = eval(calculation);
         console.log(calculation);
-
         saveCalculation()
     }
 
     function clearCalculation() {
         calculation = '';
         console.log('Cleared');
-
         saveCalculation()
+        calculation = 0;
+        
     }
 
-    function saveCalculation() {
-        localStorage.setItem('getCalculation', calculation);
+    function saveCalculation(){
+        localStorage.setItem('saveCal', calculation);
     }
 
+    console.log(localStorage.getItem('saveCal'));
 </script>
 
 </body>
-</htm   l>
+</html>
