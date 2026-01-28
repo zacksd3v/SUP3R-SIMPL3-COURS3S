@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 8d</title>
+</head>
+<body>
+    <script>
+            function comparePrice(product1, product2){
+                if (product1.price > product2.price){
+                    return product2
+                }else {
+                    return product1
+                }
+               
+            }
+
+            const item1 = {name:'Dell Latitude 7980', price: 250000}
+            const item2 = {name:'Iphone 11 Pro Max', price: 150000}
+
+            const cheaperItem = comparePrice(item1, item2)
+
+            console.log(`The less expensive option is: ${cheaperItem.name} at ₦${cheaperItem.price}`);
+    </script>
+</body>
+</html>

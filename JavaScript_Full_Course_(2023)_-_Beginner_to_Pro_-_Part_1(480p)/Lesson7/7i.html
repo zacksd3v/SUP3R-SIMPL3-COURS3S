@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6l</title>
+</head>
+<body>
+
+<h2>Cart Quantity</h2>
+
+<button onclick="showQuantity()">Show Quantity</button>
+
+<button onclick="updateCartQuantity(1)">Add to Cart</button>
+
+<button onclick="updateCartQuantity(-2)">-2</button>
+<button onclick="updateCartQuantity(2)">+2</button>
+
+<button onclick="updateCartQuantity(-3)">-3</button>
+<button onclick="updateCartQuantity(3)">+3</button>
+
+<button onclick="updateCartQuantity(4)">+4</button>
+<button onclick="updateCartQuantity(5)">+5</button>
+
+<button onclick="updateCartQuantity(-1)">Remove from Cart</button>
+
+<button onclick="resetCart()">Reset Cart</button>
+
+<script>
+    let cartQuantity = 0;
+    const MAX_CART = 10;
+
+    function updateCartQuantity(change) {
+        if (cartQuantity + change > MAX_CART) {
+            alert('The cart is Full!');
+            return;
+        }
+
+        if (cartQuantity + change < 0) {
+            alert('Not enough items in the cart!');
+            return;
+        }
+
+        cartQuantity += change;
+        console.log(`Cart Quantity: ${cartQuantity}`);
+    }
+
+    function showQuantity() {
+        console.log(`Cart Quantity: ${cartQuantity}`);
+    }
+
+    function resetCart() {
+        cartQuantity = 0;
+        console.log('Cart Reset.');
+        console.log(`Cart Quantity: ${cartQuantity}`);
+    }
+</script>
+
+</body>
+</html>

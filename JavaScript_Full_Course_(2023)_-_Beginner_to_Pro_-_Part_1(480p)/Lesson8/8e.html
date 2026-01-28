@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 8e</title>
+</head>
+<body>
+    <script>
+            function isSameProduct(product1, product2){
+             if (product1.name === product2.name && product1.price === product2.price){
+                return true
+             }else {
+                return false
+             }
+               
+            }
+
+            const itemA = { name: "Miswak", price: 500 };
+            const itemB = { name: "Miswak", price: 500 };
+            const itemC = { name: "Tasbih", price: 1200 };
+
+           console.log(isSameProduct(itemA, itemB));
+           console.log(isSameProduct(itemA, itemC));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+        const product = {
+            name: 'socks',
+            price: 1090
+        }
+
+        console.log(product);
+        console.log(product.name);
+        console.log(product.price);
+
+        product.name = 'cutton socks';
+        console.log(product);
+
+        // Adding new value to an object
+        product.size = 4.3;
+        console.log(product);
+
+        // checking the type of an object
+        console.log(typeof product);
+
+        // deleting an object
+        delete product.size;
+        console.log(product);
+
+        // More features of object
+        const product2 = {
+            name: 'T-Shirt',
+            ['delivery-time']: '2 Days', // anan Bracket is OPTIONAL!
+            rating: {
+                stars: 3.6,
+                count: 20
+            }, 
+            fun: function fnxInsideObject(){ // Muna kiransa da Method
+                console.log(`I am a funxtion inside an OBJECt called Product2. I can be called using Key: fun()!`)
+            }
+ 
+        }
+
+        console.log(product2);
+        console.log(product2.name);
+        console.log(product2['name']);
+        console.log(product2['delivery-time']);
+
+        // Accessing internal oBJ
+        console.log(product2.rating);
+        console.log(product2.rating.count);
+        console.log(product2['rating']);
+        console.log(product2['rating']['stars']);
+
+        // Accessing function inside an object
+        product2.fun(); // da na qasa da na sama duk abu daya ne
+        console.log(product2.fun());
+
+        // Knowing Something BIG da aka dade ana raina min hankali akai!!
+        console.log(typeof Math);  // wnn a haka suanan sa OBJECT
+        console.log(typeof console.log); // amma wnn da aka qara . to ya zama FNX
+        // duk abinda sai da . zamu iya accessing nasa ana kiransa METHOD!
+
+        // JSON 
+        // converting an OBJECT --> JSON
+        console.log(JSON.stringify(product2));
+        // Checking The type of an object
+        console.log(typeof JSON.stringify(product2));
+        // Converting the otherWay
+        const jsonString = JSON.stringify(product2);
+        console.log(JSON.parse(jsonString));
+
+        // LOCAL STORAGEIN JS
+        localStorage.setItem('message', 'This will be saved even if our page is being refreshed!');
+        // Accessing local storage through 'message' name
+        console.log(localStorage.getItem('message'));
+
+        // Auto Boxing
+        console.log('Bismillah'.length);
+        console.log('Bismillah'.toLowerCase());
+        console.log('Bismillah'.toUpperCase());
+
+        // Object is Refrence
+        const object1 = {
+            message: 'Assalamu alaikum'
+        }
+
+        const object2 = object1;
+
+        object1.message = 'Ya Salam!';
+        console.log(object1);
+        console.log(object2);
+
+        const object3 = {
+            message: 'Assalam'
+        }
+
+        console.log(object1 === object3);
+        console.log(object1 === object2);
+
+        // ShortCut Of an Object
+        const object4 = {
+            product_name: 'Iphone X',
+            price: 200
+            
+        }
+
+        // Destructing
+        // const message = object4.message; // First Hanya!
+        const { product_name, price } = object4 // Second Hanya! duk wacce mutum yayi is OK
+        console.log(product_name);
+        console.log(price);
+
+        // ShortHand Property
+        const object5 = {
+            // product_name: product_name //first Hnaya
+            product_name // Second Hanya 
+        }
+
+        console.log(object5);
+
+        // ShortHand Method
+        const object6 = {
+            // method: function cart(){ // First Hnaya
+            //     console.log('Add To Cart!'); 
+            // }
+
+            method() { // shortcut way
+                console.log('Add To Cart!!');
+            }
+        }
+
+        object6.method();
+
+    </script>
+</body>
+</html>
