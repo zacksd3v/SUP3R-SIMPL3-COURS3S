@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 9j - Calculator</title>
+    <style>
+        body {
+            background-color: #197373bd;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            margin: 4px;
+            cursor: pointer;
+            font-weight: bolder;
+            padding: 20px 30px;
+        }
+
+        .clear {
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Calculator</h1>
+<h1 class="screen"></h1>
+
+<p>
+    <button onclick="updateCalculation('1')">1</button>
+    <button onclick="updateCalculation('2')">2</button>
+    <button onclick="updateCalculation('3')">3</button>
+    <button onclick="updateCalculation(' + ')">+</button>
+</p>
+
+<p>
+    <button onclick="updateCalculation('4')">4</button>
+    <button onclick="updateCalculation('5')">5</button>
+    <button onclick="updateCalculation('6')">6</button>
+    <button onclick="updateCalculation(' - ')">-</button>
+</p>
+
+<p>
+    <button onclick="updateCalculation('7')">7</button>
+    <button onclick="updateCalculation('8')">8</button>
+    <button onclick="updateCalculation('9')">9</button>
+    <button onclick="updateCalculation(' * ')">*</button>
+</p>
+
+<p>
+    <button onclick="updateCalculation('0')">0</button>
+    <button onclick="updateCalculation('.')">.</button>
+    <button onclick="calculateResult()">=</button>
+    <button onclick="updateCalculation(' / ')">/</button>
+</p>
+
+<p>
+    <button onclick="clearCalculation()" class="clear">Clear</button>
+</p>
+
+<script>
+    let calculation = localStorage.getItem('saveCal') || '';
+
+    function updateCalculation(value) {
+        calculation += value;
+        // console.log(calculation);
+        scrDisplay();
+    }
+
+    function calculateResult() {
+        calculation = eval(calculation);
+        // console.log(calculation);
+        scrDisplay();
+        saveCalculation();
+    }
+
+    function clearCalculation() {
+        calculation = '';
+        // console.log('Cleared');
+        document.querySelector('.screen')
+        .innerHTML = 'Cleared';
+        saveCalculation();
+        calculation = 0;
+        
+    }
+
+    function saveCalculation(){
+        localStorage.setItem('saveCal', calculation);
+    }
+
+    function scrDisplay(){
+        document.querySelector('.screen')
+        .innerHTML = calculation;
+        saveCalculation();
+    }
+
+    document.querySelector('.screen')
+        .innerHTML = localStorage.getItem('saveCal')
+</script>
+
+</body>
+</html>

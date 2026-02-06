@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 9e</title>
+</head>
+<body>
+    <input placeholder="Name" onkeydown="
+        if (event.key === 'Enter'){
+            const name = document.querySelector('input')
+            console.log(`Your name is: ${name.value}`);
+        }
+        ">
+    <button onclick="
+        const txt = document.querySelector('input').value;
+        console.log(`Your Name  is: ${txt}`);
+        return txt;
+    ">Submit</button>
+
+    <script>
+
+    </script>
+</body>
+</html>

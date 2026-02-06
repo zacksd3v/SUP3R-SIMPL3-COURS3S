@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excercise 9f</title>
+</head>
+<body>
+    <input placeholder="Name" onkeydown="pressEnter();">
+    <button onclick="userName();">Submit</button>
+    <p class="js-txt"></p>
+
+    <script>
+        function userName(){
+            let user = document.querySelector('input').value;
+                const uname = document.querySelector('.js-txt')
+                    .innerHTML = `Your Name is: ${user}`;
+        }
+
+        function pressEnter(){
+                const name = document.querySelector('input').value;
+                if (event.key === 'Enter'){
+                    userName();
+                }
+            }
+    </script>
+
+</body>
+</html>

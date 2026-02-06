@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: rgb(25,25,25);
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.move-icons {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px dotted white;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-img-emoji {
+    width: 40px;
+    height: 40px;
+}
+
+.result {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.js-cmpMove {
+    margin-top: 10px;
+}
+
+.score {
+    margin-top: 15px;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+.reset-btn {
+    padding: 10px 18px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 5px;
+}
+
+.smile-emoji {
+    height: 100px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    h1 { font-size: 1.4rem; }
+    .move-icons {
+        width: 80px;
+        height: 80px;
+    }
+    .btn-img-emoji {
+        width: 30px;
+        height: 30px;
+    }
+}

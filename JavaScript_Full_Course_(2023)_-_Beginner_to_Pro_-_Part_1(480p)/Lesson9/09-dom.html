@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1>Salamun Alaikum</h1>
+    <button>Purchase</button>
+    <button class="js-class">Login</button>
+    
+    <script>
+        console.log(document.querySelector('button').innerHTML);
+        document.querySelector('button')
+            .innerHTML = 'Send';
+
+        const buttonElement = document.querySelector('.js-class');
+        console.log(buttonElement);
+
+        /*
+        console.log(document.title);
+        document.title = 'Changed';
+
+        console.log(document.body);
+        console.log(typeof document.body);
+
+        console.log(document.body.innerHTML);
+        document.body.innerHTML = 'Changed!';
+
+        document.body.innerHTML  = '<button>Pay Now</button>';
+        */
+        // document.body.innerHTML = 'Assalamu Alaikum';
+        // document.title = 'Document Object Model';
+
+        // WINDOS OBJECT
+        window.console;
+        window.alert('Hacker');
+        window.document.querySelector('js-class');
+    </script>
+</body>
+</html>

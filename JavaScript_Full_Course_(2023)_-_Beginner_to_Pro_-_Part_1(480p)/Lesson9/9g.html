@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 9g</title>
+</head>
+<body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="subscribe()" class="js-class">Subscribe  </button>
+
+    <br>
+    <br>
+
+    <p>Rock Paper Scissors</p>
+    <p><a href="#">Click here</a></p>
+
+    <br>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost Of Order" class="js-btn" onkeydown="handleEnterKey();">
+    <button onclick="
+        CalculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+    
+    <script>
+
+        function handleEnterKey(){
+            if (event.key === 'Enter'){
+                CalculateTotal()
+            }
+        }
+
+
+        function CalculateTotal(){
+            const btnElement = document.querySelector('.js-btn');
+
+            let cost = Number(btnElement.value) * 100;
+
+            if (cost < 40){
+                cost = cost + 10;
+            }
+
+            document.querySelector('.js-total-cost')
+                .innerHTML = `$${cost / 100}`;
+        }
+
+        // NOTE: innerHTML: baya amfani idan suna na da space etc.
+        // SAI DAI innerText: Shine Zai iya mana wnn aikin.
+
+        function subscribe(){
+            const buttonElement = document.querySelector('.js-class');
+
+            if (buttonElement.innerText === 'Subscribe') {
+                buttonElement.innerHTML = 'Subscribed';
+            }else {
+                buttonElement.innerHTML = 'Subscribe';
+            }
+        }
+    </script>
+</body>
+</html>

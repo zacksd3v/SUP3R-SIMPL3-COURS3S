@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 6j</title>
+    <title>Exercise 8i</title>
 </head>
 <body>
     <h2>Coin-flip Game</h2>
+    <button onclick="playGame('Heads')">Heads</button>
+    <button onclick="playGame('Tails')">Tails</button>
     <script>
         const randomNumber = Math.random();
-             const result = randomNumber < 0.5 ? 'heads' : 'tails';
-            // console.log(result);
-        const guess = 'tails';
+        const result = randomNumber < 0.5 ? 'heads' : 'tails';
+        
+        let guess = 'tails';
         const myguess = guess === result ? 'You Lose!!!!' : 'You win!!!!!';
-            // console.log(guess === result ? 'You lose!!' : 'You win!!'); all are the samething.   
-            console.log(myguess);
+               
+        console.log(myguess);
+
+        function playGame(guess){
+                console.log(guess);
+        }
     </script>
 </body>
 </html>

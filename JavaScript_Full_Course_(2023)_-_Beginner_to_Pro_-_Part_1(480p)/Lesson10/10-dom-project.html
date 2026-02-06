@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .subscribe-btn {
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            padding-top: 10px;
+            padding-left: 15px;
+            border-radius: 50px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+            background-color: black;
+            margin-bottom: 30px;
+        }
+
+        .is-subscribed {
+            color: black;
+            background-color: rgb(240, 240, 240);
+        }
+
+        .cost-btn {
+            font-size: 15;
+            padding: 10px;
+        }
+
+        .calculte-btn {
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            padding: 11px 15px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="subscribe()" class="js-class subscribe-btn">Subscribe  </button>
+
+    <p>Rock Paper Scissors</p>
+    <p><a href="#">Click here</a></p>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost Of Order" class="js-btn cost-btn" onkeydown="handleEnterKey();">
+    <button onclick="
+        CalculateTotal();
+    " class="calculte-btn">Calculate</button>
+    <p class="js-total-cost"></p>
+    
+    <script>
+
+        function handleEnterKey(){
+            if (event.key === 'Enter'){
+                CalculateTotal()
+            }
+        }
+
+
+        function CalculateTotal(){
+            const btnElement = document.querySelector('.js-btn');
+
+            let cost = Number(btnElement.value);
+
+            if (cost < 40){
+                cost = cost + 10;
+            }
+
+            document.querySelector('.js-total-cost')
+                .innerHTML = `$${cost}`;
+        }
+
+        // NOTE: innerHTML: baya amfani idan suna na da space etc.
+        // SAI DAI innerText: Shine Zai iya mana wnn aikin.
+
+        function subscribe(){
+            const buttonElement = document.querySelector('.js-class');
+
+            if (buttonElement.innerText === 'Subscribe') {
+                buttonElement.innerHTML = 'Subscribed';
+                buttonElement.classList.add('is-subscribed');
+            }else {
+                buttonElement.innerHTML = 'Subscribe';
+                buttonElement.classList.remove('is-subscribed');
+            }
+        }
+    </script>
+</body>
+</html>
