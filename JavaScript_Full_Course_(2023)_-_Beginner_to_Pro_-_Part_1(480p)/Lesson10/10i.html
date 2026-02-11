@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Excerse 10i</title>
+    <style>
+        body {
+            color: white;
+            font-family: Arial;
+            background-color: rgb(25, 25, 25);
+        }
+
+        .cal-btn {
+                width: 60px;
+                height: 60px;
+                margin: 5px;
+                border: none;
+                cursor: pointer;
+                font-size: 26px;
+                border-radius: 60px;
+        }
+
+        .btn-color {
+            color: white;
+            background-color: rgb(51, 51, 51);
+        }
+
+        .btn-orange {
+            color: white;
+            background-color: rgb(254, 160, 10);
+        }
+
+        #display {
+            margin-left: 20px;
+            font-size: 30px;
+        }
+
+        #clear {
+            font-size: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Create an element to display the calculation. -->
+    <p class="js-calculation" id="display"></p>
+
+    <p>
+      <button onclick="
+        updateCalculation('1');
+      " class="cal-btn btn-color">1</button>
+
+      <button onclick="
+        updateCalculation('2');
+      " class="cal-btn btn-color">2</button>
+
+      <button onclick="
+        updateCalculation('3');
+      " class="cal-btn btn-color">3</button>
+
+      <button onclick="
+        updateCalculation(' + ');
+      " class="cal-btn btn-orange">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('4');
+      " class="cal-btn btn-color">4</button>
+
+      <button onclick="
+        updateCalculation('5');
+      " class="cal-btn btn-color">5</button>
+
+      <button onclick="
+        updateCalculation('6');
+      " class="cal-btn btn-color">6</button>
+
+      <button onclick="
+        updateCalculation(' - ');
+      " class="cal-btn btn-orange">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('7');
+      " class="cal-btn btn-color">7</button>
+
+      <button onclick="
+        updateCalculation('8');
+      " class="cal-btn btn-color">8</button>
+
+      <button onclick="
+        updateCalculation('9');
+      " class="cal-btn btn-color">9</button>
+
+      <button onclick="
+        updateCalculation(' * ');
+      " class="cal-btn btn-orange">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('0');
+      " class="cal-btn btn-color">0</button>
+
+      <button onclick="
+        updateCalculation('.');
+      " class="cal-btn btn-color">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+
+        // Display the calculation on the page
+        // instead of console.log
+        displayCalculation();
+
+        local_storage()
+      " class="cal-btn btn-color">=</button>
+
+      <button onclick="
+        updateCalculation(' / ');
+      " class="cal-btn btn-orange">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        calculation = '';
+
+        // Display the calculation on the page
+        // instead of console.log
+        displayCalculation();
+
+        local_storage()
+      " class="cal-btn btn-color" id="clear">clear</button>
+    </p>
+
+    <script>
+        let calculation = localStorage.getItem('calculation') || '';
+
+      // Display the calculation when the page first loads.
+      displayCalculation();
+
+      function updateCalculation(value) {
+        calculation += value;
+
+        // Display the calculation on the page
+        // instead of console.log
+        displayCalculation();
+
+        localStorage.setItem('calculation', calculation);
+      }
+
+      function displayCalculation() {
+        document.querySelector('.js-calculation')
+          .innerHTML = calculation;
+      }
+
+      function local_storage() {
+        localStorage.setItem('calculation', calculation);
+      }
+    </script>
+  </body>
+</html>
+ 

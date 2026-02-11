@@ -1,0 +1,41 @@
+        body {
+            font-family: Arial;
+        }
+
+        .subscribe-btn {
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            padding-top: 10px;
+            padding-left: 15px;
+            border-radius: 50px;
+            padding-right: 15px;
+            padding-bottom: 10px;
+            background-color: black;
+            margin-bottom: 30px;
+        }
+
+        .is-subscribed {
+            color: black;
+            background-color: rgb(240, 240, 240);
+        }
+
+        .js-link {
+            margin-bottom: 50px;
+        }
+
+
+        .cost-btn {
+            font-size: 15;
+            padding: 10px;
+        }
+
+        .calculte-btn {
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            padding: 11px 15px;
+            background-color: green;
+        }

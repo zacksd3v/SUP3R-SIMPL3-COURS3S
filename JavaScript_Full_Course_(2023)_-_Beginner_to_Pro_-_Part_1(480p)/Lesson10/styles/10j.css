@@ -1,0 +1,34 @@
+body {
+            color: white;
+            font-family: Arial;
+            background-color: rgb(25, 25, 25);
+        }
+
+        .cal-btn {
+                width: 60px;
+                height: 60px;
+                margin: 5px;
+                border: none;
+                cursor: pointer;
+                font-size: 26px;
+                border-radius: 60px;
+        }
+
+        .btn-color {
+            color: white;
+            background-color: rgb(51, 51, 51);
+        }
+
+        .btn-orange {
+            color: white;
+            background-color: rgb(254, 160, 10);
+        }
+
+        #display {
+            margin-left: 20px;
+            font-size: 30px;
+        }
+
+        #clear {
+            font-size: 20px;
+        }

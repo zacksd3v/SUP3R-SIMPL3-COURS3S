@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays and Loops</title>
+</head>
+<body>
+    <script>
+        const myArray = [10, 20, 30, 40];
+            console.log(myArray);
+            console.log(myArray[1]);
+
+            myArray[0] = 99;
+            console.log(myArray);
+
+            [1, 'Allah', false, { item: 'Copper' }, [99, 24]]; // Duk Array zai iya dauka
+
+            // how to check the type
+            console.log(typeof [9, 'Muhammad']); // this is not for an array
+
+            //Best method to check for Array
+            console.log(Array.isArray(myArray));
+
+            console.log(myArray.length);
+
+            myArray.push(1000); // add a value to the end
+
+            console.log(myArray);
+
+            myArray.splice(0, 1); // arg1: index, arg2: number of value
+
+            console.log(myArray);
+
+            console.log('[+] LOOPS')
+            console.log('[+] While Loop')
+
+            // Loops
+            // While loop:
+            let z = 2; // yana fara lissafi ne daga number da ka sanya masa
+
+            while (z <= 10) {
+                console.log(z);
+                z++;
+            }
+
+            console.log('[+] For Loop')
+
+            // For Loop: mini version of while loop ne. sbd muna hade komai a wuri 1 ne.
+            for (let i = 1; i <= 5; i = i + 1) { // i++, i += 1 duk the same
+                console.log(i)
+            }
+
+            // Wanne zamuyi aiki da shi ne?
+            // In standard loop --> For Loop shine Best
+            // In Non - Standard loop --> While shine Best
+
+            // e.g
+            let randomNumber = 0;
+
+            while (randomNumber < 0.4) {
+                randomNumber = Math.random();
+            }
+
+            console.log(randomNumber);
+
+            // Looping Through an ARRay
+            const todoList = [
+                'Goto KYMETRA',
+                'Code @ 12:00pm',
+                'Recitetion',
+                'Pray'
+            ]
+            // Method na farko
+            for (let index = 0; index <= todoList.length - 1; index++) { // Amfanin qara -1 shine saboda mu samu exact number of values | items in an array. idan ba haka ba zai qara mana value 1 a index din.
+                const values = todoList[index];
+                console.log(values);
+            }
+            console.log('[+] Second Method')
+            // Second Method Shortcut!
+            for (let i = 0; i < todoList.length; i++) { // mun rage -1
+                const value = todoList[i];
+                console.log(value);
+            }
+
+            // Accumulator pattern (yadda ake calculation da loop a array)
+            console.log('[+] Accumulator Patterns');
+            const nums = [1, 1, 8];
+            let total = 0; // Muna kiransa Accumulator variable
+
+            for (let i = 0; i < nums.length; i++) {
+                const num = nums[i];
+                total += num;
+            }
+
+            console.log(total);
+
+            // another e.g idan mutum yana son copy na array na shi snn yayi calculation along the way.
+            const numDouble = []; // wann yanxu shine Accumulator var namu
+
+            for (let i = 0; i < nums.length; i++) {
+                const num = nums[i];
+                numDouble.push(num * 3);
+            }
+
+            console.log(numDouble);
+
+    </script>
+</body>
+</html>

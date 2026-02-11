@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10d</title>
+    <style>
+        .gamingOn {
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px 30px;
+            margin-right: 10px;
+            border-radius: 20px;
+            background-color: black;
+        }
+
+        .gamingOff {
+            color: black;
+            border: none;
+            transition: 2s; 
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px 30px;
+            margin-right: 10px;
+            border-radius: 20px;
+            background-color: rgb(230, 230, 230);
+        }
+
+    </style>
+</head>
+<body>
+    <button onclick="is_toggle();" class="gamingOff">Gaming</button>
+
+    <script>
+        function is_toggle(){
+            const btn_toggle = document.querySelector('button');
+                if (btn_toggle.classList.contains('gamingOff')){
+                    btn_toggle.classList.remove('gamingOff');
+                    btn_toggle.classList.add('gamingOn');
+                }else {
+                    btn_toggle.classList.add('gamingOff');
+                }
+        }
+    </script>
+</body>
+</html>

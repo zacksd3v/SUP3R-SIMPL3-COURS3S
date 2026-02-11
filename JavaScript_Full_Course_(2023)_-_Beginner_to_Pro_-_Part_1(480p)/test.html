@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .js-btn {
+            border: none;
+            padding: 10px;
+            color: wheat;
+            cursor: pointer;
+            font-size: 17px;
+            border-radius: 5px;
+            background-color: rgb(245, 85, 85);
+        }
+
+        .js-btn-off {
+            border: none;
+            padding: 10px;
+            color: wheat;
+            cursor: pointer;
+            font-size: 17px;
+            border-radius: 5px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggle();" class="js-btn">Likes</button>
+    <script>
+        function toggle() {
+            const btn = document.querySelector('.js-btn');
+                if (btn.classList.contains('js-btn')){
+
+                    btn.classList.remove('js-btn');
+                    btn.classList.add('js-btn-off');
+                    
+                }else if (btn.classList.contains('js-btn')) {
+                    console.log(btn)
+                    btn.classList.remove('js-btn-off');
+                }
+        }
+    </script>
+</body>
+</html>

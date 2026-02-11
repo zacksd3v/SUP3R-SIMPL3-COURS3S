@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10f</title>
+    <style>
+         .off {
+            color: black;
+            border: none;
+            transition: 2s; 
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px 30px;
+            margin-right: 10px;
+            border-radius: 20px;
+            background-color: rgb(230, 230, 230);
+        }
+
+         .on {
+             border: none;
+             color: white;
+             font-size: 20px;
+             cursor: pointer;
+            font-weight: bold;
+            padding: 20px 30px;
+            margin-right: 10px;
+            border-radius: 20px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggle();" class="off btn-1">Gaming</button>
+    <button onclick="toggle_1();" class="off btn-2">Al-Qur'an</button>
+    <button onclick="toggle_2();" class="off btn-3">Tech</button>
+
+    <script>
+        function toggle() {
+            const btn = document.querySelector('.btn-1');
+
+            if (!btn.classList.contains('on')){
+
+                btn.classList.add('on');
+            }else {
+                btn.classList.remove('on')
+            }
+        }
+
+        function toggle_1() {
+            const btn = document.querySelector('.btn-2');
+
+            if (!btn.classList.contains('on')){
+
+                btn.classList.add('on');
+            }else {
+                btn.classList.remove('on')
+            }
+        }
+
+        function toggle_2() {
+            const btn = document.querySelector('.btn-3');
+
+            if (!btn.classList.contains('on')){
+
+                btn.classList.add('on');
+            }else {
+                btn.classList.remove('on')
+            }
+        }
+    </script>
+</body>
+</html>

@@ -105,3 +105,4 @@ function toggleAutoPlay() {
         autoPlay = false;
     }
 }
+
