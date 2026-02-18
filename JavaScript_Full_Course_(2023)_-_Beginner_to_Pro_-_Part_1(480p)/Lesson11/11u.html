@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 11t</title>
+</head>
+<body>
+    <script>
+      function removeEgg(foods) {
+        const foodsArrayCopy = foods.slice();
+        const reverseEgg = foods.reverse();
+
+        const result = [];
+        let eggsRemoved = 0;
+
+        for (let i = 0; i < reverseEgg.length; i++) {
+          // Only skip 'egg' if we removed less than 2
+          // of them so far.
+          if (reverseEgg[i] === 'egg' && eggsRemoved < 2) {
+            // Update the number of 'egg' we have removed.
+            // This must be done before continue, otherwise,
+            // doing continue first will just skip this code.
+            eggsRemoved++;
+            continue;
+          }
+
+          result.push(reverseEgg[i]);
+        }
+
+        return result.reverse();
+      }
+
+      const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+      console.log(removeEgg(foods));
+      console.log(foods);
+    </script>
+</body>
+</html>

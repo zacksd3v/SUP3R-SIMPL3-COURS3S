@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 11i</title>
+</head>
+<body>
+    <script>
+        
+        function addNum(array, num) {
+            const emptyArrayToCopy = [];
+
+            for (let i = 0; i < array.length; i++) {
+                emptyArrayToCopy.push(array[i] + num);
+            }
+            console.log(emptyArrayToCopy);
+        }
+
+        addNum([1, 2, 3], 2);
+        addNum([1, 2, 3], 3);
+        addNum([-2, -1, 0, 99], 2);
+    </script>
+</body>
+</html>

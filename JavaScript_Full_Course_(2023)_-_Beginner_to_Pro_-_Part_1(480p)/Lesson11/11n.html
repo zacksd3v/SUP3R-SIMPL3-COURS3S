@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 11n</title>
+</head>
+<body>
+    <script>
+        function countWords(words) {
+            const fruits = {}
+            // fruits['jinger'] = 100;
+
+            for (let i = 0; i < words.length; i++) {
+                const word = words[i];
+
+                if (!fruits[word]) {
+                    fruits[word] = 1; // idan babu komai a fruit basket toh a sanya 1. nayi confusing da farko amma abinda ake nufi shine: {loop-result: 1}
+                }else  {
+                    fruits[word]++;
+                }
+            }
+            console.log(fruits);
+        }
+
+        countWords(['apple', 'grapes', 'apple', 'apples']);
+    </script>
+</body>
+</html>

@@ -105,6 +105,92 @@
 
             console.log(numDouble);
 
+            // MORE DETAILS ABOUT ARRAY
+            const array1 = [1, 2, 3];
+            // const array2 = array1; // to solve this issue we gonna use .slice();
+            const array2 = array1.slice();  // wnn zai mana copy na values din instead of refrence.
+            array2.push(4);
+
+            console.log(array1);
+            console.log(array2);
+
+            // DESTRUCTING TECHNIQUES IN ARRAY
+            const array = [1, 2, 3];
+            // if wanna get the first & second values i will have to do this:
+            firstValue = array[0];
+            secondValue = array[1];
+
+            console.log('First Method');
+            console.log(firstValue);
+            console.log(secondValue);
+
+            // TO AKWAE SHORTCUT!!!!!!!!!!!!!!
+            const arraySortCut = [1, 2, 3]; /* is equal to =====> */ const [_1stValue, _2ndValue] = [1, 2, 3];
+            console.log('Second Method');
+            console.log(_1stValue);
+            console.log(_2ndValue);
+
+            //EXIT & SKIPPING ITERATION A.K.A BREAK & CONTINUE LOOPIN
+            console.log('Break & Conitnues loop HERE! magic right!?');
+            for (let i = 0; i <= 10; i++) {
+                if (i === 2) {
+                    continue;
+                }
+
+                if (i === 9) {
+                    break
+                }
+
+                console.log(i);
+            }
+            
+            console.log('MINI PROJECT TO CHECK IF A REMINDER IS DEVISIBLE BY 3');
+            for (let i = 0; i <= 10; i++) {
+                if (i % 3 ==  0) {
+                    continue;
+                }
+
+                if (i === 9) {
+                    break
+                }
+
+                console.log(i);
+            }
+
+            // USING WHILE LOOP FOR THIS PROJECT. NB i++ will be done manually in every scope!!!
+            console.log('Using while Loop to create this Project!');
+            let i = 0;
+
+            while (i <= 10) {
+                //Here's the Fun part!
+                if (i % 3 === 0) {
+                    i++;
+                    continue;
+                }
+                console.log(i);
+                i++;
+            }
+
+            // Loops with function
+        console.log('LOOPIN WIT FNX');
+        function loopinArray(items) {
+            // const items = [1, 2, 3];
+            const times2 = [];
+
+            for (let i = 0; i < items.length; i++) {
+                const num = items[i]; 
+                if (num === 0) {
+                    // break // yana dai-dai da return
+                    return times2;
+                }
+                times2.push(num * 2);
+            }
+
+            return times2; // wnn yana hana function dina calling?
+        }   
+
+        console.log(loopinArray([1, 2, 3]));
+        console.log(loopinArray([1, 2, 3, 5, 0, 5]));
     </script>
 </body>
 </html>

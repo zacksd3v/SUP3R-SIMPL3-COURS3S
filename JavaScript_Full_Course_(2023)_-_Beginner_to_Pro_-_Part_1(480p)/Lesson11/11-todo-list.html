@@ -4,11 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="stylesheet" href="style/11-todo.list.css">
 </head>
 <body>
-    <p>Todo List</p>
-    <input placeholder="Todo name" class="js-todo-list">
-    <button onclick="addTodo();">Add</button>
+    <div style="margin-bottom: 70px;">
+        <p class="txt">Todo List V1</p>
+       <input placeholder="Todo name" class="js-todo-list1 name-input">
+       <button onclick="addTodo1();" class="todo-btn1">Add</button>
+       <div class="js-div-todo1"></div>
+    </div>
+
+    <div style="margin-bottom: 150px;">
+        <p class="txt">Todo List V2</p>
+       <input placeholder="Todo name" class="js-todo-list2 name-input">
+       <button onclick="addTodo2();" class="todo-btn1">Add</button>
+       <div class="js-div-todo2 "></div>
+    </div>
+
+     <p class="txt-style">TODO LIST FINAL VERSION</p>
+     <div class="todo-input"> 
+         <input placeholder="Todo name" class="js-todo-list3 name-input">
+         <input type="date" class="js-date date-input">
+         <button onclick="addTodo();" class="todo-btn">Add</button>
+     </div>
+    <div class="js-div-todo3 todo-grid"></div>
 
     <script src="scripts/11-todo-list.js"></script>
 </body>
