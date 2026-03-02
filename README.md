@@ -39,4 +39,5 @@
             ....
         } KAGA AI MUN RAGE CODE SNN MUN SAMU SAUKI.!
 
-[+] Typecoarsion: shine mu hada number & string snn ya bada wrong result.       
+[+] Typecoarsion: shine mu hada number & string snn ya bada wrong result.   
+[+] Hoisting: shine ka kira fnx tun kafin ka qirqire shi. NB: fnx wanda akayi svaing nasa cikin variable to baya daukan wann feature din hoisting!    

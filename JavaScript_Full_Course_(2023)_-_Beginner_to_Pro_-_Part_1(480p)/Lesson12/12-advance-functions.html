@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance functions</title>
+</head>
+<body>
+    <script>
+        function greeting() {
+            console.log('Assalam');
+        }
+
+        greeting();
+        
+        const num = 100;
+        const function1 = function greeting() {
+            console.log('Alaikum');
+        }
+        console.log(function1);
+        console.log(typeof function1);
+
+        // How to a fnx wanda yake inside variable?
+        // just call the var name + (); cool huh??
+        function1();
+
+        const object = {
+            item: 'Apple',
+            model1: function iphone_xr() {
+                console.log('IP2026');
+            },
+            // muna iya removing sunan fnx din. wnn shi ake kira ANONYMOUS fnx! misali.
+            // idan har muna da hanyar accessing fnx to ba buqatar sunan sa. 
+            // by default haka JS take akan duk wani fnx da muke hadawa muna kira!
+            model2: function () {
+                console.log('IP2027');
+            }
+        }
+
+        object.model1();
+        object.model2();
+
+        // using params
+        function greeting1(param) {
+            console.log(param);
+        }
+
+        greeting1('Salam');
+
+
+        // we can save fnx as a param & call it using wnn param din inside wani fnx din!
+        function samsung(price) {
+                // call the param here! wit paranthesis
+                price();
+        }
+
+        // there we Go
+        samsung(function () {
+            console.log('Samsung Pold 5: $2000,000');
+        })
+
+        // Asynchronous: shine baya jiran sai wani code ya gma executing snn yayi! 
+        // Let's learn setTimeout fnx
+        setTimeout(function() {
+            console.log('Tik tok...');
+        }, 1500);
+
+        // wnn fnx din shi kuma zai dinga running duk bayan lokacin da aka saita masa.
+        setInterval(function() {
+            console.log('192.168.45.1');
+        }, 60000);
+
+        // Let's learn another feature of the array called forEach method
+        [
+            '192.168.43.0',
+            '192.168.43.1',
+            '192.168.43.2',
+            '192.168.43.10'
+        ].forEach(function(value, index) { // In order to Loop we Must Use PARam. 
+            // How use continue & Break in ForEach Method
+            // Continue
+            if (value === '192.168.43.2'){
+                return // wnn shine a matsayin Continue Loop
+            }
+            
+            // Yana da feature na index[]
+            console.log(`Target IP: ${value} [+] Network: ${index}`);
+        });
+
+
+
+    </script>
+</body>
+</html>

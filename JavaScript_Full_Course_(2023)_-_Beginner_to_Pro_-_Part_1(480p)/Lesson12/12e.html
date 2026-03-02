@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 12e</title>
+</head>
+<body>
+    <button onclick="
+        changingTxt()        
+        ">Add to Cart</button>
+        <p class="txt"></p>
+
+        <script>
+            function changingTxt() {
+                const messg = document.querySelector('.txt');
+                    messg.innerHTML = 'Added';
+
+                setTimeout(function() {
+                    messg.innerHTML = '';
+                }, 2000)
+            }
+        </script>
+</body>
+</html>
