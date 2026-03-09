@@ -87,7 +87,62 @@
             console.log(`Target IP: ${value} [+] Network: ${index}`);
         });
 
+        // Zamu Ka koyi Arrow fnx
+        const regularFnx = function(param1, param) {
+            console.log('I\'m a REGULAR FNX..');
+            return 2;
+        };
+        regularFnx();
 
+        // Muna iya passsing param
+        const arrorFnx = (param1, param) => {
+            console.log('I\'m an Arrow FNX...');
+            return 5;
+        };
+
+        arrorFnx();
+
+        // Arrow Fnx yana da shortcut 2
+        // number 1. idan MUNA DA parameter guda 1 tal.
+        // Zamu rubuta shi kamar yadda zai xo anan qasa...
+        const oneParam = (param) => {
+            console.log(param + 1);
+        };
+
+        oneParam(`One Param FNX: ${2}`);
+
+
+        // GA SHOR WAY din
+        // Zamu iya chire Parantesis din
+        const oneParamShortWay = param => {
+            console.log(param + 10);
+        };
+
+        oneParamShortWay(`OneParamShortCut Result: ${1}`); // Amma fa ba Math yake ba.
+
+
+       // Shortcut Number 2
+       const OneLineArrowFnx = () => {return 20 + 77};
+       console.log(`Onlne Arow Fnx Result: ${OneLineArrowFnx()}`);
+
+        // UPDATING SOME OF PREVIOUS FNX
+        // Let's learn another feature of the array called forEach method
+        // NA MAIDA SHI ARROW FNX
+        [
+            '80',
+            '443',
+            '21',
+            '22'
+        ].forEach((value, index) => { // In order to Loop we Must Use PARam. 
+            // How use continue & Break in ForEach Method
+            // Continue
+            if (value === '192.168.43.2'){
+                return // wnn shine a matsayin Continue Loop
+            }
+            
+            // Yana da feature na index[]
+            console.log(`Target PORT: ${value} [+] Network: ${index}`);
+        });
 
     </script>
 </body>
