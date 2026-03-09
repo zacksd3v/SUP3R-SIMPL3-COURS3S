@@ -13,7 +13,9 @@ renderTodo();
 function renderTodo() {
     let todoListHtml = ''; //Accumulator var
 
-    todoList.forEach(function(todoObject, index) {
+    // Nan Ma na chanza shi Zuwa Arrow FNX
+    // todoList.forEach(function(todoObject, index) {
+    todoList.forEach((todoObject, index) => {
         const { name, dueData} = todoObject // Muna kiran wnn da Destructing Techniques.
 
         const html = `

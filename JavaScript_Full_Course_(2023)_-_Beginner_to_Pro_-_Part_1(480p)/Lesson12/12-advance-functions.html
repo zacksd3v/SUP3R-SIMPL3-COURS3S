@@ -6,6 +6,9 @@
     <title>Advance functions</title>
 </head>
 <body>
+    <!-- Button for Event Listiner -->
+     <h1 style="color: red; padding: 20px;">Testing EVENTLISTNER</h1>
+     <button class="js-btn" style="cursor: pointer; padding: 20px; margin-left: 25px;">Clck to Test EVENTLISTNER</button>
     <script>
         function greeting() {
             console.log('Assalam');
@@ -143,6 +146,54 @@
             // Yana da feature na index[]
             console.log(`Target PORT: ${value} [+] Network: ${index}`);
         });
+
+
+        // MUNA IYA AMFANI DA ARROW FUNCTION A CIKI obj
+        const objectWithArrowFnx = {
+            // Method na farko 
+            method: () => {
+                console.log('objectWithArrowFnx.method() using Arrow Fnx');
+            },
+            // Method 2 Shorthan One
+            method2() {
+                console.log('objectWithArrowFnx.method2() using ShortHand');
+                
+            }
+        }
+
+        console.log(objectWithArrowFnx.method());
+        console.log(objectWithArrowFnx.method2());
+
+        // ZA MU KOYI ABINDA AKE CEMA EVENTLISTNER
+        // REPLACEMENT NE SU onclick, onload, onkeypress etc...
+        const btnEventListiner = document.querySelector('.js-btn');
+
+            // EventListiner Yana daukar Parameter 2
+            // Number 1 shine aikin da event din zaiyi e.g click, load etc..
+            // Number 2 shine function din da zai yi kamar console.log etc wnn zamu iya using kowane sample na fnx tun  daga regular fnx, arror fnx, shortcut one etc..
+            btnEventListiner.addEventListener('click', () => {
+                console.log('Button is Clicked \nLoading the Event Listener.....');
+            });
+
+            // Abu na gaba shine Evenlistiner yana iya hada multiple event kuma yyi runing nasu 
+            // Misali
+            btnEventListiner.addEventListener('click', () => {
+                console.log('Nayi Aikin lokacin da akayi clickin\nsbd nine Multiple addevntLisntner....hhhh');
+            });
+
+        //   ANOTHER METHOD USING VARIABLE
+        // Lesson is called: REMOVING EVENTLISTINER
+
+        //  Using var style
+        const varForEvntListiner = () => {
+            console.log('AddEventListiner Using Variable Style...');
+        }
+
+        // Removing EventLstner
+        btnEventListiner.addEventListener('click', varForEvntListiner);
+
+        btnEventListiner.removeEventListener('click', varForEvntListiner);
+
 
     </script>
 </body>
