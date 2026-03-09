@@ -13,10 +13,14 @@
 
         <script>
             function changingTxt() {
-                const messg = document.querySelector('.txt');
+                let timeout;
+
+                const messg = document.querySelector('.txt');   
                     messg.innerHTML = 'Added';
 
-                setTimeout(function() {
+                clearTimeout(timeout);
+                
+                timeout = setTimeout(function() {
                     messg.innerHTML = '';
                 }, 2000)
             }
