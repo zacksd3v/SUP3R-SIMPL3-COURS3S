@@ -195,6 +195,38 @@
         btnEventListiner.removeEventListener('click', varForEvntListiner);
 
 
+        // More Feature of Method
+        // .filter()
+        // Yana bada dama ka cire value da baka so a ciki array
+        // Yana daukar fnx cikin sa as param
+       console.log([1, -8, 6].filter((value, index) => {
+                // idan muna so ya mana returning array 
+                // ba tare da negative number ga yadda zamuyi
+                // by default yana zama ne a true
+                if (value >= 0) {
+                    return true;
+                }else {
+                    return false
+                }
+        }));
+
+        // Yana da shortHand Shima
+        console.log('ShortHand Way Of Using Filter');
+        // first param === each value in the array
+        // 2nd kuma is an index
+        console.log([1, -4, 9].filter((value, index) => {
+            return value >= 0;
+        }));
+
+        // Method Feature na gaba shine .map
+        console.log('Maping......Here!');
+        console.log([1, 1, 8].map((value, index) => {
+            return value * 2;
+        }));
+
+        // ShortCut Way of doing This mapping
+        console.log('ShortWay To Write a Map.');
+        console.log([2, 4, 6].map(value => value * 3));
     </script>
 </body>
 </html>

@@ -22,9 +22,8 @@ function renderTodo() {
                 <div class="txt-style">${name}</div>
                 <div class="txt-style">${dueData}</div>
                 <button onclick="
-                todoList.splice(${index}, 1);
-                renderTodo();
-                " class="delete-btn">Delete</button>
+                
+                " class="delete-btn js-delete-btn">Delete</button>
         `;
         todoListHtml += html;
 
@@ -40,7 +39,24 @@ function renderTodo() {
     
     document.querySelector('.js-div-todo3')
     .innerHTML = todoListHtml;
+
+    // Mun chanja wnn mun maida shi using addEvntLstener
+    // Amma sai da nayi loooping nasu sabd ae code din cikin js na rubuta shi ba html ba.
+    console.log(document.querySelectorAll('.js-delete-btn'));
+    document.querySelectorAll('.js-delete-btn')// queryAll --> zai mana getting all btn class din
+        .forEach((deleteBtn, index) => {
+            deleteBtn.addEventListener('click', () => {
+                todoList.splice(index, 1);
+                renderTodo();
+            })
+        });
 }
+
+// Updating to use AddEvntLstner
+document.querySelector('.js-todo-btn')
+    .addEventListener('click', () => {
+        addTodo();
+    })
 
 function addTodo() {
     const todo = document.querySelector('.js-todo-list3');

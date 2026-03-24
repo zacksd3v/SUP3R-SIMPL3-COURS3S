@@ -108,6 +108,24 @@
         //     ties: 0
         // }
 
+
+        //  I WANNA ADD KEYBOARD PRESS HERE...
+        // get the body object first
+        // idan user ya danna keyboard nasa
+        // zamu getting key din usin event param wanda zamu sanya shi cikin arrow fnx namu
+        document.body.addEventListener('keydown', (event) => {
+                // cool nayi getting na keys din .....hhhh
+                console.log(event.key);
+                // let me Check now
+                const keyboard = event.key;
+                if (keyboard === 'r') {
+                    playGame('rock');
+                }else if (keyboard === 'p') {
+                    playGame('paper');
+                }else if (keyboard === 'scissors') {
+                    playGame('scissors');   
+                }
+        });
         function playGame(choice){
 
             const computerMove = $PickComputerMove()
