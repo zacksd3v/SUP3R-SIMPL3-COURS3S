@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 12p</title>
+</head>
+<body>
+    <!-- EXERCISE 12C -->
+     <button onclick="
+        setTimeout(() => {
+            document.querySelector('.btn-12c')
+                .innerHTML = 'Finished';
+        }, 1000);
+        
+        " class="btn-12c">Ex12C</button>
+
+    <!-- EXERCISE 12D -->
+     <button onclick="
+        document.querySelector('.btn-12d')
+            .innerHTML = 'Loading...';
+        setTimeout(() => {
+            document.querySelector('button')
+                .innerHTML = 'Finished';
+        }, 1000);
+        " class="btn-12d">Ex12D</button>
+
+    <!-- EXERCISE 12E -->
+      <button onclick="
+        changingTxt()        
+        ">Add to Cart EX12E</button>
+        <p class="txt"></p>
+
+    <!-- EXERCISE 12F -->
+      <button onclick="
+        changingTxt_12f()        
+        ">Add to Cart EX12F</button>
+        <p class="txt-12f"></p>
+
+    <script>
+        // EX12E JS CODE
+        const changingTxt = () => {
+                const messg = document.querySelector('.txt');
+                    messg.innerHTML = 'Added';
+
+                setTimeout(() => {
+                    messg.innerHTML = '';
+                }, 2000)
+            }
+
+        // EX12F JS CODE
+        const changingTxt_12f = () => {
+                let timeout;
+
+                const messg = document.querySelector('.txt-12f');   
+                    messg.innerHTML = 'Added';
+
+                clearTimeout(timeout);
+                
+                timeout = setTimeout(() => {
+                    messg.innerHTML = '';
+                }, 2000)
+            }
+
+        // EX12G JS CODE
+        setInterval(() => {
+        if (document.title === 'App') {
+            document.title = '(2) New messages';
+        }else {
+
+            document.title = 'App';
+        }
+    }, 1000);
+    </script>
+</body>
+</html>

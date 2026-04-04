@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Exercise 12pi -->
+    <title>App</title>
+</head>
+<body>
+    <!-- CONTINUES OF EX12P -->
+     <!-- EXERCISE 12H -->
+     <button onclick="
+        messages++;
+        ">Add</button>
+    <button onclick="
+        messages--;
+    ">Remove</button>
+    
+    <script>
+        // EX12H JS CODE
+        let messages = 2;
+
+        setInterval(() => {
+            if (document.title === 'App') {
+                document.title = `(${messages}) New messages`;
+            }else {
+                
+                document.title = 'App';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

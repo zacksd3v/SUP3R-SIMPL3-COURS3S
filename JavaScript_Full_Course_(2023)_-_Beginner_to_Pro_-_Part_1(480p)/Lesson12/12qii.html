@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Exercise 12qii -->
+    <title>App</title>
+</head>
+<body>
+    <button class="btn-1">Add</button>
+    <button class="btn-2">Remove</button>
+
+  <script>
+    // Event
+    document.querySelector('.btn-1')
+        .addEventListener('click', () => {
+            messages++;
+        });
+
+    document.querySelector('.btn-2')
+        .addEventListener('click', () => {
+             if (messages > 0) {
+            messages--;
+        }
+        })
+
+    let messages = 2;
+
+        setInterval(() => {
+            if (document.title === 'App') {
+                
+                document.title = `(${messages}) New messages`;
+            }else {
+                
+                document.title = 'App';
+            }
+
+            if (messages === 0) {
+                    document.title = 'App';
+                    return; 
+                }
+
+        }, 1000);
+        
+  </script>
+</body>
+</html>

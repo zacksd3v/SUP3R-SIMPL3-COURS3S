@@ -12,7 +12,7 @@
     <script>
         function greeting() {
             console.log('Assalam');
-        }
+        } 
 
         greeting();
         
@@ -23,16 +23,17 @@
         console.log(function1);
         console.log(typeof function1);
 
-        // How to a fnx wanda yake inside variable?
+        // How to call a fnx wanda yake inside variable?
         // just call the var name + (); cool huh??
         function1();
 
+        // Methods
         const object = {
             item: 'Apple',
             model1: function iphone_xr() {
                 console.log('IP2026');
             },
-            // muna iya removing sunan fnx din. wnn shi ake kira ANONYMOUS fnx! misali.
+            // muna iya removing sunan fnx name din. wnn shi ake kira ANONYMOUS fnx! misali.
             // idan har muna da hanyar accessing fnx to ba buqatar sunan sa. 
             // by default haka JS take akan duk wani fnx da muke hadawa muna kira!
             model2: function () {
@@ -62,11 +63,12 @@
             console.log('Samsung Pold 5: $2000,000');
         })
 
-        // Asynchronous: shine baya jiran sai wani code ya gma executing snn yayi! 
-        // Let's learn setTimeout fnx
+        // Asynchronous: shine code dn da baya jiran sai wani code ya gma executing snn yayi! 
+        // Let's learn setTimeout fnx.
+        // Zai kira kansa ne kadai idan lokaci yyi.
         setTimeout(function() {
             console.log('Tik tok...');
-        }, 1500);
+        }, 1500); // Wann time din in nano sec yake.
 
         // wnn fnx din shi kuma zai dinga running duk bayan lokacin da aka saita masa.
         setInterval(function() {
@@ -79,7 +81,7 @@
             '192.168.43.1',
             '192.168.43.2',
             '192.168.43.10'
-        ].forEach(function(value, index) { // In order to Loop we Must Use PARam. 
+        ].forEach(function(value, index) { // In order to Loop we Must Use 2 PARams. 
             // How use continue & Break in ForEach Method
             // Continue
             if (value === '192.168.43.2'){
@@ -107,6 +109,7 @@
 
         // Arrow Fnx yana da shortcut 2
         // number 1. idan MUNA DA parameter guda 1 tal.
+        // Long Process kenan
         // Zamu rubuta shi kamar yadda zai xo anan qasa...
         const oneParam = (param) => {
             console.log(param + 1);
@@ -115,7 +118,7 @@
         oneParam(`One Param FNX: ${2}`);
 
 
-        // GA SHOR WAY din
+        // GA SHORt WAY din
         // Zamu iya chire Parantesis din
         const oneParamShortWay = param => {
             console.log(param + 10);
@@ -125,6 +128,7 @@
 
 
        // Shortcut Number 2
+       // Zamu iya sanya komai a layi 1
        const OneLineArrowFnx = () => {return 20 + 77};
        console.log(`Onlne Arow Fnx Result: ${OneLineArrowFnx()}`);
 
@@ -137,7 +141,7 @@
             '21',
             '22'
         ].forEach((value, index) => { // In order to Loop we Must Use PARam. 
-            // How use continue & Break in ForEach Method
+            // How to use continue & Break in ForEach Method
             // Continue
             if (value === '192.168.43.2'){
                 return // wnn shine a matsayin Continue Loop
@@ -151,14 +155,16 @@
         // MUNA IYA AMFANI DA ARROW FUNCTION A CIKI obj
         const objectWithArrowFnx = {
             // Method na farko 
+            // Long Way
             method: () => {
                 console.log('objectWithArrowFnx.method() using Arrow Fnx');
             },
+
             // Method 2 Shorthan One
             method2() {
                 console.log('objectWithArrowFnx.method2() using ShortHand');
                 
-            }
+            },
         }
 
         console.log(objectWithArrowFnx.method());
@@ -175,8 +181,8 @@
                 console.log('Button is Clicked \nLoading the Event Listener.....');
             });
 
-            // Abu na gaba shine Evenlistiner yana iya hada multiple event kuma yyi runing nasu 
-            // Misali
+            // Abu na gaba shine Evenlistiner yana iya hada multiple event kuma yyi runing nasu.
+            // Misali.
             btnEventListiner.addEventListener('click', () => {
                 console.log('Nayi Aikin lokacin da akayi clickin\nsbd nine Multiple addevntLisntner....hhhh');
             });
@@ -195,9 +201,10 @@
         btnEventListiner.removeEventListener('click', varForEvntListiner);
 
 
-        // More Feature of Method
+        // More Feature of Array.
+        // Called Method
         // .filter()
-        // Yana bada dama ka cire value da baka so a ciki array
+        // Yana bada dama ka cire value da baka so a cikin array
         // Yana daukar fnx cikin sa as param
        console.log([1, -8, 6].filter((value, index) => {
                 // idan muna so ya mana returning array 
@@ -215,7 +222,7 @@
         // first param === each value in the array
         // 2nd kuma is an index
         console.log([1, -4, 9].filter((value, index) => {
-            return value >= 0;
+            return value >= 0; // The same as above...
         }));
 
         // Method Feature na gaba shine .map

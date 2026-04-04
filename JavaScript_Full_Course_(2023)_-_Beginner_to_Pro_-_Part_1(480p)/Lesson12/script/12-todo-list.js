@@ -16,7 +16,7 @@ function renderTodo() {
     // Nan Ma na chanza shi Zuwa Arrow FNX
     // todoList.forEach(function(todoObject, index) {
     todoList.forEach((todoObject, index) => {
-        const { name, dueData} = todoObject // Muna kiran wnn da Destructing Techniques.
+        const { name, dueData} = todoObject; // Muna kiran wnn da Destructing Techniques.
 
         const html = `
                 <div class="txt-style">${name}</div>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 12q</title>
+</head>
+<body>
+    <!-- EXERCISE 12C -->
+     <button class="btn-12c ex12c-js">Ex12C</button>
+
+    <!-- EXERCISE 12D -->
+     <button class="btn-12d ex12d-js">Ex12D</button>
+
+    <!-- EXERCISE 12E -->
+      <button class="ex12e-js">Add to Cart EX12E</button>
+        <p class="txt"></p>
+
+    <!-- EXERCISE 12F -->
+      <button class="ex12f-js">Add to Cart EX12F</button>
+        <p class="txt-12f"></p>
+
+    <script>
+        // EX12C EVENT CODE
+        // Ina 
+        document.querySelector('.ex12c-js')
+            .addEventListener('click', () => {
+                setTimeout(() => {
+                document.querySelector('.btn-12c')
+                    .innerHTML = 'Finished';
+            }, 1000);
+                
+            });
+
+        // EX12D EVENT CODE
+        const ex12d = document.querySelector('.ex12d-js');
+            ex12d.addEventListener('click', () => {
+                document.querySelector('.btn-12d')
+            .innerHTML = 'Loading...';
+        setTimeout(() => {
+            document.querySelector('button')
+                .innerHTML = 'Finished';
+        }, 1000);
+            })
+
+        // EX12E JS CODE || EVENT CODE
+        document.querySelector('.ex12e-js')
+            .addEventListener('click', () => {
+                const messg = document.querySelector('.txt');
+                    messg.innerHTML = 'Added';
+
+                setTimeout(() => {
+                    messg.innerHTML = '';
+                }, 2000)
+            }
+            );
+        
+
+        // EX12F JS CODE
+        document.querySelector('.ex12f-js')
+            .addEventListener('click', () => {
+                let timeout;
+
+                const messg = document.querySelector('.txt-12f');   
+                    messg.innerHTML = 'Added';
+
+                clearTimeout(timeout);
+                
+                timeout = setTimeout(() => {
+                    messg.innerHTML = '';
+                }, 2000)
+            })
+            
+
+        // EX12G JS CODE
+        setInterval(() => {
+        if (document.title === 'App') {
+            document.title = '(2) New messages';
+        }else {
+
+            document.title = 'App';
+        }
+    }, 1000);
+    </script>
+</body>
+</html>

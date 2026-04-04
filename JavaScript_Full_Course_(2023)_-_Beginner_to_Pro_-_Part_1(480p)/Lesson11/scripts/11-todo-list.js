@@ -19,6 +19,7 @@ function renderTodo() {
         // const dueData = todoObject.dueData; //Muna da shortcut a lokacin da muka samu var name na object da kuma sunan key na cikin objt iri 1. shine kamar haka:
 
         const { name, dueData} = todoObject // Muna kiran wnn da Destructing Techniques.
+        // Yana faruwa ne a lokacin da sunan property na obj da kuma value nasa suka zo iri 1.
 
         const html = `
                 <div class="txt-style">${name}</div>
@@ -77,8 +78,11 @@ function addTodo() {
             const dueData = addDate.value;
 
             todoList.push({
-                name: name,
-                dueData: dueData
+                // name: name,
+                // dueData: dueData
+                // idan mu ka samu suna iri daya zamu iya yin shortHand.
+                name,
+                dueData,
             });
             todo.value = ''; // zai mana reseting abun cikin input.    
             renderTodo();       

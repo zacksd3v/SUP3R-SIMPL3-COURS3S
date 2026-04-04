@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 12o</title>
+</head>
+<body>
+    <script>
+        // const removeEgg = (foods) => foods.filter((value) => {
+        //     return foods.slice(1);
+        // });
+        //     console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+        const removeEgg = (foods) => {
+            let eggToRemove = false;
+
+            return foods.filter((value) => {
+                if (value === 'egg' && !eggToRemove) {
+                    eggToRemove = true; // wnn zai bani first egg.
+                    return false // sai mu tsaida komai
+                }
+                return true;
+            });
+        };
+
+        console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+    </script>
+</body>
+</html>
