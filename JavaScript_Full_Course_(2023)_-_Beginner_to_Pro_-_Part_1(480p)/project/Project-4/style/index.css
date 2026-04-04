@@ -1,0 +1,94 @@
+body {
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+    background-color: #26292e;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    width: 600px;
+    padding: 30px;
+    border-radius: 10px;
+    background: whitesmoke;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.main-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+/* Tsarin Grid: Checkbox | Suna | Rana | Button */
+.todo-grid {
+    display: grid;
+    grid-template-columns: 40px 200px 150px 100px;
+    column-gap: 12px;
+    row-gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.todo-input {
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 12px;
+    margin-bottom: 20px;
+    padding-left: 52px; /* Don ya tafi daidai da sunan aikin */
+}
+
+/* Salon rubutu idan an kammala aiki */
+.is-completed {
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.6;
+}
+
+.txt-style {
+    color: coral;
+    margin: 20px 0;
+}
+
+.name-input, .date-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.todo-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.list-switcher {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.switch-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.switch-btn:hover {
+    background-color: #0056b3;
+}

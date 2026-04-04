@@ -1,0 +1,33 @@
+.board {
+    gap: 5px;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 100px);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #333;
+    background-color: #fff;
+}
+
+.cell:hover { background-color: #f0f0f0; }
+
+
+.reset {
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #f0f0f0;
+    border-radius: 10px;
+    background-color: red;
+    border: 1px solid #26292e;
+}

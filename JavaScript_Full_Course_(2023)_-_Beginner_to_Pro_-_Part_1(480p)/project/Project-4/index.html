@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Todo List</title>
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+    <div class="container">
+        <p class="main-title">MY TODO MANAGER</p>
+
+        <div class="list-switcher">
+            <button onclick="switchList('Work')" class="switch-btn">Work List</button>
+            <button onclick="switchList('Personal')" class="switch-btn">Personal List</button>
+        </div>
+
+        <h2 id="list-header" class="txt-style">LIST: WORK</h2>
+
+        <div class="todo-input"> 
+            <input placeholder="Aikin me za'ayi?" class="js-todo-list3 name-input">
+            <input type="date" class="js-date date-input">
+            <button onclick="addTodo();" class="todo-btn">Add Task</button>
+        </div>
+
+        <div class="js-div-todo3 todo-grid"></div>
+    </div>
+
+    <script src="script/index.js"></script>
+</body>
+</html>
