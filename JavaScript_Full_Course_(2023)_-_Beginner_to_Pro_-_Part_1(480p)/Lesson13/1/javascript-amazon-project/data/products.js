@@ -656,5 +656,39 @@ const products = [
       "apparel",
       "mens"
     ]
+  }, 
+  {
+    id: "zrng10042026-wtc100rd-gabasawaktn2026",
+    image: "images/products/backpack.jpg",
+    name: "Men's and Women's Bagpack Black-Color",
+    rating: {
+      stars: 5,
+      count: 3000
+    },
+    priceCents: 1500,
+    keywords: [
+      "mens",
+      "womens",
+      "black",
+      "bag",
+      "bagpack"
+    ]
+  },
+  {
+    id: "zrng10042026-cont00n3nt41-gabasawaktn2026",
+    image: "images/products/umbrella.jpg",
+    name: "Black Umbrella for Sun & Rain Protection",
+    rating: {
+      stars: 4.5,
+      count: 1000
+    },
+    priceCents: 1000,
+    keywords: [
+      "umbrella",
+      "black",
+      "sun",
+      "rain",
+      "protection"
+    ]
   }
 ];

@@ -113,7 +113,7 @@ document.querySelectorAll('.js-add-to-cart')
             });
 
             if (matchingItem) {
-              matchingItem.quantity = itemValue;
+              matchingItem.quantity += itemValue;
             } else {
                 cart.push({
                 productId: productId,
