@@ -657,6 +657,7 @@ const products = [
       "mens"
     ]
   }, 
+  // Ex13G = adding 2 more objects.
   {
     id: "zrng10042026-wtc100rd-gabasawaktn2026",
     image: "images/products/backpack.jpg",

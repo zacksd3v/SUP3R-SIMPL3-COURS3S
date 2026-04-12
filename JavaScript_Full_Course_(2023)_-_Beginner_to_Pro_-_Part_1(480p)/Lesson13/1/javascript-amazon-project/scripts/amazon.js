@@ -95,7 +95,7 @@ document.querySelector('.js-product-grid')
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
         button.addEventListener('click', () => {
-            const productId = button.dataset.productId;
+            const { productId } = button.dataset;
 
             let matchingItem; 
             let itemValue;
@@ -103,8 +103,6 @@ document.querySelectorAll('.js-add-to-cart')
              /// Exercise Lesson 13c = use DOM to get the class.
             const addItemsUsingSelect = document.querySelector(`.js-quantity-selector-${productId}`);
               itemValue = Number(addItemsUsingSelect.value); /// Exercise Lesson 13d = get the value using .value property. && Ex13e = Convert from String - No
-            
-              console.log(itemValue);
 
             cart.forEach((item) => {
               if (productId === item.productId) {
@@ -120,18 +118,14 @@ document.querySelectorAll('.js-add-to-cart')
                 quantity: itemValue
             });
             }
-
-            let cartQuantity = 0;
-
-            // cart.forEach((item) => {
-            //   cartQuantity += item.quantity;
-            // });
-
             // Basket (add-to-cart)
+            let addToCart = 0;
+            cart.forEach((item) => {
+              addToCart += item.quantity;
+            })
             document.querySelector('.js-cart-quantity')
-              .innerHTML = itemValue;            
+              .innerHTML = addToCart;
 
-            console.log(cartQuantity);
-            console.log(cart);
+              console.log(cart)
         });
     });
