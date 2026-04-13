@@ -32,6 +32,10 @@
 //     priceCents: 1899
 // }];
 
+// muna iya importing fnx | var kamar ydd yke a qasa.
+import { cart, _addToCart } from "../data/cart.js";
+import { products } from "../data/products.js";
+
 let productsHtml = '';
 
 //// Exercise Lesson 13a = find the selector tag.
@@ -77,7 +81,7 @@ products.forEach((product) => {
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div class="added-to-cart js-item-is-added-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
@@ -92,40 +96,29 @@ products.forEach((product) => {
 document.querySelector('.js-product-grid')
     .innerHTML = productsHtml;
 
+function updateCart(productId) {
+     // Basket (add-to-cart)
+      let addToCart = 0;
+
+      cart.forEach((cartItem) => {
+        addToCart += cartItem.quantity;
+      });
+
+      document.querySelector('.js-cart-quantity')
+        .innerHTML = addToCart;
+
+      const newClss = document.querySelector(`.js-item-is-added-${productId}`)
+        newClss.classList.add('added');
+        setTimeout(() => {newClss.classList.remove('added');
+
+        }, 1000); // Ex13l = removing the class
+  }
+
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
         button.addEventListener('click', () => {
             const { productId } = button.dataset;
-
-            let matchingItem; 
-            let itemValue;
-
-             /// Exercise Lesson 13c = use DOM to get the class.
-            const addItemsUsingSelect = document.querySelector(`.js-quantity-selector-${productId}`);
-              itemValue = Number(addItemsUsingSelect.value); /// Exercise Lesson 13d = get the value using .value property. && Ex13e = Convert from String - No
-
-            cart.forEach((item) => {
-              if (productId === item.productId) {
-                matchingItem = item;
-              }
-            });
-
-            if (matchingItem) {
-              matchingItem.quantity += itemValue;
-            } else {
-                cart.push({
-                productId: productId,
-                quantity: itemValue
-            });
-            }
-            // Basket (add-to-cart)
-            let addToCart = 0;
-            cart.forEach((item) => {
-              addToCart += item.quantity;
-            })
-            document.querySelector('.js-cart-quantity')
-              .innerHTML = addToCart;
-
-              console.log(cart)
+            _addToCart(productId);
+            updateCart(productId);               
         });
     });
