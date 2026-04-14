@@ -691,5 +691,21 @@ export const products = [
       "rain",
       "protection"
     ]
+  },
+  {
+    id: "zrng10042026-cont00n3nt41-rolexWatch2026",
+    image: "images/products/rng-rolex-2026.jpg",
+    name: "Invicta Men's Pro Diver Quartz Watch",
+    rating: {
+      stars: 4.5,
+      count: 500
+    },
+    priceCents: 13000,
+    keywords: [
+      "rolex",
+      "watch",
+      "golden",
+      "silver",
+    ]
   }
 ];
