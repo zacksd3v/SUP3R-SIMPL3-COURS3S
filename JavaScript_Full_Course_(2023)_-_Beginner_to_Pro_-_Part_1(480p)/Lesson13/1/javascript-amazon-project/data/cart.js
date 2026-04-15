@@ -1,4 +1,11 @@
-export const cart = [];
+export const cart = [{
+    productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
+    quantity: 2
+},
+{
+    productId: '58b4fc92-e98c-42aa-8c55-b6b79996769a',
+    quantity: 1
+}];
 
 export function _addToCart(productId) {
       let matchingItem; 
