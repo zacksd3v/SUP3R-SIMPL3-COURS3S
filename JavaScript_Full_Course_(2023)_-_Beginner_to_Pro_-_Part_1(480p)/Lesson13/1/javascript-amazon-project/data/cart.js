@@ -1,4 +1,4 @@
-export const cart = [{
+export let cart = [{
     productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
     quantity: 2
 },
@@ -30,4 +30,17 @@ export function _addToCart(productId) {
           quantity: itemValue
       });
       }
+  }
+
+  export function removeFromCart(productId) {
+    const newCart = [];
+
+    cart.forEach((cartItem) => {
+      if (cartItem.productId !== productId) {
+        newCart.push(cartItem);
+        console.log(cartItem);
+      }
+    });
+
+    cart = newCart;
   }

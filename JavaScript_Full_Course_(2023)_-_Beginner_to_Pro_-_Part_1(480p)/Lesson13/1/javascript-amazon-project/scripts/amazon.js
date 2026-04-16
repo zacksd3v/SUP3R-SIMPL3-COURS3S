@@ -33,8 +33,9 @@
 // }];
 
 // muna iya importing fnx | var kamar ydd yke a qasa.
-import { cart, _addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
+import { cart, _addToCart } from "../data/cart.js";
+import { formatMoney } from "./utils/money.js";
 
 let productsHtml = '';
 
@@ -61,7 +62,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-price">
-            $${(product.priceCents / 100).toFixed(2)}
+            $${formatMoney(product.priceCents)}
           </div>
 
           <div class="product-quantity-container">
