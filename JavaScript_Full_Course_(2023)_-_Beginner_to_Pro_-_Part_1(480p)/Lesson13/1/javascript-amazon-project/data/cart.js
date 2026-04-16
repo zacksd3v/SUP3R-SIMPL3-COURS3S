@@ -1,4 +1,7 @@
-export let cart = [{
+export let cart = JSON.parse(localStorage.getItem('cart'));
+
+if (!cart) {
+  cart = [{
     productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
     quantity: 2
 },
@@ -6,6 +9,12 @@ export let cart = [{
     productId: '58b4fc92-e98c-42aa-8c55-b6b79996769a',
     quantity: 1
 }];
+
+}
+
+function savingTheProduct() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 export function _addToCart(productId) {
       let matchingItem; 
@@ -30,6 +39,8 @@ export function _addToCart(productId) {
           quantity: itemValue
       });
       }
+
+      savingTheProduct();
   }
 
   export function removeFromCart(productId) {
@@ -43,4 +54,6 @@ export function _addToCart(productId) {
     });
 
     cart = newCart;
+
+    savingTheProduct();
   }
