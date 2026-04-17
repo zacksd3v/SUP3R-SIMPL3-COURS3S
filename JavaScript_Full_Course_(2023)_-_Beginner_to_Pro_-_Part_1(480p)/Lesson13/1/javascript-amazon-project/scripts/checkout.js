@@ -1,4 +1,4 @@
-import { cart, removeFromCart } from "../data/cart.js";
+import { cart, removeFromCart, totalCheckoutItems } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatMoney } from "./utils/money.js"
 
@@ -110,3 +110,5 @@ document.querySelector('.js-order-summary')
                 container.remove() // zamu iya removing kowane irin element da wnn fxn dn.
             });
         });
+
+totalCheckoutItems();

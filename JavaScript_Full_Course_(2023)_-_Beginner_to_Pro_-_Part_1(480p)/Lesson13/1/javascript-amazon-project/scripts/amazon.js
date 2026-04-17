@@ -34,8 +34,8 @@
 
 // muna iya importing fnx | var kamar ydd yke a qasa.
 import { products } from "../data/products.js";
-import { cart, _addToCart } from "../data/cart.js";
 import { formatMoney } from "./utils/money.js";
+import { cart, _addToCart, savingTheProduct } from "../data/cart.js";
 
 let productsHtml = '';
 
