@@ -641,22 +641,6 @@ export const products = [
       "tissues"
     ]
   },
-  {
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
-    image: "images/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
-    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
-    rating: {
-      stars: 4.5,
-      count: 3157
-    },
-    priceCents: 2400,
-    keywords: [
-      "sweaters",
-      "hoodies",
-      "apparel",
-      "mens"
-    ]
-  }, 
   // Ex13G = adding 2 more objects.
   {
     id: "zrng10042026-wtc100rd-gabasawaktn2026",
@@ -675,6 +659,22 @@ export const products = [
       "bagpack"
     ]
   },
+  {
+    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    image: "images/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
+    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
+    rating: {
+      stars: 4.5,
+      count: 3157
+    },
+    priceCents: 2400,
+    keywords: [
+      "sweaters",
+      "hoodies",
+      "apparel",
+      "mens"
+    ]
+  }, 
   {
     id: "zrng10042026-cont00n3nt41-gabasawaktn2026",
     image: "images/products/umbrella.jpg",

@@ -19,7 +19,7 @@ cart.forEach((cartItem) => {
     cartSummaryHtml += `
     <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
         <div class="delivery-date">
-            Delivery date: Tuesday, June 21
+            Delivery date: Tuesday, June 30
         </div>
 
         <div class="cart-item-details-grid">
@@ -56,7 +56,7 @@ cart.forEach((cartItem) => {
                 name="delivery-option-${matchingProduct.id}">
                 <div>
                 <div class="delivery-option-date">
-                    Tuesday, June 21
+                    Tuesday, June 26
                 </div>
                 <div class="delivery-option-price">
                     FREE Shipping
@@ -69,7 +69,7 @@ cart.forEach((cartItem) => {
                 name="delivery-option-${matchingProduct.id}">
                 <div>
                 <div class="delivery-option-date">
-                    Wednesday, June 15
+                    Wednesday, June 30
                 </div>
                 <div class="delivery-option-price">
                     $4.99 - Shipping
@@ -82,7 +82,7 @@ cart.forEach((cartItem) => {
                 name="delivery-option-${matchingProduct.id}">
                 <div>
                 <div class="delivery-option-date">
-                    Monday, June 13
+                    Monday, June 04
                 </div>
                 <div class="delivery-option-price">
                     $9.99 - Shipping
@@ -94,8 +94,6 @@ cart.forEach((cartItem) => {
         </div>
     `;
 });
-
-// console.log(cartSummaryHtml);
 
 document.querySelector('.js-order-summary')
     .innerHTML = cartSummaryHtml;

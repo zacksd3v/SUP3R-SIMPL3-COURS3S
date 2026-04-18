@@ -49,13 +49,13 @@ export function _addToCart(productId) {
     cart.forEach((cartItem) => {
       if (cartItem.productId !== productId) {
         newCart.push(cartItem);
-        // console.log(cartItem);
       }
     });
 
     cart = newCart;
 
     savingTheProduct();
+    totalCheckoutItems();
   }
 
   export function totalCheckoutItems() {

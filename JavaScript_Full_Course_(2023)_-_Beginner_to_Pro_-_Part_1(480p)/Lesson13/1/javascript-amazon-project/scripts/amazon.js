@@ -97,9 +97,11 @@ products.forEach((product) => {
 document.querySelector('.js-product-grid')
     .innerHTML = productsHtml;
 
+let addToCart;
+
 function updateCart(productId) {
      // Basket (add-to-cart)
-      let addToCart = 0;
+      addToCart = 0;
 
       cart.forEach((cartItem) => {
         addToCart += cartItem.quantity;
@@ -123,3 +125,12 @@ document.querySelectorAll('.js-add-to-cart')
             updateCart(productId);               
         });
     });
+
+  let basketItem = 0;
+  
+  cart.forEach((cartItem) => {
+    basketItem += cartItem.quantity;
+
+      document.querySelector('.js-cart-quantity')
+        .innerHTML = basketItem;
+  });
