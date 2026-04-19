@@ -67,3 +67,8 @@ export function _addToCart(productId) {
               .innerHTML = `${totalItems} items`;
       });
   }
+
+
+  export function displayInput() {
+    
+  }
