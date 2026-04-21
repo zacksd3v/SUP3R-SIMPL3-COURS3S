@@ -1,6 +1,12 @@
-import { cart, removeFromCart, totalCheckoutItems } from "../data/cart.js";
-import { products } from "../data/products.js";
+import { 
+    cart,
+    removeFromCart,
+    updateQuantity,
+    totalCheckoutItems,
+    // saveAndUpdateQuantity,
+} from "../data/cart.js";
 import { formatMoney } from "./utils/money.js"
+import { products } from "../data/products.js";
 
 let cartSummaryHtml = '';
 
@@ -129,18 +135,12 @@ document.querySelectorAll('.js-save-link')
         .forEach((link) => {
             link.addEventListener('click', () => {
                 const { productId } = link.dataset;
-                
+
                 const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
                 const newQuantity = Number(quantityInput.value);
-                
-                if (newQuantity < 0 || newQuantity >= 1000) {
-                    alert('Quantity must be at least 0 and less than 1000');
-                    return;
-                }
 
-                const quantityLabel = document.querySelector(`.js-quantity-label-${productId}`);
-                    quantityLabel.innerHTML = newQuantity;
-                
+                updateQuantity(productId, newQuantity);
+
                 const container = document.querySelector(`.js-cart-item-container-${productId}`);
                 container.classList.remove('is-editing-quantity');
             });

@@ -68,7 +68,30 @@ export function _addToCart(productId) {
       });
   }
 
-
-  export function displayInput() {
-    
+export function updateQuantity(productId, newQuantity) {
+  if (newQuantity < 0 || newQuantity >= 1000) {
+    alert('Quantity must be at least 0 and less than 1000');
+    return; // Wannan zai sa function din ya tsaya nan, ba zai canza komai ba
   }
+
+  let matchingItem;
+
+  cart.forEach((cartItem) => {
+    if (productId === cartItem.productId) {
+      matchingItem = cartItem;
+    }
+  });
+
+  // 2. Idan komai lafiya, sai mu canza data
+  if (matchingItem) {
+    matchingItem.quantity = newQuantity;
+
+    const quantityLabel = document.querySelector(`.js-quantity-label-${productId}`);
+    if (quantityLabel) {
+      quantityLabel.innerHTML = newQuantity;
+    }
+    savingTheProduct();
+    totalCheckoutItems();
+  }
+
+}
