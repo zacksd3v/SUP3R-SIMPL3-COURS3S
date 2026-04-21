@@ -707,5 +707,50 @@ export const products = [
       "golden",
       "silver",
     ]
+  },
+  {
+    id: "zrng21-042026-cont00n3nt41-eyeBrow2026",
+    image: "images/products/eyeBrow.jpg",
+    name: "essence | Lash Princess False Lash Effect Mascara | Volumizing & Lengthening | Cruelty Free & Paraben Free",
+    rating: {
+      stars: 3.5,
+      count: 250
+    },
+    priceCents: 10,
+    keywords: [
+      "eye",
+      "eyebrow",
+      "brow"
+    ]
+  },
+  {
+    id: "zrng21-042026-cont00n3nt41-flask2026",
+    image: "images/products/flask.jpg",
+    name: "Owala FreeSip Insulated Stainless Steel Water Bottle with Straw, BPA-Free Sports Water Bottle, Great for Travel, 24 Oz, Denim",
+    rating: {
+      stars: 4.5,
+      count: 1000
+    },
+    priceCents: 45,
+    keywords: [
+      "tea",
+      "flask",
+      "hot"
+    ]
+  },
+  {
+    id: "zrng21-042026-cont00n3nt41-game2026",
+    image: "images/products/game.jpg",
+    name: "Alienware Aurora Gaming Desktop ACT1250 - Intel Core Ultra 9 285 Processor, Liquid Cooled, NVIDIA GeForce RTX 5080, 32GB DDR5 RAM",
+    rating: {
+      stars: 4.5,
+      count: 5000
+    },
+    priceCents: 2500,
+    keywords: [
+      "game",
+      "alienware",
+      "desktop"
+    ]
   }
 ];
