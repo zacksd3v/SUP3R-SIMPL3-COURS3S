@@ -41,3 +41,7 @@
 
 [+] Typecoarsion: shine mu hada number & string snn ya bada wrong result.   
 [+] Hoisting: shine ka kira fnx tun kafin ka qirqire shi. NB: fnx wanda akayi svaing nasa cikin variable to baya daukan wann feature din hoisting!    
+
+[+] Minification: shine ayi compressing js code domin mu dora a internet a matsayin library.
+[+] Default export: import zacks from 'https://zacks.com/js/1.0.1
+[+] Name eport: import { account, credit_card } from 'nan.js'

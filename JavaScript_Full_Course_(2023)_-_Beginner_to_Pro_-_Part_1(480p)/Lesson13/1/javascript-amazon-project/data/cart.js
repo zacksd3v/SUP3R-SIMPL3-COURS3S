@@ -3,11 +3,13 @@ export let cart = JSON.parse(localStorage.getItem('cart'));
 if (!cart) {
   cart = [{
     productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
-    quantity: 2
+    quantity: 2,
+    deliveryOptionId: '1'
 },
 {
     productId: '58b4fc92-e98c-42aa-8c55-b6b79996769a',
-    quantity: 1
+    quantity: 1,
+    deliveryOptionId: '2'
 }];
 
 }
@@ -36,7 +38,8 @@ export function _addToCart(productId) {
       } else {
           cart.push({
           productId,
-          quantity: itemValue
+          quantity: itemValue,
+          deliveryOptions: '1'
       });
       }
 
@@ -82,7 +85,6 @@ export function updateQuantity(productId, newQuantity) {
     }
   });
 
-  // 2. Idan komai lafiya, sai mu canza data
   if (matchingItem) {
     matchingItem.quantity = newQuantity;
 
@@ -94,4 +96,14 @@ export function updateQuantity(productId, newQuantity) {
     totalCheckoutItems();
   }
 
+}
+
+export function removingContainer(productId) {
+  const container = document.querySelector(`.js-cart-item-container-${productId}`);
+    container.classList.remove('is-editing-quantity');
+}
+
+export function quantityInput(productId, newQuantity) {
+  const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
+    newQuantity = Number(quantityInput.value);
 }
