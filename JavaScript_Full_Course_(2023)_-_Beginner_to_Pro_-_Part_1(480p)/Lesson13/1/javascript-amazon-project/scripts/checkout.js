@@ -30,16 +30,16 @@ cart.forEach((cartItem) => {
     });
 
    const deliveryOptionId = cartItem.deliveryOptionId;
-   let option;
+   let deliveryOption;
 
-    deliveryOptions.forEach((items) => {
-        if (items.id === deliveryOptionId) {
-            option = items;
+    deliveryOptions.forEach((option) => {
+        if (option.id === deliveryOptionId) {
+            deliveryOption = option;
         }
     });
 
      const today = dayjs();
-        const deliveryDate = today.add(option.deliveryDays, 'days');
+        const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
         const dateString = deliveryDate.format('dddd, MMMM D');
 
 
@@ -92,20 +92,20 @@ totalCheckoutItems();
 function deliveryOptionsHTML(matchingProduct, cartItem) {
     let html = '';
 
-    deliveryOptions.forEach((option) => {
+    deliveryOptions.forEach((deliveryOption) => {
         const today = dayjs();
-        const deliveryDate = today.add(option.deliveryDays, 'days');
+        const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
         const dateString = deliveryDate.format('dddd, MMMM D');
-        const priceString = option.priceCents === 0 ? 'FREE' : `$${formatMoney(option.priceCents)}`;
+        const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${formatMoney(deliveryOption.priceCents)}`;
 
-        const isChecked = option.id === cartItem.deliveryOptionId;
+        const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 
         html += `
-        <div class="delivery-option js-delivery-option">
+        <div class="delivery-option js-delivery-option"
+        data-product-id="${matchingProduct.id}"
+        data-delivery-option-id="${deliveryOption.id}">
                 <input type="radio"
                 ${isChecked ? 'checked' : ''}
-                data-product-id="${matchingProduct.id}"
-                data-delivery-option-id="${option.id}"
                 class="delivery-option-input"
                 name="delivery-option-${matchingProduct.id}">
             <div>
@@ -183,6 +183,6 @@ document.querySelectorAll('.js-delivery-option')
         .forEach((radio) => {
             radio.addEventListener('click', () => {
                 const {productId, deliveryOptionId} = radio.dataset
-                // updateDeliveryOption(productId, deliveryOptionId);
+                updateDeliveryOption(productId, deliveryOptionId);
             });
         });
