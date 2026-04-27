@@ -45,3 +45,5 @@
 [+] Minification: shine ayi compressing js code domin mu dora a internet a matsayin library.
 [+] Default export: import zacks from 'https://zacks.com/js/1.0.1
 [+] Name eport: import { account, credit_card } from 'nan.js'
+
+[+] Reccursion: Abinda ake nufi shine ka kira fnx din ka a cikin kansa da kansa.
