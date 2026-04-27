@@ -124,7 +124,8 @@ export function renderOderSummary() {
                     
             const container = document.querySelector(`.js-cart-item-container-${productId}`);
                     container.remove(); // zamu iya removing kowane irin element da wnn fxn dn.
-                    renderOderSummary();
+                    // renderOderSummary();
+                    renderPaymentSummary();
                 });
             });
 

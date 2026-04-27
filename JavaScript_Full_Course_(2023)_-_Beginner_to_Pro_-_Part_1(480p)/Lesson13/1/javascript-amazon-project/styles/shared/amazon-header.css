@@ -1,5 +1,5 @@
 .amazon-header {
-  background-color: rgb(19, 25, 33);
+  background-color: rgb(60 160 35);
   color: white;
   padding-left: 15px;
   padding-right: 15px;
@@ -136,7 +136,7 @@
 }
 
 .cart-quantity {
-  color: rgb(240, 136, 4);
+  color: rgb(210, 211, 146);
   font-size: 16px;
   font-weight: 700;
 
