@@ -177,6 +177,7 @@ export function renderOderSummary() {
                     const {productId, deliveryOptionId} = radio.dataset
                     updateDeliveryOption(productId, deliveryOptionId);
                     renderOderSummary();
+                    renderPaymentSummary();
                 });
             });
 
