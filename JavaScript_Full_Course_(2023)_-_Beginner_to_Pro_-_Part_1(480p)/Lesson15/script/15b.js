@@ -1,6 +1,3 @@
-import Dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+import { getFutureDate } from "./date.js";
 
-const date = Dayjs();
-const netxt5Days = date.add(30, 'Days');
-const fullDate = netxt5Days.format('MMMM, dddd D');
-    console.log(`30 DAYS FROM TODAY: ${fullDate}`);
+console.log(getFutureDate(30, 'MMM, dddd D'));
