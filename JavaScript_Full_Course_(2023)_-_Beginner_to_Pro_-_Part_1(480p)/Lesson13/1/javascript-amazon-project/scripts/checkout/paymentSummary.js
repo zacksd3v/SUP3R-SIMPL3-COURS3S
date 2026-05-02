@@ -4,6 +4,7 @@ import { getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 
 export function renderPaymentSummary() {
+  let totalItems = 0;
     let productPriceCents = 0;
     let shippingPriceCents = 0;
 
@@ -13,6 +14,8 @@ export function renderPaymentSummary() {
 
         const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
         shippingPriceCents += deliveryOption.priceCents;
+
+        totalItems += cartItem.quantity;
     });
 
     const totalB4TaxCents = productPriceCents + shippingPriceCents;
@@ -25,7 +28,7 @@ export function renderPaymentSummary() {
           </div>
 
           <div class="payment-summary-row">
-            <div>Items (3):</div>
+            <div class="js-total-items">Items (${totalItems}):</div>
             <div class="payment-summary-money">$${formatMoney(productPriceCents)}</div>
           </div>
 
