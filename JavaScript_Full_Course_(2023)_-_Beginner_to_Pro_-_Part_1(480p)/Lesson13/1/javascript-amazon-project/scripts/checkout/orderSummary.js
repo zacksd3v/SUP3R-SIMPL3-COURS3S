@@ -13,7 +13,7 @@ import { products, getProduct } from "../../data/products.js";
 // Idan kana son importing abu 1 tak cikin lib || file ga ydd zakayi.
 // Wurin shigo da file din sunan ba sa yiyi iri 1 baya sabanin 'export' kadai.
 // A me export default muna iya canza suna kamar haka 'dayjsZacksR' ba lalle sai sunan shi ba kamar a na mi 'export'.
-import { deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
+import { calculateDeliveryDate, deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 export function renderOderSummary() {
@@ -25,14 +25,11 @@ export function renderOderSummary() {
 
         const matchingProduct = getProduct(productId);
 
-    const deliveryOptionId = cartItem.deliveryOptionId;
-    const deliveryOption = getDeliveryOption(deliveryOptionId);
+        const deliveryOptionId = cartItem.deliveryOptionId;
+        const deliveryOption = getDeliveryOption(deliveryOptionId);
+        
+        const dateString = calculateDeliveryDate(deliveryOption);
     
-        const today = dayjs();
-        const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-        const dateString = deliveryDate.format('dddd, MMMM D');
-
-
         cartSummaryHtml += `
         <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">
@@ -81,10 +78,8 @@ export function renderOderSummary() {
         let html = '';
 
         deliveryOptions.forEach((deliveryOption) => {
-            const today = dayjs();
-            const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-            const dateString = deliveryDate.format('dddd, MMMM D');
-
+            const dateString = calculateDeliveryDate(deliveryOption);
+        
             const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${formatMoney(deliveryOption.priceCents)}`;
 
             const isChecked = deliveryOption.id === cartItem.deliveryOptionId;

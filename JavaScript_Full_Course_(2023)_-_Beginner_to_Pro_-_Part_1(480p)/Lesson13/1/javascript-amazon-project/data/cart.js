@@ -1,3 +1,5 @@
+import { renderCheckOutHeader } from "../scripts/checkout/checkOutHeader.js";
+
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
 if (!cart) {
@@ -58,7 +60,7 @@ export function _addToCart(productId) {
     cart = newCart;
 
     savingToStorage();
-    totalCheckoutItems();
+    renderCheckOutHeader();
   }
 
 export function updateQuantity(productId, newQuantity) {
@@ -83,7 +85,7 @@ export function updateQuantity(productId, newQuantity) {
       quantityLabel.innerHTML = newQuantity;
     }
     savingToStorage();
-    totalCheckoutItems();
+    renderCheckOutHeader();
   }
 
 }
