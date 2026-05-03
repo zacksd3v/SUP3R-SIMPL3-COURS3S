@@ -3,7 +3,7 @@ import {
     removeFromCart,
     updateQuantity,
     removingContainer,
-    totalCheckoutItems,
+    // totalCheckoutItems,
     updateDeliveryOption
     // saveAndUpdateQuantity,
 } from "../../data/cart.js";
@@ -29,8 +29,8 @@ export function renderOderSummary() {
     const deliveryOption = getDeliveryOption(deliveryOptionId);
     
         const today = dayjs();
-            const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-            const dateString = deliveryDate.format('dddd, MMMM D');
+        const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+        const dateString = deliveryDate.format('dddd, MMMM D');
 
 
         cartSummaryHtml += `
@@ -76,8 +76,6 @@ export function renderOderSummary() {
         `;
     });
 
-    totalCheckoutItems();
-
 
     function deliveryOptionsHTML(matchingProduct, cartItem) {
         let html = '';
@@ -86,6 +84,7 @@ export function renderOderSummary() {
             const today = dayjs();
             const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
             const dateString = deliveryDate.format('dddd, MMMM D');
+
             const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${formatMoney(deliveryOption.priceCents)}`;
 
             const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
@@ -137,7 +136,7 @@ export function renderOderSummary() {
                         
                     const container = document.querySelector(`.js-cart-item-container-${productId}`);
                         container.classList.add('is-editing-quantity');
-                });
+                    });
             });
 
     // Ex14j
@@ -152,6 +151,8 @@ export function renderOderSummary() {
                     updateQuantity(productId, newQuantity);
 
                     removingContainer(productId);
+
+                    renderPaymentSummary();
                 });
             });
 
@@ -167,6 +168,8 @@ export function renderOderSummary() {
                         updateQuantity(productId, newQuantity);
 
                         removingContainer(productId);
+
+                        renderPaymentSummary();
                     }
                 });
             });

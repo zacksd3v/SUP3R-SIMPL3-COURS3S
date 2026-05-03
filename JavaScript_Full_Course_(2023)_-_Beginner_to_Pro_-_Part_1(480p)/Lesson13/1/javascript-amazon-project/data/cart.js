@@ -61,16 +61,6 @@ export function _addToCart(productId) {
     totalCheckoutItems();
   }
 
-  export function totalCheckoutItems() {
-    let totalItems = 0;
-      cart.forEach((cartItem) => {
-          totalItems += cartItem.quantity;
-          
-          document.querySelector('.js-return-to-home-link')
-              .innerHTML = `${totalItems} items`;
-      });
-  }
-
 export function updateQuantity(productId, newQuantity) {
   if (newQuantity < 0 || newQuantity >= 1000) {
     alert('Quantity must be at least 0 and less than 1000');
