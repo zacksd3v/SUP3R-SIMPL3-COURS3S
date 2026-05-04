@@ -1,4 +1,4 @@
-import { formatMoney } from "../../Lesson13/1/javascript-amazon-project/scripts/utils/money.js";
+import { formatMoney } from "../../../Lesson13/1/javascript-amazon-project/scripts/utils/money.js";
 
 console.log('Test Suit: FormatCurrency');
 console.log('Yana Converting cents into Dollers');
