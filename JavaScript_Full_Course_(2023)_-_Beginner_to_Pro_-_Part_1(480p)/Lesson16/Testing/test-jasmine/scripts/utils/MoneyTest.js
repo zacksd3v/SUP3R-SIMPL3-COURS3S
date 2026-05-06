@@ -1,4 +1,4 @@
-import { formatMoney } from "../../../../Lesson13/1/javascript-amazon-project/scripts/utils/money.js";
+import { formatMoney } from "../../../../../Lesson13/1/javascript-amazon-project/scripts/utils/money.js";
 
 describe('test suit: formatMoney', () => {
     it('converts cents into dollars', () => {

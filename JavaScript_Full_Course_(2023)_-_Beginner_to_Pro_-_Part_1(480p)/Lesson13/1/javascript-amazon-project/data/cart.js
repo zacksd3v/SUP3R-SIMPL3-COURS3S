@@ -1,19 +1,23 @@
 import { renderCheckOutHeader } from "../scripts/checkout/checkOutHeader.js";
 
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart;
 
-if (!cart) {
-  cart = [{
-    productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
-    quantity: 2,
-    deliveryOptionId: '1'
-},
-{
-    productId: '58b4fc92-e98c-42aa-8c55-b6b79996769a',
-    quantity: 1,
-    deliveryOptionId: '2'
-}];
+export function loadFromLocalStroge() {
+    cart = JSON.parse(localStorage.getItem('cart'));
 
+    if (!cart) {
+      cart = [{
+        productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
+        quantity: 2,
+        deliveryOptionId: '1'
+    },
+    {
+        productId: '58b4fc92-e98c-42aa-8c55-b6b79996769a',
+        quantity: 1,
+        deliveryOptionId: '2'
+    }];
+
+    }
 }
 
 export function savingToStorage() {
