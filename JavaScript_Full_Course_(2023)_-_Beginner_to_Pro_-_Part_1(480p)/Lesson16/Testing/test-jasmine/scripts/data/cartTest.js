@@ -1,4 +1,4 @@
-    import { _addToCart, cart, loadFromLocalStroge } from "../../../../../Lesson13/1/javascript-amazon-project/data/cart.js";
+    import { _addToCart, cart, loadFromLocalStorage } from "../../../../../Lesson13/1/javascript-amazon-project/data/cart.js";
 
     describe('Test suite: addToCart', () => {
         it('adds an existing product to the cart', () => {
@@ -10,7 +10,7 @@
                     deliveryOptionId: '1'
                 }])
             });
-            loadFromLocalStroge();
+            loadFromLocalStorage();
             document.querySelector('.js-test-container').innerHTML = `
             <select class="js-quantity-selector-58b4fc92-e98c-42aa-8c55-b6b79996769a">
                 <option value="1" selected>1</option>

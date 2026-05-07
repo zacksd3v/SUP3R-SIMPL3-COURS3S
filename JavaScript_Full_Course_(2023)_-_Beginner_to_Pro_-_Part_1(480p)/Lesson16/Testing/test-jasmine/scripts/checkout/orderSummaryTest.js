@@ -1,5 +1,5 @@
 import { renderOrderSummary } from "../../../../../Lesson13/1/javascript-amazon-project/scripts/checkout/orderSummary.js";
-import { cart, loadFromLocalStroge } from "../../../../../Lesson13/1/javascript-amazon-project/data/cart.js";
+import { cart, loadFromLocalStorage } from "../../../../../Lesson13/1/javascript-amazon-project/data/cart.js";
 
 describe('Test suite: renderOrderSummary', () => {
     const productId1 = 'zrng10042026-cont00n3nt41-rolexWatch2026';
@@ -27,7 +27,7 @@ describe('Test suite: renderOrderSummary', () => {
             <div class="js-checkout-header"></div>
         `;
 
-        loadFromLocalStroge();
+        loadFromLocalStorage();
         renderOrderSummary();
     });
 

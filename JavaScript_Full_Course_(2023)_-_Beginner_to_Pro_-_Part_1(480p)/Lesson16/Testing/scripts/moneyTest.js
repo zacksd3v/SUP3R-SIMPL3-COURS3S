@@ -40,3 +40,11 @@ if (formatMoney(1000000) === '1000000.00') {
 } else {
     console.log('failed');
 }
+
+console.log('Yana Rounding to nearest cents');
+
+if (formatMoney(2000.4) === '20.00') {
+    console.log('passed');
+} else {
+    console.log('failed');
+}

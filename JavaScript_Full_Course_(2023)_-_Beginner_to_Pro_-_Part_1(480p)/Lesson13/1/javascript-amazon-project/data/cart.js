@@ -2,23 +2,40 @@ import { renderCheckOutHeader } from "../scripts/checkout/checkOutHeader.js";
 
 export let cart;
 
-export function loadFromLocalStroge() {
-    cart = JSON.parse(localStorage.getItem('cart'));
+// export function loadFromLocalStorage() {
+//     cart = JSON.parse(localStorage.getItem('cart'));
+//     if (!cart) {
+//       cart = [{
+//         productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
+//         quantity: 2,
+//         deliveryOptionId: '1'
+//     },
+//     {
+//         productId: '58b4fc92-e98c-42aa-8c55-b6b79996769a',
+//         quantity: 1,
+//         deliveryOptionId: '2'
+//     }];
 
-    if (!cart) {
-      cart = [{
-        productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
-        quantity: 2,
-        deliveryOptionId: '1'
+//     }
+// }
+
+// AI CODE
+export function loadFromLocalStorage() { // An gyara spelling
+  cart = JSON.parse(localStorage.getItem('cart')) || [
+    {
+      productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
+      quantity: 2,
+      deliveryOptionId: '1'
     },
     {
-        productId: '58b4fc92-e98c-42aa-8c55-b6b79996769a',
-        quantity: 1,
-        deliveryOptionId: '2'
-    }];
-
+      productId: '58b4fc92-e98c-42aa-8c55-b6b79996769a',
+      quantity: 1,
+      deliveryOptionId: '2'
     }
+  ];
 }
+
+loadFromLocalStorage();
 
 export function savingToStorage() {
   localStorage.setItem('cart', JSON.stringify(cart));
@@ -102,6 +119,7 @@ export function removingContainer(productId) {
 export function quantityInput(productId, newQuantity) {
   const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
     newQuantity = Number(quantityInput.value);
+    return newQuantity;
 }
 
 export function updateDeliveryOption(productId, deliveryOptionId) {
