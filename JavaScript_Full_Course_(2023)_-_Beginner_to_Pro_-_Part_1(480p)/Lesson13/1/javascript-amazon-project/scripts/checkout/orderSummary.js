@@ -3,9 +3,7 @@ import {
     removeFromCart,
     updateQuantity,
     removingContainer,
-    // totalCheckoutItems,
     updateDeliveryOption
-    // saveAndUpdateQuantity,
 } from "../../data/cart.js";
 import { formatMoney } from "../utils/money.js"
 import { renderPaymentSummary } from "./paymentSummary.js";
@@ -16,7 +14,7 @@ import { products, getProduct } from "../../data/products.js";
 import { calculateDeliveryDate, deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
-export function renderOderSummary() {
+export function renderOrderSummary() {
     let cartSummaryHtml = '';
 
     cart.forEach((cartItem) => {
@@ -31,7 +29,7 @@ export function renderOderSummary() {
         const dateString = calculateDeliveryDate(deliveryOption);
     
         cartSummaryHtml += `
-        <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
+        <div class="cart-item-container js-cart-item-container js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">
                 Delivery date: ${dateString}
             </div>
@@ -47,7 +45,7 @@ export function renderOderSummary() {
                 <div class="product-price">
                     $${formatMoney(matchingProduct.priceCents)}
                 </div>
-                <div class="product-quantity">
+                <div class="product-quantity js-product-quantity-${matchingProduct.id}">
                     <span>
                     Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id}">${cartItem.quantity}</span>
                     </span>
@@ -56,7 +54,7 @@ export function renderOderSummary() {
                     </span>
                     <input type="number" class="quantity-input js-quantity-input-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
                     <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}">Save</span>
-                    <span class="delete-quantity-link link-primary js-delete-link" data-delete-id="${matchingProduct.id}">
+                    <span class="delete-quantity-link link-primary js-delete-link js-delete-link-${matchingProduct.id}" data-delete-id="${matchingProduct.id}">
                     Delete
                     </span>
                 </div>
@@ -118,7 +116,7 @@ export function renderOderSummary() {
                     
             const container = document.querySelector(`.js-cart-item-container-${productId}`);
                     // container.remove(); // zamu iya removing kowane irin element da wnn fxn dn.
-                    renderOderSummary();
+                    renderOrderSummary();
                     renderPaymentSummary();
                 });
             });
@@ -174,7 +172,7 @@ export function renderOderSummary() {
                 radio.addEventListener('click', () => {
                     const {productId, deliveryOptionId} = radio.dataset
                     updateDeliveryOption(productId, deliveryOptionId);
-                    renderOderSummary();
+                    renderOrderSummary();
                     renderPaymentSummary();
                 });
             });
