@@ -9,7 +9,16 @@ class Cart {
     // cartItems = undefined;
     cartItem;
     // lStorageKey = undefined;
-    lStorageKey;
+    #lStorageKey;
+
+
+    // ---- PRIVATE PROPERTY & MEHTOD -----
+    /*
+        IDAN BAMU SO AYI ACCESSING DAYA DAGA CIKIN WNN ABUBUWAN
+        OUTSIDE OUR CLASS TOH ANAN DOLE KAMATA MUYI AMFANI DA PRIVATE METHODS. SYMBOL NASHI HASH CE '#' ZAMU SANYA TA INFRONT OF ANY PROPERTY | METHOD DA MUKE SON YA ZAMA PRIVATE BA PUBLIC BA! GOOD e.g SHINE LOCAL STORAGE NA DA KUMA LOADFROMLOCALSTORAGE METHOD NA. LET'S GOO...
+
+        NB: NAYI NOTICE IDAN NAYI ACEESSING NASU BADA # SYMBOL BA | NAYI MODIFY NA PROPERTY TOH YANA YI.! I WANNA NO Y?
+    */
 
     // NB: AKWAE ABINDA AKE CE MA CONSTRUCTOR A CLASS OBJECTS.
     // ANAN ZAMU IYA SAI DUK WANI SETUP NA WAJE ANAN CIKIN CONSTRUCTOR DIN.
@@ -17,14 +26,14 @@ class Cart {
     // MUNA AMFANI DA constructor keywrd ne Dole.
     // SANAN BAZAMUI RETURNING KOMAI BA. LET'S GOOO...
     constructor(lStorageKey) {
-        this.lStorageKey = lStorageKey;
-        this.loadFromLocalStorage();
+        this.#lStorageKey = lStorageKey;
+        this.#loadFromLocalStorage();
     }
     
     // METHOD NA CLASS KUMA IS THE SAME AS REGULAR OBJT METHODS.
     // NB: this keywrd na  CLASS is the same as NA REGULAR Objct.
-    loadFromLocalStorage() {
-  this.cartItems = JSON.parse(localStorage.getItem(this.lStorageKey)) || [
+    #loadFromLocalStorage() {
+  this.cartItems = JSON.parse(localStorage.getItem(this.#lStorageKey)) || [
     {
       productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
       quantity: 2,
@@ -96,7 +105,7 @@ const businessCart = new Cart('business-cart');
 // SABODA MUN MAIDA lStoragekey NAMU OBJCT.
 // DOLE NE MUYI ACCESSING NASHI KAMAR HAKA.
 // ZAN COPY NA WANN + loadFromLocalStorage METHODIZUWA constructor METHOD!
-// cart.lStorageKey = 'cart-oop';
+// cart.lStorageKey = 'cart-oo0000p';
 // businessCart.lStorageKey = 'business-cart';
 
 // cart.loadFromLocalStorage();
