@@ -113,5 +113,8 @@ const businessCart = new Cart('business-cart');
 
 cart._addToCart('zrng21-042026-cont00n3nt41-game2026');
 
+console.log('// WANN YANA RUNNING FROM CART-CLASS.JS FILE');
 console.log(cart);
 console.log(businessCart);
+
+console.log(businessCart instanceof Cart);

@@ -141,6 +141,7 @@ removeFromCart(productId) {
 
 // THIRD HANYA NA CREATING OOP
 // UNSING FUNCTION LET'S SEE HOW THAT'S WORK!
+// WNN ITACE HANYA MAFI SAUKI SABD BABU COPY & PASTE!
 function Cart(cartsKey) {
     const businessCart = {
       cartItems: undefined,
@@ -225,6 +226,8 @@ cart3.loadFromLocalStorage();
 businessCart3.loadFromLocalStorage();
 
 cart._addToCart('zrng21-042026-cont00n3nt41-game2026');
+
+console.log('// WANN YANA RUNNING FROM CART-OOP.JS FILE');
 
 console.log(cart);
 console.log(businessCart);
