@@ -1,3 +1,54 @@
+import { formatMoney } from "../scripts/utils/money.js";
+
+class Product {
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  // CONVERTING OBJCT INTO CLASS.
+  // WANN HANYAR TANA DA WAHALA.
+  // SABODA EACH OBJECT YANA BUQATAR NA MASA HAKA.
+  // SO AS A PROGRAMMER INA BUQATAR TUNANI OUTSIDE THE BOX.
+  // SABODA HAKA ZAN AIKI DA map()
+  constructor(productDetails) {
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
+  }
+
+  // METHODS 4 AMAZON PAGE
+  getStartsUrl() {
+    return `images/ratings/rating-${this.rating.stars * 10}.png`
+  }
+
+  getPrice() {
+    return `$${formatMoney(this.priceCents)}`
+  }
+
+}
+
+const product1 = new Product({
+    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+    image: "images/products/athletic-cotton-socks-6-pairs.jpg",
+    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
+    rating: {
+      stars: 4.5,
+      count: 87
+    },
+    priceCents: 1090,
+    keywords: [
+      "socks",
+      "sports",
+      "apparel"
+    ]
+  },);
+console.log(product1);
+
+
 export function getProduct(productId) {
   let matchingProduct;
 
@@ -10,6 +61,14 @@ export function getProduct(productId) {
       return matchingProduct;
 }
 
+// ZAN AIKI DA map() FNX.
+// SABODA SHINE KDAI ZAE DACE DA ABINDA NAKE SON YI.
+// ZAI MIN LOOPING NA KOWANNE OBJECT NA SNN ZAI BANI DAMAR CREATING NEW OBJCT.
+// SABODA A DUK LOKACIN DA YYI LOOPIN ZAI CREATING A FNX SNN YYI APPLYING WA NN OBJCT DIN.
+// DUK ABINDA YYI CREATING WA WACCEN FNX DIN.
+// A TAQAICE INA DA PROBLEM TO TA YAYA ZAN SOLVA SHI?
+// SHINE SAI NAYI TUNANI AKAI. BAYAN NAYI TUNANI SAI NA GANO CEWA .map() SHINE SOLUTION NA WNN PROBLEM DIN.
+// WANN SHINE YADDA TECHIES | HACKERS | DEVS | suke tunani.
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -765,4 +824,8 @@ export const products = [
       "desktop"
     ]
   }
-];
+].map((productDetails) => {
+  return new Product(productDetails);
+});
+
+console.log(products);
