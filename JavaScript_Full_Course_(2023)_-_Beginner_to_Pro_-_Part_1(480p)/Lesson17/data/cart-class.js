@@ -118,3 +118,9 @@ console.log(cart);
 console.log(businessCart);
 
 console.log(businessCart instanceof Cart);
+
+
+// A EX 17J YACE NAYI SWITCHING CART NA DA CART-CLASS FILE.
+// AMMA NAYI SKIPING SBD ZAN IYA. 
+// NA DAI BASHI A PROCEDURAL WAY. SBD BANA SON BATA LOKACI GSKIA. YANXU MUNA 2026 LOKACIN AI NE.! 
+// SO AKWAE ALOT DA ZAN KOYA......THNKS

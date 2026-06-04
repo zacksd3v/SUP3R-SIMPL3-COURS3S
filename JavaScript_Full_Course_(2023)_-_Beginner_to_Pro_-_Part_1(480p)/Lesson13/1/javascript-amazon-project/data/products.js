@@ -1,6 +1,6 @@
 import { formatMoney } from "../scripts/utils/money.js";
 
-class Product {
+export class Product {
   id;
   image;
   name;
@@ -60,7 +60,7 @@ console.log(product1);
 // TAMBAYAR ITACE SHIN PARENT YANA DA ACCESS DA CHILD PROPERTIES | METHOD WANDA SHI PARENT BASHI DA SHI??? SEARCH!......
 // IN SHORT INHERITANCE YANA BAMU DAMA MUYI REUSED NA CODE B/W CLASSES.
 // DUK LOKACIN DA ZAMU YI AIKI DA INHERITENCE DOLE NE MU QARA SPECIAL KEYWRD CALLED: 'extends'
-class Clothing extends Product {
+export class Clothing extends Product {
   // IDAN ZANU QARA WANI PROPERTY YA ZAMUYI. WATCH OUT!
   sizeChartLink;
 
@@ -106,7 +106,7 @@ const tShirt = new Clothing({
   console.log(tShirt.getPrice());
   console.log(tShirt.getStartsUrl());
 
-class Appliance extends Product {
+export class Appliance extends Product {
     instructionsLink;
     warrantyLink;
 
