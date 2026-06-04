@@ -29,6 +29,10 @@ class Product {
     return `$${formatMoney(this.priceCents)}`
   }
 
+  extraInfoHtml() {
+    return '';
+  }
+
 }
 
 // FOR EACH PRODUCT REQUIRE WNN
@@ -68,6 +72,15 @@ class Clothing extends Product {
     this.sizeChartLink = productDetails.sizeChartLink;
   }
 
+  extraInfoHtml() {
+  // MUNYI AMFANI DA WNN METHOD HAR A WURI GUDA 2
+  // PARENT DA NAN. INDA MUNA SO ZAMU IYA YIN HAKA:
+    // super.extraInfoHtml();
+    return `
+      <a href="${this.sizeChartLink}" target="_blank">Size Chart</a>
+    `;
+  }
+
 }
 
 console.log('====== INHERITANCE =START HERE !=====');
@@ -92,6 +105,24 @@ const tShirt = new Clothing({
   console.log(tShirt);
   console.log(tShirt.getPrice());
   console.log(tShirt.getStartsUrl());
+
+class Appliance extends Product {
+    instructionsLink;
+    warrantyLink;
+
+    constructor(productDetails) {
+      super(productDetails);
+      this.instructionsLink = productDetails.instructionsLink;
+      this.warrantyLink = productDetails.warrantyLink;
+    }
+
+    extraInfoHtml() {
+      return `
+        <a href="${this.instructionsLink}" target="_blank">Instructions</a>
+        <a href="${this.warrantyLink}" target="_blank">Warranty</a>
+      `;
+    }
+  }
 
 
 // A NAN NAYI AMFANI DA MAP(.map())
@@ -178,7 +209,10 @@ export const products = [
       "toaster",
       "kitchen",
       "appliances"
-    ]
+    ],
+    type: "appliance",
+    instructionsLink: "images/appliance-instructions.png",
+    warrantyLink: "images/appliance-warranty.png"
   },
   {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
@@ -363,7 +397,10 @@ export const products = [
       "water boiler",
       "appliances",
       "kitchen"
-    ]
+    ],
+    type: "appliance",
+    instructionsLink: "images/appliance-instructions.png",
+    warrantyLink: "images/appliance-warranty.png"
   },
   {
     id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
@@ -668,7 +705,10 @@ export const products = [
       "coffeemakers",
       "kitchen",
       "appliances"
-    ]
+    ],
+    type: "appliance",
+    instructionsLink: "images/appliance-instructions.png",
+    warrantyLink: "images/appliance-warranty.png"
   },
   {
     id: "02e3a47e-dd68-467e-9f71-8bf6f723fdae",
@@ -728,7 +768,10 @@ export const products = [
       "food blenders",
       "kitchen",
       "appliances"
-    ]
+    ],
+    type: "appliance",
+    instructionsLink: "images/appliance-instructions.png",
+    warrantyLink: "images/appliance-warranty.png"
   },
   {
     id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
@@ -877,7 +920,32 @@ export const products = [
   if (productDetails.type === 'clothing') {
     return new Clothing(productDetails);
   }
+
+  if (productDetails.type === 'appliance') {
+    return new Appliance(productDetails);
+  }
+  
   return new Product(productDetails);
 });
 
 console.log(products);
+
+
+// console.log('DATE PRACTICAL============<');
+// const date = new Date();
+// console.log(date);
+// console.log(date.toLocaleTimeString());
+// console.log(date.getFullYear());
+
+
+// ------- this YANA DA WASU AMFANIN ----------
+// IDAN MUKA KIRA THIS OUTSITE METHOD NA OBJET
+// ZAI BAMU UNDEFINED!
+function logout() {
+  console.log(this);
+}
+
+logout();
+// WNN ZAI BADA  UNDEFINED
+// AMMA IDAN NAYI AMFANI DA SPECIAL METHOD: call();
+logout.call('This is now working Perfectly!');

@@ -46,6 +46,8 @@ products.forEach((product) => {
             </select>
           </div>
 
+          ${product.extraInfoHtml()}
+
           <div class="product-spacer"></div>
 
           <div class="added-to-cart js-item-is-added-${product.id}">
@@ -59,7 +61,14 @@ products.forEach((product) => {
         </div>
     `;
 });
-
+// -------------POLYMORPHISM--------------
+// ${product.extraInfoHtml()}
+// WNN CODE DIN NA SAMA, SHINE POLYMORPHISM A AIKACE. 
+// MA'NAR SA SHINE ZAMU KIRA METHOD DAGA BOTH PARENT&CHILD 
+// BA TARE DA MUN BAM-BANCE WANE MUKE KIRA BA. SAI SHI CLASS YA MANA SELECTING RIGHT ONE
+// A TAKAICE CE ALT NE NA IF-STATEMENT A CLASS.
+// NB: IDAN DA ZAMU QARA INHERIT NA CLASS NAMU KWAE WANI MEHTOD DIN ZAMU SANYA CHIKIN SABON CHILD NAMU, BABU BUQATAR CANZA WNN CODE DIN NA SAMA.
+// ---------------------------END----------
 document.querySelector('.js-product-grid')
     .innerHTML = productsHtml;
 
