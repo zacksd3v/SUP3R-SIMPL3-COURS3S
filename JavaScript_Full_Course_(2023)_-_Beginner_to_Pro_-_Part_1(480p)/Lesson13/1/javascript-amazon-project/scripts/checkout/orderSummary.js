@@ -23,6 +23,11 @@ export function renderOrderSummary() {
 
         const matchingProduct = getProduct(productId);
 
+        if (!matchingProduct) {
+            console.warn(`Can't Find These IDs: ${productId} a cikin products. An tsallake shi.`);
+            return; // Wannan zai tsallake wannan loop din na cartItem, shafinka ba zai yi crash ba!
+        }
+
         const deliveryOptionId = cartItem.deliveryOptionId;
         const deliveryOption = getDeliveryOption(deliveryOptionId);
         

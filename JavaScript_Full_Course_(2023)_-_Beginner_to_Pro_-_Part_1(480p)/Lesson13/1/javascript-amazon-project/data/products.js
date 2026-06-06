@@ -147,7 +147,7 @@ export function getProduct(productId) {
 // THE PRODUCTS FROM INTERNET. HERE'S HOW:
 export let products = [];
 
-function loadingProducts() {
+export function loadingProducts(fun) {
   const xhr = new XMLHttpRequest();
   xhr.addEventListener('load', () => {
     // TUNDA MUNYI AIKI DA CLASS A BAYA
@@ -165,12 +165,13 @@ function loadingProducts() {
     return new Product(productDetails);
   });
     console.log(products);
+    fun();
   })
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();
 }
 
-loadingProducts();
+// loadingProducts();
 
 // ZAN AIKI DA map() FNX.
 // SABODA SHINE KDAI ZAE DACE DA ABINDA NAKE SON YI.
