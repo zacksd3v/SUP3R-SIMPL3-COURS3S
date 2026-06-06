@@ -52,7 +52,7 @@ const product1 = new Product({
       "apparel"
     ]
   },);
-console.log(product1);
+// console.log(product1);
 
 // //// ////   INHERITANCE // /// //////// ///
 // SHINE MAGANCE CUTAR COPY&PASTE
@@ -83,7 +83,7 @@ export class Clothing extends Product {
 
 }
 
-console.log('====== INHERITANCE =START HERE !=====');
+// console.log('====== INHERITANCE =START HERE !=====');
 const tShirt = new Clothing({
     id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
     image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
@@ -102,9 +102,9 @@ const tShirt = new Clothing({
     sizeChartLink: "images/clothing-size-chart.png"
   });
 
-  console.log(tShirt);
-  console.log(tShirt.getPrice());
-  console.log(tShirt.getStartsUrl());
+  // console.log(tShirt);
+  // console.log(tShirt.getPrice());
+  // console.log(tShirt.getStartsUrl());
 
 export class Appliance extends Product {
     instructionsLink;
@@ -171,7 +171,7 @@ export function loadingProducts(renderFnx) {
     
     return new Product(productDetails);
   });
-    console.log(products);
+    // console.log(products);
     renderFnx();
   })
   xhr.open('GET', 'https://supersimplebackend.dev/products');
@@ -180,7 +180,7 @@ export function loadingProducts(renderFnx) {
 
 
 // FETCH API METHOD
-console.log('[+] SENDING REQUEST TO THE SERVER...USING FETCH API');
+// console.log('[+] SENDING REQUEST TO THE SERVER...USING FETCH API');
 export function loadingProductsUsingFetch() {
   const promise = fetch('https://supersimplebackend.dev/products').then((response) => {
     return response.json();
@@ -196,7 +196,7 @@ export function loadingProductsUsingFetch() {
 
       return new Product(productDetails);
     });
-    console.log(products);
+    // console.log(products);
   });
 
   return promise;
@@ -1007,13 +1007,13 @@ export function loadingProductsUsingFetch() {
 // IDAN MUKA KIRA THIS OUTSITE METHOD NA OBJET
 // ZAI BAMU UNDEFINED!
 function logout() {
-  console.log(this);
+  // console.log(this);
 }
 
 logout();
 // WNN ZAI BADA  UNDEFINED
 // AMMA IDAN NAYI AMFANI DA SPECIAL METHOD: call();
-logout.call('This is now working Perfectly!');
+// logout.call('This is now working Perfectly!');
 
 /*
 Amma Parent Class ba shi da masaniya ko access akan abubuwan da aka ƙara a cikin Child Class. Misali, idan kayi const product = new Product(...), ba za ka iya kiran product.sizeChartLink ba; wannan na Clothing ne kawai. Ruwa yana gudu ne daga sama zuwa ƙasa, ba daga ƙasa zuwa sama ba

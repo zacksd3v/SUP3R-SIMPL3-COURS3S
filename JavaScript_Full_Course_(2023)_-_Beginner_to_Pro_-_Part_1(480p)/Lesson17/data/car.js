@@ -101,6 +101,6 @@ const raceCar1 = new RaceCar({
     acceleration: 20
 });
 
-console.log('---- EXERCISE 17 -----');
-raceCar1.go();
-raceCar1.displayInfo(); // Zai fito da: McLaren F1 \n McLaren F1 20 km/h
+// console.log('---- EXERCISE 17 -----');
+// raceCar1.go();
+// raceCar1.displayInfo(); // Zai fito da: McLaren F1 \n McLaren F1 20 km/h

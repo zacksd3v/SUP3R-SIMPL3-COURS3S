@@ -8,7 +8,7 @@ const cart = {
   loadFromLocalStorage() {
   this.cartItems = JSON.parse(localStorage.getItem('cart-oop')) || [
     {
-      productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
+      productId: '54e0eccd-8f36-462b-b68a-8182611d9add',
       quantity: 2,
       deliveryOptionId: '1'
     },
@@ -227,13 +227,13 @@ businessCart3.loadFromLocalStorage();
 
 cart._addToCart('zrng21-042026-cont00n3nt41-game2026');
 
-console.log('// WANN YANA RUNNING FROM CART-OOP.JS FILE');
+// console.log('// WANN YANA RUNNING FROM CART-OOP.JS FILE');
 
-console.log(cart);
-console.log(businessCart);
+// console.log(cart);
+// console.log(businessCart);
 
-console.log(cart3);
-console.log(businessCart3);
+// console.log(cart3);
+// console.log(businessCart3);
 
 // export function updateQuantity(productId, newQuantity) {
 //   if (newQuantity < 0 || newQuantity >= 1000) {
