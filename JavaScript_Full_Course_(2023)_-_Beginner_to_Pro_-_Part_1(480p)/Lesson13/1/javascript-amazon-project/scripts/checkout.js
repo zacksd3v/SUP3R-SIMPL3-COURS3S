@@ -20,11 +20,11 @@ new Promise((resolve) => {
 });
 */
 
-loadingProductsUsingFetch().then(() => {
-    renderCheckOutHeader();
-    renderOrderSummary();
-    renderPaymentSummary();
-});
+// loadingProductsUsingFetch().then(() => {
+//     renderCheckOutHeader();
+//     renderOrderSummary();
+//     renderPaymentSummary();
+// });
 
 // DA INA LOADING DA CALLBACK FNX
 // YANXU KUMA PROMISES SND YAFI
@@ -34,3 +34,15 @@ loadingProducts(() => {
     renderPaymentSummary();
 });
 */
+
+
+// FINALY MUNA IYA AIKI DA ASYNC&AWAIT
+async function loadPage() {
+    await loadingProductsUsingFetch();
+
+    renderCheckOutHeader();
+    renderOrderSummary();
+    renderPaymentSummary();
+}
+
+loadPage();
