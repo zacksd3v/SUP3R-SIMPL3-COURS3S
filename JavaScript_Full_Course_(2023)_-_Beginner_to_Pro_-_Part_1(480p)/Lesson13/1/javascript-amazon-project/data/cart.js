@@ -5,7 +5,7 @@ export let cart;
 export function loadFromLocalStorage() { // An gyara spelling
   cart = JSON.parse(localStorage.getItem('cart')) || [
     {
-      productId: 'zrng10042026-cont00n3nt41-rolexWatch2026',
+      productId:  "54e0eccd-8f36-462b-b68a-8182611d9add",
       quantity: 2,
       deliveryOptionId: '1'
     },
