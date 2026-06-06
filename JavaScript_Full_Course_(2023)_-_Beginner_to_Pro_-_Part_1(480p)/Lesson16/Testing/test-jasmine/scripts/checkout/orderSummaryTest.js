@@ -1,14 +1,21 @@
 import { renderOrderSummary } from "../../../../../Lesson13/1/javascript-amazon-project/scripts/checkout/orderSummary.js";
 import { cart, loadFromLocalStorage } from "../../../../../Lesson13/1/javascript-amazon-project/data/cart.js";
-import { loadingProducts } from "../../../../../Lesson13/1/javascript-amazon-project/data/products.js";
+import { loadingProducts, loadingProductsUsingFetch } from "../../../../../Lesson13/1/javascript-amazon-project/data/products.js";
 
 describe('Test suite: renderOrderSummary', () => {
     const productId1 = 'zrng10042026-cont00n3nt41-rolexWatch2026';
     const productId2 = '58b4fc92-e98c-42aa-8c55-b6b79996769a';
 
     // ----- BACKEND TESTING -----
+    // beforeAll((done) => {
+    //     loadingProducts(() => {
+    //         done();
+    //     });
+    // });
+
+    // USING FETCH
     beforeAll((done) => {
-        loadingProducts(() => {
+        loadingProductsUsingFetch().then(() => {
             done();
         });
     });

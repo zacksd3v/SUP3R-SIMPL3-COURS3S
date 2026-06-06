@@ -5,11 +5,32 @@ import  "../../../../Lesson17/data/cart-oop.js";
 import "../../../../Lesson17/data/cart-class.js";
 import "../../../../Lesson17/data/car.js";
 import "../../../../Lesson18/data/backendClass.js"
-import { loadingProducts } from "../data/products.js";
+import { loadingProducts, loadingProductsUsingFetch } from "../data/products.js";
+// import { loadCart } from "../data/cart.js";
 
-loadingProducts(() => {
+/*
+new Promise((resolve) => {
+    loadingProducts(() => {
+        resolve();
+    });
+}).then(() => {
+    renderCheckOutHeader();
+    renderOrderSummary();
+    renderPaymentSummary();
+});
+*/
+
+loadingProductsUsingFetch().then(() => {
+    renderCheckOutHeader();
     renderOrderSummary();
     renderPaymentSummary();
 });
 
-renderCheckOutHeader();
+// DA INA LOADING DA CALLBACK FNX
+// YANXU KUMA PROMISES SND YAFI
+/*
+loadingProducts(() => {
+    renderOrderSummary();
+    renderPaymentSummary();
+});
+*/

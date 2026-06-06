@@ -147,7 +147,14 @@ export function getProduct(productId) {
 // THE PRODUCTS FROM INTERNET. HERE'S HOW:
 export let products = [];
 
-export function loadingProducts(fun) {
+// ---------- TYPES OF REQUESTS -----------
+// MUNA DA HANYA GUDA 2 TA REQUEST DATA DAGA INTERNET:
+// 1. XMLHttpRequest (XHR) - WANNAN SHINE TSOHON HANYA, KUMA YANA DA WAHALA. SNN YANA AIKI DA CALLBACKS FNX.
+// 2. Fetch API - WANNAN SHINE SABON HANYA, KUMA YANA DA SAURI & SAUKI. WHILE SHI KUMA YANA AIKI DA PROMISES.
+
+
+// WNN SHINE XMLHttpRequest (XHR) METHOD
+export function loadingProducts(renderFnx) {
   const xhr = new XMLHttpRequest();
   xhr.addEventListener('load', () => {
     // TUNDA MUNYI AIKI DA CLASS A BAYA
@@ -165,11 +172,37 @@ export function loadingProducts(fun) {
     return new Product(productDetails);
   });
     console.log(products);
-    fun();
+    renderFnx();
   })
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();
 }
+
+
+// FETCH API METHOD
+console.log('[+] SENDING REQUEST TO THE SERVER...USING FETCH API');
+export function loadingProductsUsingFetch() {
+  const promise = fetch('https://supersimplebackend.dev/products').then((response) => {
+    return response.json();
+  }).then((data) => {
+    products = data.map((productDetails) => {
+      if (productDetails.type === 'clothing') {
+        return new Clothing(productDetails);
+      }
+
+      if (productDetails.type === 'appliance') {
+        return new Appliance(productDetails);
+      }
+
+      return new Product(productDetails);
+    });
+    console.log(products);
+  });
+
+  return promise;
+}
+
+// loadingProductsUsingFetch();
 
 // loadingProducts();
 
@@ -981,3 +1014,7 @@ logout();
 // WNN ZAI BADA  UNDEFINED
 // AMMA IDAN NAYI AMFANI DA SPECIAL METHOD: call();
 logout.call('This is now working Perfectly!');
+
+/*
+Amma Parent Class ba shi da masaniya ko access akan abubuwan da aka ƙara a cikin Child Class. Misali, idan kayi const product = new Product(...), ba za ka iya kiran product.sizeChartLink ba; wannan na Clothing ne kawai. Ruwa yana gudu ne daga sama zuwa ƙasa, ba daga ƙasa zuwa sama ba
+*/
