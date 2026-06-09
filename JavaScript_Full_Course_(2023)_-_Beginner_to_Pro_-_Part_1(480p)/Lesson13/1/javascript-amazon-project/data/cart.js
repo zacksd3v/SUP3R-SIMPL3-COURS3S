@@ -129,3 +129,10 @@ export function loadCart(renderFnx) {
   xhr.send();
 }
 */
+
+// EX18h
+export async function loadCartFetch() {
+  const response = await fetch('https://supersimplebackend.dev/cart');
+  const data = response.text();
+  console.log(data);
+}
