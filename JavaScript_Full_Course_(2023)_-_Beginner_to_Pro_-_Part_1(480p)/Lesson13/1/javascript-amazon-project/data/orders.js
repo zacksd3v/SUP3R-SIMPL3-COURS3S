@@ -1,7 +1,7 @@
 import { cart } from "./cart.js";
-import { products } from "./products.js";
+import { getProduct, loadingProductsUsingFetch, products } from "./products.js";
 import { formatMoney } from "../scripts/utils/money.js";
-import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';;
 
 export const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
@@ -16,9 +16,8 @@ function saveOrdersToStorage() {
 
 export function renderOrders() {
     let ordersHTML = '';
-    orders.forEach((orderItem) => {
 
-        console.log(orderItem);
+    orders.forEach((orderItem) => {
         const orderTimeString = dayjs(orderItem.orderTime).format('MMMM D');
     
         ordersHTML += `
@@ -43,82 +42,76 @@ export function renderOrders() {
           </div>
 
           <div class="order-details-grid">
-            ${productList(orders)}
+            <!-- GYARA NA 1: Mun tura kayan wannan takaitaccen order din kawai -->
+            ${productList(orderItem.products)}
           </div>
         </div>
-        `;});
+        `;
+    });
 
     const ordersGrid = document.querySelector('.js-orders-grid');
     if (ordersGrid) {
         ordersGrid.innerHTML = ordersHTML;
     }
 
-
-    function productList(orders) {
+    function productList(productsArray, orderId) {
         let productHtml = '';
         
-        orders.products.forEach((productDetails) => {
+        if (!productsArray) return '';
+
+        productsArray.forEach((productDetails) => {
+           const matchingProduct = getProduct(productDetails.productId);
+
+           if (!matchingProduct) {
+                console.error(`Ba a sami samfur mai ID: ${productDetails.productId} ba`);
+                return; 
+           }
+            
+            const productInfo = matchingProduct;
+
             productHtml += `
             <div class="product-image-container">
-                ${productDetails.image}
-                </div>
+                <!-- GYARA NA 4: Mun saka hoton a cikin tsarin HTML na gaskiya -->
+                <img src="${productInfo.image}">
+            </div>
 
-                <div class="product-details">
+            <div class="product-details">
                 <div class="product-name">
-                    ${productDetails.name}
+                    ${productInfo.name}
                 </div>
                 <div class="product-delivery-date">
-                    Arriving on: August 15
+                    Arriving on: ${dayjs(productDetails.estimatedDeliveryTime).format('MMMM D')}
                 </div>
                 <div class="product-quantity">
-                    Quantity: 1
+                    Quantity: ${productDetails.quantity}
                 </div>
                 <button class="buy-again-button button-primary">
                     <img class="buy-again-icon" src="images/icons/buy-again.png">
                     <span class="buy-again-message">Buy it again</span>
                 </button>
-                </div>
+            </div>
 
-                <div class="product-actions">
-                <a href="tracking.html">
+            <div class="product-actions">
+                <a href="tracking.html?orderId=${orderId}&productId=${productInfo.id}">
                     <button class="track-package-button button-secondary">
-                    Track package
+                        Track package
                     </button>
                 </a>
-                </div>
-
-                <div class="product-image-container">
-                <img src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
-                </div>
-
-                <div class="product-details">
-                <div class="product-name">
-                    Adults Plain Cotton T-Shirt - 2 Pack
-                </div>
-                <div class="product-delivery-date">
-                    Arriving on: August 19
-                </div>
-                <div class="product-quantity">
-                    Quantity: 2
-                </div>
-                <button class="buy-again-button button-primary">
-                    <img class="buy-again-icon" src="images/icons/buy-again.png">
-                    <span class="buy-again-message">Buy it again</span>
-                </button>
-                </div>
-
-                <div class="product-actions">
-                <a href="tracking.html">
-                    <button class="track-package-button button-secondary">
-                    Track package
-                    </button>
-                </a>
-                </div>
+            </div>
             `;
-        })
+        });
 
+        return productHtml; 
     }
 }
 
-renderOrders();
+async function loadPage() {
+    // 1. Muna jiran kayan su gama ladowa daga backend tukunna
+    await loadingProductsUsingFetch();
+    
+    // 2. Bayan sun gama ladowa, yanzu muna da tabbas 'products' ba zai dawo da [] ba
+    renderOrders();
+}
 
+// Muna kiran aikin loda shafin gaba daya
+loadPage();
