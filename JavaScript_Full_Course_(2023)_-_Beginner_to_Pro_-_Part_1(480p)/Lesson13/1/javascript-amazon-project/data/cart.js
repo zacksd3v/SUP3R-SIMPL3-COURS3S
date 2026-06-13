@@ -31,7 +31,7 @@ export function _addToCart(productId) {
 
       /// Exercise Lesson 13c = use DOM to get the class.
       const addItemsUsingSelect = document.querySelector(`.js-quantity-selector-${productId}`);
-      itemValue = Number(addItemsUsingSelect.value); /// Exercise Lesson 13d = get the value using .value property. && Ex13e = Convert from String - No
+      itemValue = addItemsUsingSelect ? Number(addItemsUsingSelect.value) : 1; /// Exercise Lesson 13d = get the value using .value property. && Ex13e = Convert from String - No
 
       cart.forEach((cartItem) => {
         if (productId === cartItem.productId) {

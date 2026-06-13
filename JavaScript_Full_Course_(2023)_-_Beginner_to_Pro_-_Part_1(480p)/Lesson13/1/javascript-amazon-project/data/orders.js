@@ -1,4 +1,4 @@
-import { cart } from "./cart.js";
+import { cart, _addToCart } from "./cart.js";
 import { getProduct, loadingProductsUsingFetch, products } from "./products.js";
 import { formatMoney } from "../scripts/utils/money.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';;
@@ -14,8 +14,22 @@ function saveOrdersToStorage() {
     localStorage.setItem('orders', JSON.stringify(orders));
 }
 
+function updateCartQuantity() {
+    let cartQuantity = 0;
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+    });
+    
+    const cartQuantityHeader = document.querySelector('.js-cart-quantity');
+    if (cartQuantityHeader) {
+        cartQuantityHeader.innerHTML = cartQuantity;
+    }
+}
+
 export function renderOrders() {
     let ordersHTML = '';
+
+    updateCartQuantity();
 
     orders.forEach((orderItem) => {
         const orderTimeString = dayjs(orderItem.orderTime).format('MMMM D');
@@ -42,8 +56,7 @@ export function renderOrders() {
           </div>
 
           <div class="order-details-grid">
-            <!-- GYARA NA 1: Mun tura kayan wannan takaitaccen order din kawai -->
-            ${productList(orderItem.products)}
+            ${productList(orderItem.products, orderItem.id)}
           </div>
         </div>
         `;
@@ -53,6 +66,24 @@ export function renderOrders() {
     if (ordersGrid) {
         ordersGrid.innerHTML = ordersHTML;
     }
+
+    document.querySelectorAll('.js-buy-again')
+        .forEach((button) => {
+            button.addEventListener('click', () => {
+                const { productId } = button.dataset;
+                console.log(productId);
+
+                _addToCart(productId);
+
+                button.innerHTML = 'Added';
+                setTimeout(() => {
+                    button.innerHTML = `
+                    <img class="buy-again-icon" src="images/icons/buy-again.png">
+                    <span class="buy-again-message">Buy it again</span>
+                    `;
+                }, 1000);
+            });
+        });
 
     function productList(productsArray, orderId) {
         let productHtml = '';
@@ -68,10 +99,10 @@ export function renderOrders() {
            }
             
             const productInfo = matchingProduct;
+            // console.log(productInfo.id);
 
             productHtml += `
             <div class="product-image-container">
-                <!-- GYARA NA 4: Mun saka hoton a cikin tsarin HTML na gaskiya -->
                 <img src="${productInfo.image}">
             </div>
 
@@ -85,7 +116,7 @@ export function renderOrders() {
                 <div class="product-quantity">
                     Quantity: ${productDetails.quantity}
                 </div>
-                <button class="buy-again-button button-primary">
+                <button class="buy-again-button button-primary js-buy-again" data-product-id="${productInfo.id}">
                     <img class="buy-again-icon" src="images/icons/buy-again.png">
                     <span class="buy-again-message">Buy it again</span>
                 </button>
