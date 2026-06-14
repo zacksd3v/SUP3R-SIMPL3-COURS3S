@@ -71,9 +71,12 @@ export function renderOrders() {
         .forEach((button) => {
             button.addEventListener('click', () => {
                 const { productId } = button.dataset;
-                console.log(productId);
+                // console.log(productId);
 
                 _addToCart(productId);
+
+                // GYARA: An dawo da updateCartQuantity() nan sama don adadin cart ya karu nan take!
+                updateCartQuantity();
 
                 button.innerHTML = 'Added';
                 setTimeout(() => {
@@ -137,12 +140,9 @@ export function renderOrders() {
 }
 
 async function loadPage() {
-    // 1. Muna jiran kayan su gama ladowa daga backend tukunna
     await loadingProductsUsingFetch();
     
-    // 2. Bayan sun gama ladowa, yanzu muna da tabbas 'products' ba zai dawo da [] ba
     renderOrders();
 }
 
-// Muna kiran aikin loda shafin gaba daya
 loadPage();
