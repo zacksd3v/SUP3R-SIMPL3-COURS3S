@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+        const button = <button>Login</button>;
+        const pTag = <p>We can Hada multiple var cikin render(). Sai ta hanyar DIV</p>;
+
+        // IDan kana son saka Multiple Tags cikin render() ga ydd zakayi
+        const div = 
+        <div>
+            <dl>
+                <dd><h1>Mene ne JSX: </h1></dd>
+                <dt>Shine Hada HTML & JS cikin js code</dt>
+            </dl>
+            <p>Bayan munyi amfani da Div Domin Rubuta Multiple Elements. Muna buqatar yin amfani da parenthesis () a farkon div namu da kuma qarshen sa.</p>
+        </div>;
+
+      const container = document.querySelector('.js-container');
+    //   wnn shine Yadd ake SetUp na React.
+    // .render() kuma 1 ne daga cikin features na react.
+      ReactDOM.createRoot(container).render(div);
+    </script>
+  </body>
+</html>
