@@ -16,29 +16,85 @@
         function ChatInput() {
             return (
             <>
-                <input placeholder="Send a message to chatb0t" size="30" />
+                {/* Let's Do some Code CleanUP */}
+                <input 
+                    placeholder="Send a message to chatb0t" 
+                    size="30" 
+                />
                 <button>Send</button>
             </>
             )
         }
 
-        function ChatMessage() {
+        function ChatMessage({ message, sender }) {
+            // const { message } = props;
+            // const { sender } = props;
+            // SHORTCUT
+            // const { message, sender } = props;
+            // Muna shoter method ma. using {msg, sender} a parameter.
+
+
+            // if (sender === 'robot') {
+            //      return (
+            //     <div>
+            //         <img src="robot.png" width="50" />
+            //         { message }
+            //     </div>
+            //     )
+            // }
+
+            // MUNA DA SHORTCUT NA IF-STATEMENT A CIKIN JSX A.K.A HTML&JS A HADE!
             return (
                 <div>
-                    Salamun Alaikum
-                    <img src="user.png" width="50" />
+                    {/* IDan zamu sa abu a multiple Line Za muyi amfani da () */}
+
+                    { sender === 'robot' && (
+                        <img src="robot.png" width="50" />
+                    ) }
+
+                    { message }
+
+                    { sender === 'user' && (
+                        <img src="user.png" width="50" />
+                    )}
+
+                    {/*Munyi Amfani da Gurd Operator sbd muyi shortCut na if-statement namu*/}
                 </div>
         )
 
         }
-        const app = (
-            <>
+
+        // A madadin muyi amfani da const=app()... 
+        // Za muyi amfani da component.
+        function App() {
+            return (
+                <>
                 <ChatInput />
-                <ChatMessage />
+                <ChatMessage 
+                    message="Salamun Alaikum!" 
+                    sender="user" 
+                />
+                <ChatMessage 
+                    message="Wa'alaikussalam! How can I help U?" 
+                    sender="robot" 
+                />
+                <ChatMessage 
+                    message="Who are U? Expain Your Self!" 
+                    sender="user" 
+                />
+                <ChatMessage 
+                    message="I am React ChatBot 2026 v.1.0 Coded by RNG-Tech-301." 
+                    sender="robot" 
+                />
             </>
-        );
+            );
+        } 
+        /* const app = (
+            SINCE MUN KOMA AMFANI DA COMPONENT A.K.A FNX APP() {}
+            A RENDER() ZAMU SANYA {APP()} | <APP /> | <APP></APP>
+         );*/
         const container = document.querySelector('.js-container');
-        ReactDOM.createRoot(container).render(app);
+        ReactDOM.createRoot(container).render(<App />);
     </script>
 </body>
 </html>

@@ -14,6 +14,9 @@
     [+] Muna iya shigo da js code fnx e.t.c ta hanyar amfani da {}. Toh harma da component muna iya shigo da shi, ta hanyar amfani Tag: <sunan Component></ sunan Component>. || in a shorter way <sunan Component />.
     [+] Muna kiran wnn da < /> self closing element.
     [+] NB: Duk wani component ana fara rubuta sunan sa da UPPER CASE!
+    [+] NB: Kowanne fnx na component yana da 1 parameter called 'props'.
+    [+] porps = properties. in short. NB: props are object!
+    [+] Parenthesis yana bamu dama mu sanya code a multiple line.
 
 ## Some Self Closing Elements are:
         FULL ELEMENT                     SHORTHAND

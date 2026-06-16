@@ -27,7 +27,10 @@ export default function HomeScreen() {
   const loadTasks = async () => {
     try {
       const savedTasks = await AsyncStorage.getItem('my_tasks');
-      if (savedTasks) setTasks(JSON.parse(savedTasks));
+      if (savedTasks) {
+        const parsedTasks: Task[] = JSON.parse(savedTasks);
+        setTasks(parsedTasks.reverse());
+      }
     } catch (e) {
       Alert.alert('Error', 'Something went wrong while loading data.');
     }
@@ -39,10 +42,21 @@ export default function HomeScreen() {
       return;
     }
 
-    const newTasks = [...tasks, { id: Date.now().toString(), text: task }];
-    setTasks(newTasks);
+    let rawExistingTasks: Task[] = [];
     try {
-      await AsyncStorage.setItem('my_tasks', JSON.stringify(newTasks));
+      const savedTasks = await AsyncStorage.getItem('my_tasks');
+      if (savedTasks) {
+        rawExistingTasks = JSON.parse(savedTasks);
+      }
+    } catch (e) {
+      // Fallback
+    }
+
+    const updatedRawTasks = [...rawExistingTasks, { id: Date.now().toString(), text: task }];
+    setTasks([...updatedRawTasks].reverse());
+    
+    try {
+      await AsyncStorage.setItem('my_tasks', JSON.stringify(updatedRawTasks));
     } catch (e) {
       Alert.alert('Error', 'Failed to save note.');
     }
@@ -53,10 +67,10 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       {/* Fixed Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>📝 ZN0t3 BY Z4cks</Text>
+        <Text style={styles.headerTitle}>📝 ZEE-N0t3Pad </Text>
       </View>
 
-      {/* Input Box Wrapped in KeyboardAvoidingView safely */}
+      {/* Input Box Area */}
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <View style={styles.inputContainer}>
           <TextInput
@@ -66,6 +80,8 @@ export default function HomeScreen() {
             value={task}
             onChangeText={setTask}
             multiline
+            // REMOVED maxLength completely so you can write infinite text
+            scrollEnabled={true} // Forces the text inside the box to scroll smoothly
           />
           <TouchableOpacity style={styles.button} onPress={handleSaveTask}>
             <Text style={styles.buttonText}>Save Note</Text>
@@ -74,25 +90,28 @@ export default function HomeScreen() {
       </KeyboardAvoidingView>
 
       {/* List of Notes */}
-      <FlatList
-        data={tasks}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.listContainer}
-        renderItem={({ item }) => (
-          <TouchableOpacity 
-            style={styles.taskCard}
-            onPress={() => router.push(`/${item.id}` as any)}
-          >
-            <Text numberOfLines={3} style={styles.taskText}>{item.text}</Text>
-            <Text style={styles.viewMoreText}>Tap to open / edit ➡️</Text>
-          </TouchableOpacity>
-        )}
-        ListEmptyComponent={
-          <Text style={styles.emptyText}>Nothing saved yet. Start typing!</Text>
-        }
-      />
+      <View style={styles.listWrapper}>
+        <FlatList
+          data={tasks}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.listContainer}
+          renderItem={({ item }) => (
+            <TouchableOpacity 
+              style={styles.taskCard}
+              onPress={() => router.push(`/${item.id}` as any)}
+            >
+              {/* Shows up to 3 lines on the dashboard, tapping opens the full note */}
+              <Text numberOfLines={3} style={styles.taskText}>{item.text}</Text>
+              <Text style={styles.viewMoreText}>Tap to open / edit ➡️</Text>
+            </TouchableOpacity>
+          )}
+          ListEmptyComponent={
+            <Text style={styles.emptyText}>Nothing saved yet. Start typing!</Text>
+          }
+        />
+      </View>
 
-      {/* Footer Design - Locked firmly at the bottom */}
+      {/* Footer Design */}
       <View style={styles.footer}>
         <Text style={styles.footerText}>⚡ Powered by R1ng1m T3ch - 301</Text>
         <Text style={styles.footerCredits}>Version 1.0.0 | © Z4cks</Text>
@@ -102,18 +121,20 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F4F6FA' },
+  container: { flex: 1, backgroundColor: '#f0e7e7' },
   header: { 
-    backgroundColor: '#FFFFFF', borderBottomWidth: 1, borderBottomColor: '#E2E8F0', 
+    backgroundColor: '#ffc1c1', borderBottomWidth: 1, borderBottomColor: '#E2E8F0', 
     alignItems: 'center', justifyContent: 'center',
     paddingTop: Platform.OS === 'android' ? (StatusBar.currentHeight ? StatusBar.currentHeight + 15 : 40) : 15,
     paddingBottom: 15, paddingHorizontal: 20
   },
-  headerTitle: { fontSize: 22, fontWeight: 'bold', color: '#1E293B', textAlign: 'center' },
-  inputContainer: { padding: 20, backgroundColor: '#FFF', margin: 15, borderRadius: 12, elevation: 1 },
-  input: { fontSize: 16, color: '#334155', minHeight: 60, textAlignVertical: 'top' },
-  button: { backgroundColor: '#10B981', padding: 12, borderRadius: 8, alignItems: 'center', marginTop: 10 },
+  headerTitle: { fontSize: 22, fontWeight: 'bold', color: '#596577', textAlign: 'center' },
+  inputContainer: { padding: 15, backgroundColor: '#FFF', marginHorizontal: 15, marginTop: 15, borderRadius: 12, elevation: 1 },
+  // Fixed style constraints: minHeight keeps it neat, maxHeight stops it from overflowing the screen
+  input: { fontSize: 16, color: '#334155', minHeight: 60, maxHeight: 120, textAlignVertical: 'top' }, 
+  button: { backgroundColor: '#10B981', padding: 12, borderRadius: 8, alignItems: 'center', marginTop: 8 },
   buttonText: { color: '#FFF', fontWeight: 'bold', fontSize: 16 },
+  listWrapper: { flex: 1, marginTop: 5 }, 
   listContainer: { paddingHorizontal: 15, paddingBottom: 20 },
   taskCard: { 
     backgroundColor: '#FFF', padding: 15, borderRadius: 12, marginBottom: 12,
@@ -126,5 +147,5 @@ const styles = StyleSheet.create({
     padding: 15, backgroundColor: '#FFFFFF', borderTopWidth: 1, borderTopColor: '#E2E8F0', alignItems: 'center', justifyContent: 'center'
   },
   footerText: { fontSize: 12, color: '#64748B', fontWeight: '600' },
-  footerCredits: { fontSize: 10, color: '#94A3B8', marginTop: 2 }
+  footerCredits: { fontSize: 10, color: '#ffc1c1', marginTop: 2 }
 });

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ZN0t3 BY Z4cks",
-    "slug": "ZN0t3-BY-Z4cks",
+    "name": "ZN0t3",
+    "slug": "ZN0t3",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -29,7 +29,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon1.png",
+          "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#F4F6FA"

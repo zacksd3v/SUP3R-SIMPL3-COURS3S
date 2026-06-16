@@ -130,11 +130,11 @@ export default function NoteDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FFFFFF' },
+  container: { flex: 1, backgroundColor: '#f0e7e7' },
   innerContainer: { flex: 1 },
   header: { 
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-    backgroundColor: '#F8FAFC', borderBottomWidth: 1, borderBottomColor: '#E2E8F0',
+    backgroundColor: '#ffc1c1', borderBottomWidth: 1, borderBottomColor: '#E2E8F0',
     paddingTop: Platform.OS === 'android' ? (StatusBar.currentHeight ? StatusBar.currentHeight + 15 : 40) : 15,
     paddingBottom: 15, paddingHorizontal: 20
   },
