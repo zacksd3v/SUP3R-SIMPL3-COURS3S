@@ -2,7 +2,7 @@
   "expo": {
     "name": "ZN0t3",
     "slug": "ZN0t3",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "znote",
@@ -13,6 +13,7 @@
     },
     "android": {
       "package": "com.zacks.znote",
+      "versionCode": 2,
       "adaptiveIcon": {
         "backgroundColor": "#F4F6FA",
         "foregroundImage": "./assets/images/icon.png"
