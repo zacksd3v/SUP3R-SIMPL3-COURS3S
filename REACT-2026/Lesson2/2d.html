@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 2a</title>
+    <title>Exercise 2d</title>
 </head>
 <body>
     <div class="js-container"></div>
@@ -15,7 +15,25 @@
     <script type="text/babel">
         function App() {
             return (
-                <p>Assalam, Welcome to my Web</p>
+                <>
+                    <p>Assalam, Welcome to my Web</p>
+                    <LoginForm />
+                </>
+            );
+        }
+
+        function LoginForm() {
+            return (
+                <>
+                    <div>
+                        <input placeholder="Email" type="email" />
+                    </div>
+                    <div>
+                        <input placeholder="password" type="password" />
+                    </div>
+                        <button>Login</button>
+                        <button>Sign up</button>
+                </>
             );
         }
 
