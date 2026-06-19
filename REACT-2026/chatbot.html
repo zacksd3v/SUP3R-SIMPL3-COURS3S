@@ -65,29 +65,83 @@
 
         }
 
+        function Conversations() {
+            // Amfani da map() feature domin 
+            // displaying components
+            const chatMessages = [{ // Na samu bug ann sbd sunan component & var sun zama iri daya.
+                message: "Assalamu Alaikum",
+                sender: "user",
+                id: crypto.randomUUID()
+            }, {
+                message: "Wa'alaikussalam! How can I help U?",
+                sender: 'robot',
+                id: crypto.randomUUID()
+            }, {
+                message: "Who are U? Expain Your Self!" ,
+                sender: "user",
+                id: crypto.randomUUID()
+            }, {
+                message: "I am React ChatBot 2026 v.1.0 Coded by RNG-Tech-301.",
+                sender: "robot",
+                id: crypto.randomUUID()
+            }];
+
+            function sendChat() {
+                chatMessages.push({
+                    message: 'Cool! Thnks',
+                    sender: 'user',
+                    id: crypto.randomUUID() // wnn sbd yana bamu dff ID.
+                });
+
+                console.log(chatMessages);
+            }
+
+            return (
+                <>
+                    <button onClick={sendChat}>Send Chat</button>
+                    { chatMessages.map((chatMessage) => {
+                            return (
+                                <ChatMessage 
+                                    message = {chatMessage.message} // Idan aka sanya su cikin "" quotes baza mu samu abinda muke so ba. dole sai cikin {}
+                                    sender = {chatMessage.sender}
+                                    key = {chatMessage.id} // Dole ka rubuta sunan key. Ba abinda kai ke so ba!
+                                />
+                            );
+                        }) }
+                </>
+            )
+        }
+
         // A madadin muyi amfani da const=app()... 
         // Za muyi amfani da component.
         function App() {
             return (
                 <>
-                <ChatInput />
-                <ChatMessage 
-                    message="Salamun Alaikum!" 
-                    sender="user" 
-                />
-                <ChatMessage 
-                    message="Wa'alaikussalam! How can I help U?" 
-                    sender="robot" 
-                />
-                <ChatMessage 
-                    message="Who are U? Expain Your Self!" 
-                    sender="user" 
-                />
-                <ChatMessage 
-                    message="I am React ChatBot 2026 v.1.0 Coded by RNG-Tech-301." 
-                    sender="robot" 
-                />
-            </>
+                    <ChatInput />
+                    <Conversations />
+                    {/* { ChatMessageC } */}
+                    {/*<ChatMessageComponents />  Wnn ya bani wahala! sbd {} zan amfani da shi ba < /> ba. */}
+                    {/* B4 nayi amfani da .map()
+                        da ina amfani ne da wnn hanyar! */}
+
+                    {/*<ChatMessage 
+                        message="Salamun Alaikum!" 
+                        sender="user" 
+                    />
+                    <ChatMessage 
+                        message="Wa'alaikussalam! How can I help U?" 
+                        sender="robot" 
+                    />
+                    <ChatMessage 
+                        message="Who are U? Expain Your Self!" 
+                        sender="user" 
+                    />
+                    <ChatMessage 
+                        message="I am React ChatBot 2026 v.1.0 Coded by RNG-Tech-301." 
+                        sender="robot" 
+                    />
+                    */}
+                </>
             );
         } 
         /* const app = (
