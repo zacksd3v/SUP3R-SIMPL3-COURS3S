@@ -11,17 +11,56 @@
     <script src="https://unpkg.com/supersimpledev@8.6.4/react.js"></script>
     <script src="https://unpkg.com/supersimpledev@8.6.4/react-dom.js"></script>
 
+    <script src="https://unpkg.com/supersimpledev@8.6.4/chatbot.js"></script>
+
     <script src="https://unpkg.com/supersimpledev@8.6.4/babel.js"></script>
     <script type="text/babel">
-        function ChatInput() {
+        function ChatInput({ chatMessages, setChatMessages }) {
+            const [inputText, setInputText] = React.useState('');
+
+            function saveText(event) {
+                // Duk lokacin da kayi running fnx a input, yana baka parameter guda 1 shine 'event'.
+                setInputText(event.target.value); // Duk abinda nayi running zai min saving nasa ciki inputText var!.
+            }
+
+            function sendMessages() {
+                const newChatMessages = [
+                    ...chatMessages,
+                    {
+                        message: inputText,
+                        sender: 'user',
+                        id: crypto.randomUUID()
+                    }
+                ]
+                setChatMessages(newChatMessages);
+
+                const response = Chatbot.getResponse(inputText);
+                setChatMessages([
+                    ...newChatMessages,
+                    {
+                        message: response,
+                        sender: 'robot',
+                        id: crypto.randomUUID()
+                    }
+                ]);
+
+                setInputText('');
+            }
+
             return (
             <>
                 {/* Let's Do some Code CleanUP */}
+                {/* Ma'anar onChange: shine sadda kake rubutun a cikin input field din, aikin yake faruwa. Ma'ana fnx din yake runnig! */}
+                {/* Muna kiran wnn controll input. value={} sbd muna d control akansa.. */}
                 <input 
                     placeholder="Send a message to chatb0t" 
                     size="30" 
+                    onChange={saveText}
+                    value={inputText}
                 />
-                <button>Send</button>
+                <button
+                    onClick={sendMessages}
+                >Send</button>
             </>
             )
         }
@@ -65,10 +104,35 @@
 
         }
 
-        function Conversations() {
+        function ChatMessages({ chatMessages }) {
+            // AIKI DA USE STATE SBD .push BAYA UPDATING PAGE NAMU!
+            /* Dalilin comment na wnn sbd zan maida shi cikin app component
+            domin nayi aiki da wni feature lift useState Up. Ma'ana kowa ya samu access da wnn USeState dn.
+            const [chatMessages, setChatMessages] = React.useState([{ 
+                message: "Assalamu Alaikum",
+                sender: "user",
+                id: crypto.randomUUID()
+            }, {
+                message: "Wa'alaikussalam! How can I help U?",
+                sender: 'robot',
+                id: crypto.randomUUID()
+            }, {
+                message: "Who are U? Expain Your Self!" ,
+                sender: "user",
+                id: crypto.randomUUID()
+            }, {
+                message: "I am React ChatBot 2026 v.1.0 Coded by RNG-Tech-301.",
+                sender: "robot",
+                id: crypto.randomUUID()
+            }]); // ShortCut V.2 */
+
+            // const [chatMessages, setChatMessages] = array; // shortCut V. 1
+            // const chatMessages = array[0]; // shortcut is Null here !
+            // const setChatMessages = array[1]; // Wnn suna da na saman sa suna da shortCut!
+
             // Amfani da map() feature domin 
             // displaying components
-            const chatMessages = [{ // Na samu bug ann sbd sunan component & var sun zama iri daya.
+            /*const chatMessages = [{ // Na samu bug ann sbd sunan component & var sun zama iri daya.
                 message: "Assalamu Alaikum",
                 sender: "user",
                 id: crypto.randomUUID()
@@ -85,20 +149,35 @@
                 sender: "robot",
                 id: crypto.randomUUID()
             }];
+            */
 
-            function sendChat() {
-                chatMessages.push({
+            // 4 prctice!
+            /*function sendChat() {
+                setChatMessages([
+                    ...chatMessages, // Wnn yana samar da copy na waccen array-object din namu. muna kiransa ...spreadOperator. NB: ida.n bamu aiki da shi kana updating zai overidden komai naka a HTML
+                    {
+                        message: 'Hi Robot is Overtaked!',
+                        sender: 'robot',
+                        id: crypto.randomUUID()
+                    }
+                ]);
+                */
+            
+                // WNN BAYA MANA UPDATING HTML PAGE NAMU. SO WE HAVE TO USE useState!.
+             /*   chatMessages.push({
                     message: 'Cool! Thnks',
                     sender: 'user',
                     id: crypto.randomUUID() // wnn sbd yana bamu dff ID.
                 });
+                */
 
-                console.log(chatMessages);
-            }
+                // console.log(chatMessages);   
+            // }
 
             return (
                 <>
-                    <button onClick={sendChat}>Send Chat</button>
+                    {/*<button onClick={sendChat}>Send Chat</button>*/}
+
                     { chatMessages.map((chatMessage) => {
                             return (
                                 <ChatMessage 
@@ -115,10 +194,31 @@
         // A madadin muyi amfani da const=app()... 
         // Za muyi amfani da component.
         function App() {
+            const [chatMessages, setChatMessages] = React.useState([{ 
+                message: "Assalamu Alaikum",
+                sender: "user",
+                id: crypto.randomUUID()
+            }, {
+                message: "Wa'alaikussalam! How can I help U?",
+                sender: 'robot',
+                id: crypto.randomUUID()
+            }, {
+                message: "Who are U? Expain Your Self!" ,
+                sender: "user",
+                id: crypto.randomUUID()
+            }, {
+                message: "I am React ChatBot 2026 v.1.0 Coded by RNG-Tech-301.",
+                sender: "robot",
+                id: crypto.randomUUID()
+            }]);
+
             return (
                 <>
-                    <ChatInput />
-                    <Conversations />
+                    <ChatInput 
+                        chatMessages={chatMessages} 
+                        setChatMessages={setChatMessages}
+                    />
+                    <ChatMessages chatMessages={chatMessages} />
                     {/* { ChatMessageC } */}
                     {/*<ChatMessageComponents />  Wnn ya bani wahala! sbd {} zan amfani da shi ba < /> ba. */}
                     {/* B4 nayi amfani da .map()
