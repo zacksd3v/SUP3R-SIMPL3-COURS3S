@@ -10,7 +10,7 @@ import {
   TextInput 
 } from 'react-native';
 import { Audio } from 'expo-av';
-import * as Sharing from 'expo-sharing';
+import * as Sharing from 'expo-sharing'; // An dawo da Sharing don ajiye fayil cikin sauki
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -208,13 +208,22 @@ export default function App() {
     }
   }
 
-  // TURA SAUTI (SHARE)
-  async function shareRecording(uri: string) {
-    const isAvailable = await Sharing.isAvailableAsync();
-    if (isAvailable) {
-      await Sharing.shareAsync(uri);
-    } else {
-      Alert.alert('Error', 'Your device does not support file sharing.');
+  // AIKIN ADANA FAYIL A PUBLIC FOLDER (Yana amfani da Native Sharing Window)
+  async function saveToPublicFolder(uri: string) {
+    try {
+      const isAvailable = await Sharing.isAvailableAsync();
+      if (isAvailable) {
+        await Sharing.shareAsync(uri, {
+          dialogTitle: 'Save Audio File',
+          mimeType: 'audio/x-m4a',
+          UTI: 'public.audio'
+        });
+      } else {
+        Alert.alert('Error', 'Your device does not support saving files this way.');
+      }
+    } catch (error) {
+      Alert.alert('Error', 'Failed to save audio.');
+      console.error(error);
     }
   }
 
@@ -286,9 +295,9 @@ export default function App() {
                     <Ionicons name="create-outline" size={24} color="#FFD60A" />
                   </TouchableOpacity>
 
-                  {/* Share Button */}
-                  <TouchableOpacity onPress={() => shareRecording(item.uri)}>
-                    <Ionicons name="share-social-outline" size={24} color="#007AFF" />
+                  {/* Download to Folder Button */}
+                  <TouchableOpacity onPress={() => saveToPublicFolder(item.uri)}>
+                    <Ionicons name="download-outline" size={24} color="#007AFF" />
                   </TouchableOpacity>
 
                   {/* Delete Button */}
