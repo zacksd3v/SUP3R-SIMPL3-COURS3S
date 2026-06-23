@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d</title>
+</head>
+<body>
+     <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev@8.6.4/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev@8.6.4/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev@8.6.4/babel.js"></script>
+    <script type="text/babel">
+        function CountApp() {
+            const [count, setCount] = React.useState(0);
+            
+            function increaseCount() {   
+                setCount(count + 1);          
+            }
+
+            return (
+                <button onClick={increaseCount}>
+                    Clicked {count} {count === 1 ? 'time' : 'times'}
+                </button>
+            );
+        }
+        
+        function App() {
+            return (
+                <>
+                    <CountApp />
+                    <CountApp />
+                </>
+            );
+        }
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+</html>

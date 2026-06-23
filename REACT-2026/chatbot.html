@@ -17,13 +17,22 @@
     <script type="text/babel">
         function ChatInput({ chatMessages, setChatMessages }) {
             const [inputText, setInputText] = React.useState('');
+            const [isLoading, setIsLoading] = React.useState(false);
 
             function saveText(event) {
                 // Duk lokacin da kayi running fnx a input, yana baka parameter guda 1 shine 'event'.
                 setInputText(event.target.value); // Duk abinda nayi running zai min saving nasa ciki inputText var!.
             }
+            // Ex 3k
+            async function sendMessages() {
+                if (isLoading || inputText === '') {
+                    return;
+                }
 
-            function sendMessages() {
+                setIsLoading(true);
+
+                setInputText('');
+
                 const newChatMessages = [
                     ...chatMessages,
                     {
@@ -32,9 +41,18 @@
                         id: crypto.randomUUID()
                     }
                 ]
-                setChatMessages(newChatMessages);
+                
+                setChatMessages([
+                    ...newChatMessages,
+                    {
+                        message: 'Loading...',
+                        sender: 'robot',
+                        id: crypto.randomUUID()
+                    }
+                ]);
 
-                const response = Chatbot.getResponse(inputText);
+                const response = await Chatbot.getResponseAsync(inputText);
+
                 setChatMessages([
                     ...newChatMessages,
                     {
@@ -44,7 +62,17 @@
                     }
                 ]);
 
-                setInputText('');
+                setIsLoading(false);
+            }
+            // Ex 3i
+            function enterKey(event) {
+                if (event.key === 'Enter') {
+                    sendMessages();
+                }
+                // Ex 3j
+                if (event.key === 'Escape') {
+                    setInputText('');
+                }
             }
 
             return (
@@ -57,6 +85,7 @@
                     size="30" 
                     onChange={saveText}
                     value={inputText}
+                    onKeyDown={enterKey}
                 />
                 <button
                     onClick={sendMessages}
