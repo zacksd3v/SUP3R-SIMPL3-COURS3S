@@ -4,6 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatBot</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: rgb(218, 207, 207);
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            font-size: 15px;
+            border-width: 1px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        .send-button {
+            border: none;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: rgb(25, 135, 84);
+        }
+
+        .chat-input-container {
+            display: flex;
+            margin-bottom: 40px;
+        }
+
+        .app-container {
+            display: flex;
+            margin: auto;
+            height: 100vh;
+            max-width: 600px;
+            flex-direction: column;
+        }
+
+        .chat-message-user {
+            display: flex;
+            justify-content: end;
+            align-items: start;
+        }
+
+        .chat-message-robot {
+            display: flex;
+            align-items: start;
+        }
+
+        .chat-message-text {
+            margin-top: 0;
+            max-width: 300px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow-wrap: break-word;
+            background-color: rgb(238, 238, 238);
+        }   
+
+        .chat-message-profile {
+            width: 45px;
+        }
+
+        .chat-message-container {
+            flex-grow: 1;
+            margin-top: 20px;
+            overflow: scroll; /* wnn sbd message suna scrolling. ba su dinga pushing input namu qasa ba*/
+            scrollbar-width: none;
+            
+        }
+    </style>
 </head>
 <body>
     <div class="js-container"></div>
@@ -76,21 +148,24 @@
             }
 
             return (
-            <>
+                // Domin ka iya style na wnn zuwa flex to dole ka maida fragment zuwa div.
+            <div className="chat-input-container">
                 {/* Let's Do some Code CleanUP */}
                 {/* Ma'anar onChange: shine sadda kake rubutun a cikin input field din, aikin yake faruwa. Ma'ana fnx din yake runnig! */}
                 {/* Muna kiran wnn controll input. value={} sbd muna d control akansa.. */}
                 <input 
-                    placeholder="Send a message to chatb0t" 
+                    placeholder="Send a message to Zacks chatb0t" 
                     size="30" 
                     onChange={saveText}
                     value={inputText}
                     onKeyDown={enterKey}
+                    className="chat-input"
                 />
                 <button
                     onClick={sendMessages}
+                    className="send-button"
                 >Send</button>
-            </>
+            </div>
             )
         }
 
@@ -114,17 +189,23 @@
 
             // MUNA DA SHORTCUT NA IF-STATEMENT A CIKIN JSX A.K.A HTML&JS A HADE!
             return (
-                <div>
+                <div className={
+                    sender === 'user'
+                        ? 'chat-message-user'
+                        : 'chat-message-robot'
+                }>
                     {/* IDan zamu sa abu a multiple Line Za muyi amfani da () */}
 
                     { sender === 'robot' && (
-                        <img src="robot.png" width="50" />
+                        <img src="robot.png" className="chat-message-profile" />
                     ) }
 
-                    { message }
+                    <div className="chat-message-text">
+                        { message }
+                    </div>
 
                     { sender === 'user' && (
-                        <img src="user.png" width="50" />
+                        <img src="user.png" className="chat-message-profile" />
                     )}
 
                     {/*Munyi Amfani da Gurd Operator sbd muyi shortCut na if-statement namu*/}
@@ -203,8 +284,21 @@
                 // console.log(chatMessages);   
             // }
 
+            // we wanna get HTML element? Baba use UseRef!
+            const chatMessageRef = React.useRef(null);
+
+            React.useEffect(() => {
+                const containerElement = chatMessageRef.current;
+                if (containerElement) {
+                    containerElement.scrollTop = containerElement.scrollHeight;
+                }
+            }, [chatMessages]);
+
             return (
-                <>
+                <div 
+                    className="chat-message-container" 
+                    ref={chatMessageRef}
+                >
                     {/*<button onClick={sendChat}>Send Chat</button>*/}
 
                     { chatMessages.map((chatMessage) => {
@@ -216,7 +310,7 @@
                                 />
                             );
                         }) }
-                </>
+                </div>
             )
         }
 
@@ -224,7 +318,7 @@
         // Za muyi amfani da component.
         function App() {
             const [chatMessages, setChatMessages] = React.useState([{ 
-                message: "Assalamu Alaikum",
+                message: "Assalamu Alaikum, SAQAG0",
                 sender: "user",
                 id: crypto.randomUUID()
             }, {
@@ -242,12 +336,12 @@
             }]);
 
             return (
-                <>
+                <div className="app-container">
+                    <ChatMessages chatMessages={chatMessages} />
                     <ChatInput 
                         chatMessages={chatMessages} 
                         setChatMessages={setChatMessages}
                     />
-                    <ChatMessages chatMessages={chatMessages} />
                     {/* { ChatMessageC } */}
                     {/*<ChatMessageComponents />  Wnn ya bani wahala! sbd {} zan amfani da shi ba < /> ba. */}
                     {/* B4 nayi amfani da .map()
@@ -270,7 +364,7 @@
                         sender="robot" 
                     />
                     */}
-                </>
+                </div>
             );
         } 
         /* const app = (

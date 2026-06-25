@@ -77,10 +77,27 @@
     [+] <Component></Component>         <Component /> (wnn Sunan Component NE!)
     [+] <img></img>                     <img /> 
 
-## State:
+## HOOKS:
+    => USE STATE:
+
     [+] yana da alaqa da HTML. duk lokacin da mukai updating code a react! idan bamuyi aiki da useState ba to HTML bazai Updating ba.
     [+] UseState yana da abu 2:
         1 - The current data.
         2- Snn sae Fnx wanda da shine muke updating koma menene da shi.
         NB: Abin lura anan shine idan kazo zakai updating na useState fnx naka! toh dole ne kayi amfani da ...varNameNka a.k.a spread Operator!! domin samar da photoCopy na waccan abinda kake aiki akai! idan ba haka ba zai overridden array, var, objct ..... koma dai me kake so kayi updating naka OK!
-    [+] Snn yana da SHORTCUT called array Destructing.
+    [+] Snn yana da SHORTCUT called array Destructing. using { sai props namu}
+
+    => USE EFFECT:
+
+    [+] Aikin sa shine ya mana runnign some code duk sadda muka creating component | mukai updating wani code.
+    [+] UseEffect yana da paramater 2.
+        1. funx da zai runnig with some code inside.
+        2. [] empty array. idan muka bashi empty array zai running once ko sau 1. sbd ta nan muke controlling sai nawa zai running.
+    [+] Best practice dae shine ka bashi empty array. a.k.a ya zama dependancy array, to avoid runnig tooo often.
+
+    => USEREF:
+
+    [+] Shi kuma useRef amfanin sa shine: a react idan muna son muyi getting html element toh fa ba kamar js bane da zamuyi amfani da DOM ba. sai dai muyi dabara. to wnn dabarar itace useRef.
+    [+] UseRef is container | yana bamu dama muyi creating container | saving HTML from the component namu. Tanan ne zamu iya accessing abinda ke cikin return namu na HTML.
+    [+] Ta Cikin tag din HTML zamu sanya prop na useRef. ta haka zasu gane juna.
+    [+] useRef yana farawa da initial value i.e (null)
