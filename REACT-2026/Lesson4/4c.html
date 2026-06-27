@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 4c</title>
+      <style>
+        .btn-style, .btn-red-style {
+            border: none;
+            padding: 15px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: green;
+        }
+
+        .btn-red-style {
+            color: white;
+            background-color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [isButton ,setIsButton] = React.useState(true);
+        function btnSwitch() {
+            if (isButton) {
+                setIsButton(false);
+            } else {
+                setIsButton(true);
+            }
+        }
+        return (
+            <div>
+                <button 
+                    className={isButton ? 'btn-style' : 'btn-red-style'}
+                    onClick={btnSwitch}
+                >{isButton 
+                    ? 'ON' 
+                    : 'OFF'}
+                </button>
+            </div>
+        );
+      }
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

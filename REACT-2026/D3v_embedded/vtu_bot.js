@@ -3,7 +3,7 @@
 
 const Chatbot = {
   defaultResponses: {
-    'hello hi hey greetings': `Hello! Welcome to our Data and Airtime platform. How can I help you today? You can ask me about data prices, how to buy, checking your balance, or internet troubleshooting.`,
+    'Assalam hello hi hey greetings': `Hello! Welcome to our Data and Airtime platform. How can I help you today? You can ask me about data prices, how to buy, checking your balance, or internet troubleshooting.`,
     
     'how to buy purchase order transaction process': `Buying Data or Airtime is very easy! Just navigate to the 'Buy Data' or 'Top-up Airtime' page on our website, input your phone number, select your network (MTN, Airtel, Glo, 9mobile), choose your plan, and make a secure payment via ATM Card or Bank Transfer.`,
     

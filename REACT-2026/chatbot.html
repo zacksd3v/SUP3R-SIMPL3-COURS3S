@@ -66,6 +66,8 @@
 
         .chat-message-profile {
             width: 45px;
+            margin-left: 10px;
+            margin-right: 10x;
         }
 
         .chat-message-container {
@@ -83,7 +85,8 @@
     <script src="https://unpkg.com/supersimpledev@8.6.4/react.js"></script>
     <script src="https://unpkg.com/supersimpledev@8.6.4/react-dom.js"></script>
 
-    <script src="https://unpkg.com/supersimpledev@8.6.4/chatbot.js"></script>
+    <!-- <script src="https://unpkg.com/supersimpledev@8.6.4/chatbot.js"></script> -->
+     <script src="./D3v_embedded/vtu_bot.js"></script>
 
     <script src="https://unpkg.com/supersimpledev@8.6.4/babel.js"></script>
     <script type="text/babel">
@@ -318,20 +321,8 @@
         // Za muyi amfani da component.
         function App() {
             const [chatMessages, setChatMessages] = React.useState([{ 
-                message: "Assalamu Alaikum, SAQAG0",
+                message: "🌚 I Created This B0t",
                 sender: "user",
-                id: crypto.randomUUID()
-            }, {
-                message: "Wa'alaikussalam! How can I help U?",
-                sender: 'robot',
-                id: crypto.randomUUID()
-            }, {
-                message: "Who are U? Expain Your Self!" ,
-                sender: "user",
-                id: crypto.randomUUID()
-            }, {
-                message: "I am React ChatBot 2026 v.1.0 Coded by RNG-Tech-301.",
-                sender: "robot",
                 id: crypto.randomUUID()
             }]);
 
