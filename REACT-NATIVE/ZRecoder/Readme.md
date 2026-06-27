@@ -97,4 +97,4 @@ This project is optimized with an `eas.json` configuration block to be compiled 
 ## 🛡️ License & Credit
 Distributed under the MIT License. 
 
-**Powered by RNG Tech-301** 🚀
+**Powered by RNG-T3CH-301** 🚀
