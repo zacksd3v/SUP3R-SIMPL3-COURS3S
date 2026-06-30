@@ -5,13 +5,15 @@ import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
 import VerifyScreen from './screens/VerifyScreen';
+import ForgotPasswordScreen from './screens/ForgotPasswordScreen'; // Shigar da sabon shafin
 
 export default function App() {
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isRegisterPage, setIsRegisterPage] = useState(false);
   const [isVerifyPage, setIsVerifyPage] = useState(false);
-  const [userEmail, setUserEmail] = useState(''); // Na rike email din da za a yi verify
+  const [isForgotPasswordPage, setIsForgotPasswordPage] = useState(false); // Sabon State
+  const [userEmail, setUserEmail] = useState('');
 
   useEffect(() => {
     const checkToken = async () => {
@@ -29,7 +31,7 @@ export default function App() {
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator size="large" color="#f0d76a" />
+        <ActivityIndicator size="large" color="#007BFF" />
       </View>
     );
   }
@@ -39,12 +41,10 @@ export default function App() {
       {token ? (
         <HomeScreen setToken={setToken} />
       ) : isVerifyPage ? (
-        // Idan an gama register, nuna shafin Verify OTP
-        <VerifyScreen 
-          email={userEmail} 
-          setIsRegisterPage={setIsRegisterPage} 
-          setIsVerifyPage={setIsVerifyPage} 
-        />
+        <VerifyScreen email={userEmail} setIsRegisterPage={setIsRegisterPage} setIsVerifyPage={setIsVerifyPage} />
+      ) : isForgotPasswordPage ? (
+        // Idan user ya danna forgot password, nuna masa wannan shafin
+        <ForgotPasswordScreen setIsForgotPasswordPage={setIsForgotPasswordPage} />
       ) : isRegisterPage ? (
         <View style={{ flex: 1 }}>
           <RegisterScreen setIsVerifyPage={setIsVerifyPage} setUserEmail={setUserEmail} />
@@ -54,7 +54,8 @@ export default function App() {
         </View>
       ) : (
         <View style={{ flex: 1 }}>
-          <LoginScreen setToken={setToken} />
+          {/* Mun tura setIsForgotPasswordPage zuwa LoginScreen */}
+          <LoginScreen setToken={setToken} setIsForgotPasswordPage={setIsForgotPasswordPage} />
           <TouchableOpacity onPress={() => setIsRegisterPage(true)}>
             <Text style={styles.switchText}>Don't have an account? Register here</Text>
           </TouchableOpacity>

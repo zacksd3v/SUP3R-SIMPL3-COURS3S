@@ -150,7 +150,6 @@ router.get('/me', async (req, res) => {
     }
 
     // Tabbatar da ingancin Token (Verify JWT)
-    const jwt = require('jsonwebtoken');
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Nemo user a database amma ka cire masa password saboda tsaro (.select('-password'))
@@ -163,6 +162,75 @@ router.get('/me', async (req, res) => {
 
   } catch (error) {
     res.status(401).json({ message: "Token is not valid!", error: error.message });
+  }
+});
+
+router.post('/forgot-password', async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "No account found with this email!" });
+    }
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const expires = new Date(Date.now() + 1 * 60 * 1000);
+
+    // Ajiye OTP ɗin a jikin user na ɗan lokaci
+    user.otpCode = otp;
+    user.otpExpires = expires;
+    await user.save();
+
+    // Tura OTP ta Email
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Reset Your Password - OTP Code 🔑',
+      text: `Hello ${user.name},\n\nYou requested to reset your password. Your OTP code is: ${otp}.\nIt will expire in 15 minutes.\n\nIf you didn't request this, please ignore this email.`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) console.log("Email failed: ", error);
+      else console.log("Reset Email sent: " + info.response);
+    });
+
+    res.json({ message: "OTP code sent to your email! 🎉" });
+
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+router.post('/reset-password', async (req, res) => {
+  try {
+    const { email, otp, newPassword } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "User not found!" });
+    }
+
+    if (user.otpCode !== otp) {
+      return res.status(400).json({ message: "Invalid OTP code!" });
+    }
+
+    if (new Date() > user.otpExpires) {
+      return res.status(400).json({ message: "OTP code has expired!" });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+    user.password = hashedPassword;
+    user.otpCode = null;
+    user.otpExpires = null;
+    await user.save();
+
+    res.json({ message: "Password reset successful! You can now login with your new password." });
+
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
   }
 });
 

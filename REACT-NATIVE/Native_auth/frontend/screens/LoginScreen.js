@@ -3,7 +3,8 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, ActivityInd
 import * as SecureStore from 'expo-secure-store';
 import axios from 'axios';
 
-export default function LoginScreen({ setToken }) {
+// HAKAN SHI NE GYARAN: Muna karbar 'setIsForgotPasswordPage' a matsayin prop a nan
+export default function LoginScreen({ setToken, setIsForgotPasswordPage }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -16,6 +17,7 @@ export default function LoginScreen({ setToken }) {
 
     setLoading(true);
     try {
+      // Kyakkyawan aiki da ka saita asalin IP dinka na yanzu (10.44.101.78)
       const response = await axios.post('http://10.44.101.78:5000/api/auth/login', {
         email,
         password
@@ -47,6 +49,11 @@ export default function LoginScreen({ setToken }) {
       <TouchableOpacity style={styles.button} onPress={handleLogin} disabled={loading}>
         {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>Login</Text>}
       </TouchableOpacity>
+
+      {/* MAƁALLIN FORGOT PASSWORD */}
+      <TouchableOpacity onPress={() => setIsForgotPasswordPage(true)}>
+        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -56,5 +63,8 @@ const styles = StyleSheet.create({
   title: { fontSize: 28, fontWeight: 'bold', marginBottom: 20, textAlign: 'center', color: '#333' },
   input: { backgroundColor: '#fff', padding: 15, borderRadius: 8, marginBottom: 15, borderWidth: 1, borderColor: '#ddd' },
   button: { backgroundColor: '#1E3A8A', padding: 15, borderRadius: 8, alignItems: 'center', marginTop: 10, height: 55, justifyContent: 'center' },
-  buttonText: { color: '#fff', fontSize: 18, fontWeight: 'bold' }
+  buttonText: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
+  
+  // Salon rubutun Forgot Password
+  forgotPasswordText: { color: '#EF4444', textAlign: 'center', marginTop: 20, fontSize: 15, fontWeight: '600' }
 });
