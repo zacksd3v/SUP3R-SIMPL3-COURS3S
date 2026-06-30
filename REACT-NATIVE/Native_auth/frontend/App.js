@@ -4,11 +4,14 @@ import * as SecureStore from 'expo-secure-store';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
+import VerifyScreen from './screens/VerifyScreen';
 
 export default function App() {
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isRegisterPage, setIsRegisterPage] = useState(false);
+  const [isVerifyPage, setIsVerifyPage] = useState(false);
+  const [userEmail, setUserEmail] = useState(''); // Na rike email din da za a yi verify
 
   useEffect(() => {
     const checkToken = async () => {
@@ -26,7 +29,7 @@ export default function App() {
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator size="large" color="#007BFF" />
+        <ActivityIndicator size="large" color="#f0d76a" />
       </View>
     );
   }
@@ -35,9 +38,16 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       {token ? (
         <HomeScreen setToken={setToken} />
+      ) : isVerifyPage ? (
+        // Idan an gama register, nuna shafin Verify OTP
+        <VerifyScreen 
+          email={userEmail} 
+          setIsRegisterPage={setIsRegisterPage} 
+          setIsVerifyPage={setIsVerifyPage} 
+        />
       ) : isRegisterPage ? (
         <View style={{ flex: 1 }}>
-          <RegisterScreen setIsRegisterPage={setIsRegisterPage} />
+          <RegisterScreen setIsVerifyPage={setIsVerifyPage} setUserEmail={setUserEmail} />
           <TouchableOpacity onPress={() => setIsRegisterPage(false)}>
             <Text style={styles.switchText}>Already have an account? Login here</Text>
           </TouchableOpacity>
