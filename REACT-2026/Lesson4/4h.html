@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4h</title>
+</head>
+<body>
+     <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev@8.6.4/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev@8.6.4/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev@8.6.4/babel.js"></script>
+    <script type="text/babel">
+        function App() {
+            const [count, setCount] = React.useState(0);
+            const btnRef = React.useRef(); 
+            
+            function autoClick() {
+                setInterval(() => {
+                    const btnElem = btnRef.current;
+                    if (btnElem) {
+                        btnElem.click();
+                    }
+                }, 1000);
+            }
+            
+            function increaseCount() {   
+                setCount(count + 1);          
+            }
+
+            function reset() {
+                setCount(0);
+            }
+            return (
+                <>
+                    <button onClick={increaseCount} ref={btnRef}>
+                        Clicked {count} {count === 1 ? 'time' : 'times' }
+                    </button>
+                    <button onClick={reset}>
+                        Reset    
+                    </button>
+                    <button onClick={autoClick}>
+                        Auto Click     
+                    </button>
+                </>
+            );
+        }
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+</body>
+</html>

@@ -3,7 +3,6 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, ActivityInd
 import * as SecureStore from 'expo-secure-store';
 import axios from 'axios';
 
-// HAKAN SHI NE GYARAN: Muna karbar 'setIsForgotPasswordPage' a matsayin prop a nan
 export default function LoginScreen({ setToken, setIsForgotPasswordPage }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,24 +16,31 @@ export default function LoginScreen({ setToken, setIsForgotPasswordPage }) {
 
     setLoading(true);
     try {
-      // Kyakkyawan aiki da ka saita asalin IP dinka na yanzu (10.44.101.78)
-      const response = await axios.post('http://10.44.101.78:5000/api/auth/login', {
+      const response = await axios.post('http://127.0.0.1:5000/api/auth/login', {
         email,
         password
-      });
+      }, { timeout: 6000 }); 
 
       const { token } = response.data;
       
-      // Ajiye Token a wayar
       await SecureStore.setItemAsync('userToken', token);
-      
       setLoading(false);
-      
-      // REDIRECT: Wannan zai sanar da App.js ya canza fuska zuwa Home kai tsaye
       setToken(token);
     } catch (error) {
-      setLoading(false);
-      const errorMsg = error.response?.data?.message || "Network Error! Check your Backend IP Address.";
+      // Always stop loading first when an error occurs
+      setLoading(false); 
+      
+      let errorMsg = "Network Error! Make sure your backend is running and IP is correct.";
+      
+      if (error.response) {
+        // Server responded with a status code outside the 2xx range
+        errorMsg = error.response.data?.message || `Server Error: ${error.response.status}`;
+      } else if (error.request) {
+        // Request was made but no response was received
+        errorMsg = "Server is not responding. Please check your IPv4 Address.";
+      }
+
+      console.log("Login Error Details:", error.message);
       Alert.alert("Login Failed", errorMsg);
     }
   };
@@ -50,7 +56,6 @@ export default function LoginScreen({ setToken, setIsForgotPasswordPage }) {
         {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>Login</Text>}
       </TouchableOpacity>
 
-      {/* MAƁALLIN FORGOT PASSWORD */}
       <TouchableOpacity onPress={() => setIsForgotPasswordPage(true)}>
         <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
       </TouchableOpacity>
@@ -64,7 +69,5 @@ const styles = StyleSheet.create({
   input: { backgroundColor: '#fff', padding: 15, borderRadius: 8, marginBottom: 15, borderWidth: 1, borderColor: '#ddd' },
   button: { backgroundColor: '#1E3A8A', padding: 15, borderRadius: 8, alignItems: 'center', marginTop: 10, height: 55, justifyContent: 'center' },
   buttonText: { color: '#fff', fontSize: 18, fontWeight: 'bold' },
-  
-  // Salon rubutun Forgot Password
   forgotPasswordText: { color: '#EF4444', textAlign: 'center', marginTop: 20, fontSize: 15, fontWeight: '600' }
 });

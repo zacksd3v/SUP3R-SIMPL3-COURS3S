@@ -18,7 +18,7 @@ export default function ForgotPasswordScreen({ setIsForgotPasswordPage }) {
 
     setLoading(true);
     try {
-      const response = await axios.post('http://10.40.199.78:5000/api/auth/forgot-password', { email });
+      const response = await axios.post('http://127.0.0.1:5000/api/auth/forgot-password', { email });
       setLoading(false);
       Alert.alert("Success", response.data.message);
       setStep(2); // Wuce zuwa mataki na biyu
@@ -38,7 +38,7 @@ export default function ForgotPasswordScreen({ setIsForgotPasswordPage }) {
 
     setLoading(true);
     try {
-      const response = await axios.post('http://10.40.199.78:5000/api/auth/reset-password', {
+      const response = await axios.post('http://127.0.0.1:5000/api/auth/reset-password', {
         email,
         otp,
         newPassword

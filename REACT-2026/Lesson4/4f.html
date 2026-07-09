@@ -6,28 +6,32 @@
   <body>
     <div class="js-container"></div>
 
-    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="../D3v_embedded/dayjs.js"></script>
 
-    <script src="https://unpkg.com/supersimpledev/react.js"></script>
-    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="../D3v_embedded/react.js"></script>
+    <script src="../D3v_embedded/react-dom-js.js"></script>
 
-    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="../D3v_embedded/babel.js"></script>
     <script type="text/babel">
+      function App() {
+        const [time, setTime] = React.useState(
+          dayjs().format('HH:mm:ss')
+        );
+
+        React.useEffect(() => {
+          setInterval(() => {
+            setTime(dayjs().format('HH:mm:ss'));
+          }, 1000), []
+        }, []);
+
+        return (
+            <h1>NG Time: {time}</h1>
+        );
+      }
+      
       const container = document.querySelector('.js-container');
       const root = ReactDOM.createRoot(container);
-
-      setInterval(() => {
-         const div =  (
-        <div>
-            <h1>Time Elapse: {dayjs().format('HH:mm:ss')}</h1>
-            <p>Doman Name: <a href="#">https://www.bitcoin.money.ng/readme.txt</a></p>
-            <p>Price: 500BTC</p>
-            <p>Wallet Address: tb1q9x5zmrw25n87p4y8gq2p2s38vshq8v3wjl2v4p</p>
-            <button>Pay Now</button>
-        </div>
-      );
-        root.render(div);
-      }, 1000);
+      root.render(<App />);
     </script>
   </body>
 </html>

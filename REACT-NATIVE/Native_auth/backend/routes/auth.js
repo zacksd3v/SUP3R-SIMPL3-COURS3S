@@ -13,7 +13,6 @@ const transporter = nodemailer.createTransport({
     }
   });
   
-  // WURIN RIJISTA (REGISTER WITH OTP)
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -115,7 +114,6 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: "Please verify your email before logging in!" });
     }
 
-    // 3. Samar da JWT Token idan komai ya yi daidai
     // Muna sanya 'id' na user a cikin token din domin mu rinka gane ko wanene
     const token = jwt.sign(
       { userId: user._id }, 

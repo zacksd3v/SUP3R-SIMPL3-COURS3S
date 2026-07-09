@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 4g</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="../D3v_embedded/dayjs.js"></script>
+
+    <script src="../D3v_embedded/react.js"></script>
+    <script src="../D3v_embedded/react-dom-js.js"></script>
+
+    <script src="../D3v_embedded/babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        const [time, setTime] = React.useState(
+          dayjs().format('HH:mm:ss')
+        );
+
+        React.useEffect(() => {
+          setInterval(() => {
+              setTime(dayjs().format('HH:mm:ss'));
+              console.log('running a Cod3!');
+          }, 1000);
+        }); // BABU DEFENDECY ARRAY HMM MEMORY LEAKSSSSSS!!!!
+
+        return (
+            <h1>NG Time: {time}</h1>
+        );
+      }
+      
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+    </script>
+  </body>
+</html>

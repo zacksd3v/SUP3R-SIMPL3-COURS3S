@@ -14,7 +14,7 @@ export default function VerifyScreen({ email, setIsRegisterPage, setIsVerifyPage
 
     setLoading(true);
     try {
-      const response = await axios.post('http://10.44.101.78:5000/api/auth/verify-otp', {
+      const response = await axios.post('http://127.0.0.1:5000/api/auth/verify-otp', {
         email, // Mun samo wannan daga register
         otp
       });

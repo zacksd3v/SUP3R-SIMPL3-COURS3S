@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
-export default function RegisterScreen({ setIsVerifyPage, setUserEmail }) { // Mun karbi wadannan props din
+export default function RegisterScreen({ setIsVerifyPage, setUserEmail }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,21 +16,29 @@ export default function RegisterScreen({ setIsVerifyPage, setUserEmail }) { // M
 
     setLoading(true);
     try {
-      const response = await axios.post('http://10.44.101.78:5000/api/auth/register', {
+      const response = await axios.post('http://127.0.0.1:5000/api/auth/register', {
         name,
         email,
         password
-      });
+      }, { timeout: 6000 });
 
       setLoading(false);
       Alert.alert("Success 🎉", response.data.message);
       
-      // REDIRECT: Ajiye email din sannan a tura shi shafin shigar da OTP
       setUserEmail(email);
       setIsVerifyPage(true); 
     } catch (error) {
-      setLoading(false);
-      const errorMsg = error.response?.data?.message || "Network Error! Check your Backend IP Address.";
+      setLoading(false); 
+
+      let errorMsg = "Network Error! Cannot connect to backend server.";
+      
+      if (error.response) {
+        errorMsg = error.response.data?.message || `Server Error: ${error.response.status}`;
+      } else if (error.request) {
+        errorMsg = "Connection timeout! Backend server is unreachable.";
+      }
+
+      console.log("Register Error Details:", error.message);
       Alert.alert("Registration Failed", errorMsg);
     }
   };
