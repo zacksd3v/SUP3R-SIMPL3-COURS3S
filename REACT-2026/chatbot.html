@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: Arial;
-            background-color: rgb(218, 207, 207);
+            /* background-color: rgb(200, 255, 246); */
         }
 
         .chat-input {
@@ -77,6 +77,16 @@
             scrollbar-width: none;
             
         }
+
+        .welcome-sms {
+            font-size: 16px;
+            color: rgb(120, 120, 120);
+        }
+
+        .spinner {
+            height: 40px;
+            margin: -15px;
+        }
     </style>
 </head>
 <body>
@@ -122,7 +132,7 @@
                 setChatMessages([
                     ...newChatMessages,
                     {
-                        message: 'Loading...',
+                        message: <img src="./images/loading-spinner.gif" className="spinner" />,
                         sender: 'robot',
                         id: crypto.randomUUID()
                     }
@@ -220,7 +230,7 @@
         }
 
         function ChatMessages({ chatMessages }) {
-            // AIKI DA USE STATE SBD .push BAYA UPDATING PAGE NAMU!
+            // Muna aiki DA USE STATE SBD .push BAYA UPDATING PAGE NAMU!
             /* Dalilin comment na wnn sbd zan maida shi cikin app component
             domin nayi aiki da wni feature lift useState Up. Ma'ana kowa ya samu access da wnn USeState dn.
             const [chatMessages, setChatMessages] = React.useState([{ 
@@ -322,14 +332,15 @@
         // A madadin muyi amfani da const=app()... 
         // Za muyi amfani da component.
         function App() {
-            const [chatMessages, setChatMessages] = React.useState([{ 
-                message: "🌚 I Created This B0t",
-                sender: "user",
-                id: crypto.randomUUID()
-            }]);
+            const [chatMessages, setChatMessages] = React.useState([]);
 
             return (
                 <div className="app-container">
+                    {chatMessages.length === 0 && (
+                        <p className="welcome-sms">
+                            Welcome to Zacks Bot Ask a Anything regarding Ur DATA/AIRTIME PURChase.
+                        </p>
+                    )}
                     <ChatMessages chatMessages={chatMessages} />
                     <ChatInput 
                         chatMessages={chatMessages} 
