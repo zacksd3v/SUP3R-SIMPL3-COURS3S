@@ -101,3 +101,9 @@
     [+] UseRef is container | yana bamu dama muyi creating container | saving HTML from the component namu. Tanan ne zamu iya accessing abinda ke cikin return namu na HTML.
     [+] Ta Cikin tag din HTML zamu sanya prop na useRef. ta haka zasu gane juna.
     [+] useRef yana farawa da initial value i.e (null)
+
+## PACKAGE-LOCK.JSON
+[+] Amfanin wnn file din a ciki REACT shine yayi saving duk wani version na duka libs din da mukai amfani da shi cikin project namu, sbd duk lokacin da zamu sake lunching same project a wani system baza'a samu error ba, zai installing exact-same version.
+
+## <STRICTMODE></STRICTMODE> COMPONENT
+[+] wann amfanin shine ya bamu additional warning & checks lokacin developing na APP namu.
