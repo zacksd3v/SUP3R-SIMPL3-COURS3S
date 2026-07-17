@@ -107,3 +107,10 @@
 
 ## <STRICTMODE></STRICTMODE> COMPONENT
 [+] wann amfanin shine ya bamu additional warning & checks lokacin developing na APP namu.
+
+## IMAGE IN REACT
+[+] idan zamu saka PIC a react:
+    - Zamu bashi Suna(Default export) bayan muyi import nashi.
+    - Sunan ya Fara da CapitalLettr | LowerCase dosn't MTtER!
+    - Snn bazamuyi amfani da {} ba!
+    - E.g: import SunanDaMukeSo from './assests/hoto.png'
